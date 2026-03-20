@@ -10,7 +10,7 @@
 1. **CONICET - Universidad de Buenos Aires** Instituto de Investigaciones Gino Germani (IIGG-UBA)  
    Email: [jcarrascosa@sociales.uba.ar](mailto:jcarrascosa@sociales.uba.ar)
 
-2. **Licenciatura en Ciencia de Datos, FCEyN** Universidad de Buenos Aires
+2. **Licenciatura en Ciencia de Datos, FCEyN** Universidad de Buenos Aires Email: [ahuanca@dc.uba.ar](mailto:ahuanca@dc.uba.ar)
 
 3. **CONICET - Universidad de Buenos Aires** Instituto Interdisciplinario de Economía Política de Buenos Aires (IIEP)
 

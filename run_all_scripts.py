@@ -36,6 +36,7 @@ if __name__ == "__main__":
 	run_step("Running bipartite graph construction", run_02_bipartite, enes_df=enes_df, nodelist_caes_df=nodelist_caes_df, nodelist_ciuo_df=nodelist_ciuo_df)
 	
 	run_step("Analyzing CIUO projection with custom weights", run_06_ciuo_projection_custom, enes_df=enes_df, nodelist_ciuo_df=nodelist_ciuo_df)
+	nodelist_ciuo_df = pd.read_csv(CIUO_NODELIST_PATH, index_col=CIUO_ID)
 	run_step("Analyzing CIUO gender correlation", run_14_ciuo_edge_correlation, enes_df=enes_df, nodelist_ciuo_df=nodelist_ciuo_df)
 
 	total_elapsed_time = time.time() - total_start_time

@@ -24,23 +24,6 @@ def get_class_index(col_name: str) -> int:
 	return int("caes" in col_name.lower())
 
 
-def get_column_name(col_index: int) -> str:
-	"""Get the column name based on the bipartite class index."""
-	if col_index == 0:
-		return config.CAES_ID
-	elif col_index == 1:
-		return config.CIUO_ID
-	else:
-		raise ValueError(f"Invalid column index {col_index}. Must be 0 (CAES) or 1 (CIUO).")
-
-
-def original_caes_id(id: int) -> int:
-	"""
-	Recover original CAES ID from disambiguated ID.
-	"""
-	return id
-
-
 def original_ciuo_id(id: int) -> int:
 	"""
 	Recover original CIUO ID from disambiguated ID.

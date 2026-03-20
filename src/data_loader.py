@@ -3,10 +3,8 @@ Data loading and cleaning utilities for the ENES occupational network analysis.
 """
 
 from pathlib import Path
-from typing import Dict, Tuple
-from config import MAX_CAES_ID
+from typing import Dict
 import src.utils as ut
-import numpy as np
 import pandas as pd
 from src.plotting import (
 	color_map_caes,
@@ -131,24 +129,6 @@ def load_dataset(enes_path: Path, caes_path: Path, ciuo_path: Path, caes_id: str
 
 	return {"enes": enes, "caes_nodes": caes_df, "ciuo_nodes": ciuo_df}
 
-
-def build_biadjacency(enes_df: pd.DataFrame, caes_col: str, ciuo_col: str, logscale = False, rownames=None, colnames=None) -> pd.DataFrame:
-	"""Return the CAES-by-CIUO biadjacency matrix (counts)."""
-	matrix = pd.crosstab(enes_df[caes_col], enes_df[ciuo_col])
-	
-	# Reindex to include all specified row/column names if provided
-	if rownames is not None:
-		matrix = matrix.reindex(index=rownames, fill_value=0)
-	if colnames is not None:
-		matrix = matrix.reindex(columns=colnames, fill_value=0)
-	
-	matrix = np.log1p(matrix) if logscale else matrix
-
-	if type(matrix) is not pd.DataFrame:
-		raise ValueError("Biadjacency matrix construction failed; result is not a DataFrame.")
-	return matrix
-
-
 def export_processed(enes_df: pd.DataFrame, processed_path: Path, name: str) -> Path:
 	"""
 	Persist the merged dataset to CSV for reuse by scripts.
@@ -166,14 +146,3 @@ def insert_positions(nodelist_df: pd.DataFrame, positions: dict[str, list[float]
 
 	result = nodelist_df.drop(columns=["x", "y"], errors="ignore")
 	return result.join(pos_df[["x", "y"]], how="left")
-
-def load_positions(nodelist_df: pd.DataFrame) -> dict[str, Tuple[float, float]]:
-	"""Extract positions from a node list dataframe."""
-	if "x" not in nodelist_df.columns or "y" not in nodelist_df.columns:
-		return {}
-
-	valid_positions = nodelist_df[["x", "y"]].dropna(subset=["x", "y"])
-	return {
-		idx: (float(row["x"]), float(row["y"]))
-		for idx, row in valid_positions.iterrows()
-	}
