@@ -115,7 +115,7 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 	print("Building CIUO projection...")
 	ciuo_projection = gc.generic_weighted_projected_graph(
 		bipartite_graph, 
-		class_name="ciuo",
+		target_partition=0,
 		weight_function=gc.weighted_hidalgo_proximity_weight
 	)
 	

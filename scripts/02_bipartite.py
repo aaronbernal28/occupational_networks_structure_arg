@@ -3,6 +3,9 @@ import pandas as pd
 
 
 def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
+	CAES_PARTITION = 1
+	CIUO_PARTITION = 0
+
 	if enes_df is None:
 		enes_df = pd.read_csv(ENES_PATH)
 	if nodelist_caes_df is None:
@@ -15,17 +18,19 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 		CAES_ID,
 		CIUO_ID,
 		logscale=LOGSCALE,
+		caes_partition=CAES_PARTITION,
+		ciuo_partition=CIUO_PARTITION,
 	)
 
 	caes_nodes = [
 		node
 		for node in bipartite_graph.nodes
-		if bipartite_graph.nodes[node].get("bipartite") == utils.get_class_index("caes")
+		if bipartite_graph.nodes[node].get("bipartite") == CAES_PARTITION
 	]
 	ciuo_nodes = [
 		node
 		for node in bipartite_graph.nodes
-		if bipartite_graph.nodes[node].get("bipartite") == utils.get_class_index("ciuo")
+		if bipartite_graph.nodes[node].get("bipartite") == CIUO_PARTITION
 	]
 
 	metric_results = metrics.summarize_graph(bipartite_graph)
@@ -39,28 +44,6 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 	print(f"Detected communities: {num_bipartite_communities}")
 	print(f"CAES nodes: {len(caes_nodes)}")
 	print(f"CIUO nodes: {len(ciuo_nodes)}")
-	
-	caes_color = pl.mean_color(nodelist_caes_df["caeslabel_color"].apply(utils.parse_color).tolist())
-	ciuo_color = pl.mean_color(nodelist_ciuo_df["ciuolabel_color"].apply(utils.parse_color).tolist())
-
-	color_map = {
-		node: (
-			caes_color
-			if bipartite_graph.nodes[node].get("bipartite") == utils.get_class_index("caes")
-			else ciuo_color
-		)
-		for node in bipartite_graph.nodes
-	}
-
-	colors_hist = {
-		"all": pl.mean_color([caes_color, ciuo_color]),
-		"caes": caes_color,
-		"ciuo": ciuo_color,
-	}
-	degrees = gc.degree_sequences(bipartite_graph)
-	degrees_output = IMAGE_DIR / "02_bipartite_degree_distribution.png"
-	pl.plot_degree_histograms(degrees, output_path=degrees_output, colors=colors_hist, save=True)
-	print(f"Saved degree distribution to {degrees_output}")
 
 	caes_group_col = CAES_AG_OLD
 	ciuo_group_col = CIUO_3CAT
@@ -73,8 +56,8 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 	ciuo_group_map = nodelist_ciuo_df[ciuo_group_col].to_dict()
 
 	# Use color columns from CSV files
-	caes_color_col = "caesag_color"
-	ciuo_color_col = "ciuo3cat_color"
+	caes_color_col = CAES_AG_COLOR
+	ciuo_color_col = CIUO_3CAT_COLOR
 	if caes_color_col not in nodelist_caes_df.columns:
 		raise KeyError(f"Missing '{caes_color_col}' column in CAES node list.")
 	if ciuo_color_col not in nodelist_ciuo_df.columns:
@@ -91,7 +74,7 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 
 	color_map_global = {}
 	for node in bipartite_graph.nodes:
-		if bipartite_graph.nodes[node].get("bipartite") == utils.get_class_index("caes"):
+		if bipartite_graph.nodes[node].get("bipartite") == CAES_PARTITION:
 			group = caes_group_map.get(node, "Unknown")
 			color_map_global[node] = caes_palette.get(group, "gray")
 		else:

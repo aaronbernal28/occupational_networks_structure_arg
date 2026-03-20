@@ -33,6 +33,13 @@ CAES_AG_OLD = "caesag_old"
 CAES_LABEL = "caeslabel"
 CIUO_LABEL = "ciuolabel"
 
+CAES_LABEL_COLOR = "caeslabel_color"
+CIUO_LABEL_COLOR = "ciuolabel_color"
+CAES_LETRA_COLOR = "caesletra_color"
+CIUO_LETRA_COLOR = "ciuo1diglabel_color"
+CAES_AG_COLOR = "caesag_color"
+CIUO_3CAT_COLOR = "ciuo3cat_color"
+
 TOTAL_INCOME = "ITI" # Monto de ingreso total individual 
 
 MAX_CAES_ID = 10000  # Threshold to disambiguate CAES and CIUO IDs

@@ -17,7 +17,7 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 	)
 	ciuo_projection = gc.generic_weighted_projected_graph(
 		bipartite_graph, 
-		class_name="ciuo",
+		target_partition=0,
 		weight_function=gc.weighted_hidalgo_proximity_weight
 	)
 	density = nx.density(ciuo_projection)
@@ -35,7 +35,7 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 	group_map = nodelist_ciuo_df[group_col].to_dict()
 	
 	# Use color column from CSV file
-	color_col = "ciuo3cat_color"
+	color_col = CIUO_3CAT_COLOR
 	if color_col not in nodelist_ciuo_df.columns:
 		raise KeyError(f"Missing '{color_col}' column in CIUO node list.")
 	
@@ -94,7 +94,7 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 	group_map = nodelist_ciuo_df[group_col].to_dict()
 
 	# Use color column from CSV file
-	color_col = "ciuo1diglabel_color"
+	color_col = CIUO_LETRA_COLOR
 	if color_col not in nodelist_ciuo_df.columns:
 		raise KeyError(f"Missing '{color_col}' column in CIUO node list.")
 	

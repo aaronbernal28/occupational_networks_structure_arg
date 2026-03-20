@@ -1,4 +1,3 @@
-import config
 import ast
 from functools import lru_cache
 
@@ -24,19 +23,19 @@ def get_class_index(col_name: str) -> int:
 	return int("caes" in col_name.lower())
 
 
-def original_ciuo_id(id: int) -> int:
+def original_ciuo_id(id: int, max_caes_id: int) -> int:
 	"""
 	Recover original CIUO ID from disambiguated ID.
 	"""
-	return id - config.MAX_CAES_ID
+	return id - max_caes_id
 
 
 def desambiated_caes_id(id: int) -> int:
 	return id
 
 
-def desambiated_ciuo_id(id: int) -> int:
+def desambiated_ciuo_id(id: int, max_caes_id: int) -> int:
 	"""
 	Recover original CIUO ID from disambiguated ID.
 	"""
-	return id + config.MAX_CAES_ID
+	return id + max_caes_id

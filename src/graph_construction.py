@@ -2,13 +2,19 @@
 Graph construction helpers for bipartite and projected networks.
 """
 from typing import Dict
-import src.utils as ut
 import networkx as nx
 import pandas as pd
 import numpy as np
 
 
-def build_bipartite_graph(enes_df: pd.DataFrame, caes_id: str, ciuo_id: str, logscale=True) -> nx.Graph:
+def build_bipartite_graph(
+	enes_df: pd.DataFrame,
+	caes_id: str,
+	ciuo_id: str,
+	logscale: bool = True,
+	caes_partition: int = 1,
+	ciuo_partition: int = 0,
+) -> nx.Graph:
 	"""
 	Build the bipartite graph from the merged ENES dataframe.
 	"""
@@ -20,8 +26,8 @@ def build_bipartite_graph(enes_df: pd.DataFrame, caes_id: str, ciuo_id: str, log
 
 	# Build bipartite graph
 	graph = nx.Graph()
-	graph.add_nodes_from(caes_nodes, bipartite=ut.get_class_index(caes_id))
-	graph.add_nodes_from(ciuo_nodes, bipartite=ut.get_class_index(ciuo_id))
+	graph.add_nodes_from(caes_nodes, bipartite=caes_partition)
+	graph.add_nodes_from(ciuo_nodes, bipartite=ciuo_partition)
 
 	edges = (
 		enes_df.groupby([caes_id, ciuo_id])
@@ -37,10 +43,9 @@ def build_bipartite_graph(enes_df: pd.DataFrame, caes_id: str, ciuo_id: str, log
 	return graph
 
 
-def generic_weighted_projected_graph(graph: nx.Graph, class_name: str, weight_function = None) -> nx.Graph:
-	"""Weighted projection onto the provided node set using a custom weight function."""
-	assert class_name.lower() in ["caes", "ciuo"], "class_name must be 'caes' or 'ciuo'."
-	nodes = [node for node in graph.nodes if graph.nodes[node].get("bipartite") == ut.get_class_index(class_name)]
+def generic_weighted_projected_graph(graph: nx.Graph, target_partition: int, weight_function = None) -> nx.Graph:
+	"""Weighted projection onto a bipartite partition using a custom weight function."""
+	nodes = [node for node in graph.nodes if graph.nodes[node].get("bipartite") == target_partition]
 	return nx.bipartite.generic_weighted_projected_graph(graph, nodes, weight_function)
 
 
@@ -91,11 +96,11 @@ def weighted_hidalgo_proximity_weight(G: nx.Graph, u: int, v: int, weight: str =
 	return min(prob_u_given_v, prob_v_given_u)
 
 
-def degree_sequences(graph: nx.Graph) -> Dict[str, list]:
+def degree_sequences(graph: nx.Graph, caes_partition: int = 1, ciuo_partition: int = 0) -> Dict[str, list]:
 	"""Return degree lists for all nodes and each partition."""
 	degrees_all = list(dict(graph.degree()).values())
-	degrees_caes = [graph.degree(node) for node in graph.nodes if graph.nodes[node].get("bipartite") == ut.get_class_index("caes")]
-	degrees_ciuo = [graph.degree(node) for node in graph.nodes if graph.nodes[node].get("bipartite") == ut.get_class_index("ciuo")]
+	degrees_caes = [graph.degree(node) for node in graph.nodes if graph.nodes[node].get("bipartite") == caes_partition]
+	degrees_ciuo = [graph.degree(node) for node in graph.nodes if graph.nodes[node].get("bipartite") == ciuo_partition]
 	return {
 		"all": degrees_all,
 		"caes": degrees_caes,

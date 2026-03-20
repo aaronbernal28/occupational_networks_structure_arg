@@ -925,11 +925,11 @@ def color_map_caes(caes_nodes: Iterable[str]) -> Dict[int, str]:
 	return {node: cmap(x[node]) for node in caes_nodes}
 
 
-def color_map_ciuo(ciuo_nodes: Iterable[str]) -> Dict[int, str]:
+def color_map_ciuo(ciuo_nodes: Iterable[str], max_caes_id: int) -> Dict[int, str]:
 	"""Create a color map for CIUO nodes based on their group."""
 	cmap = mpl.colormaps["inferno"]
 	# Mapping from input node (desambiated) to original ID
-	node_to_original = {node: ut.original_ciuo_id(int(node)) for node in ciuo_nodes}
+	node_to_original = {node: ut.original_ciuo_id(int(node), max_caes_id=max_caes_id) for node in ciuo_nodes}
 	original_ids = list(node_to_original.values())
 	
 	if not original_ids:
@@ -945,117 +945,53 @@ def mean_color(colors):
 	return tuple(colors_array.mean(axis=0))
 
 
-def color_letra_map_caes(caes_df: pd.DataFrame = None) -> Dict[str, str]:
+def color_letra_map_caes(caes_df: pd.DataFrame, letra_col: str, base_color_col: str) -> Dict[str, str]:
 	"""Create a color map for CAES letra based on their group."""
-	return caes_df.groupby("caesletra")["caeslabel_color"].apply(mean_color).to_dict()
+	return caes_df.groupby(letra_col)[base_color_col].apply(mean_color).to_dict()
 
 
-def color_1digit_map_ciuo(ciuo_df: pd.DataFrame = None) -> Dict[str, str]:
+def color_1digit_map_ciuo(ciuo_df: pd.DataFrame, letra_col: str, base_color_col: str) -> Dict[str, str]:
 	"""Create a color map for CIUO letra based on their group."""
-	return ciuo_df.groupby("ciuo1diglabel")["ciuolabel_color"].apply(mean_color).to_dict()
+	return ciuo_df.groupby(letra_col)[base_color_col].apply(mean_color).to_dict()
 
 
-def color_agrupation_map_caes(caes_df: pd.DataFrame = None) -> Dict[str, str]:
+def color_agrupation_map_caes(caes_df: pd.DataFrame, ag_col: str, base_color_col: str) -> Dict[str, str]:
 	"""Create a color map for CAES agrupation based on their group."""
-	return caes_df.groupby("caesag")["caesletra_color"].apply(mean_color).to_dict()
+	return caes_df.groupby(ag_col)[base_color_col].apply(mean_color).to_dict()
 
 
-def color_ciuo3cat_map_ciuo(ciuo_df: pd.DataFrame = None) -> Dict[str, str]:
+def color_ciuo3cat_map_ciuo(ciuo_df: pd.DataFrame, cat_col: str, base_color_col: str) -> Dict[str, str]:
 	"""Create a color map for CIUO 3-category based on their group."""
-	return ciuo_df.groupby("ciuo3cat")["ciuo1diglabel_color"].apply(mean_color).to_dict()
+	return ciuo_df.groupby(cat_col)[base_color_col].apply(mean_color).to_dict()
 
 
-def plot_exploratory_analysis(caes_nodes: pd.DataFrame, ciuo_nodes: pd.DataFrame, output_dir: Path) -> None:
-	"""Generate exploratory data analysis plots for node characteristics."""
-	output_dir.mkdir(parents=True, exist_ok=True)
+def plot_top_n_bar(
+		df: pd.DataFrame,
+		label_col: str,
+		val_col: str, 
+		title: str,
+		xlabel: str,
+		top_n: int = 15,
+		output_path: Path = None,
+		save: bool = True,
+	) -> None:
+	if val_col not in df.columns or label_col not in df.columns:
+		return
+	top_n = df.nlargest(top_n, val_col)
+	plt.figure(figsize=(12, 8))
+	ax = sns.barplot(data=top_n, x=val_col, y=label_col, hue=label_col, palette="mako", legend=False)
+	plt.title(title)
+	plt.xlabel(xlabel)
+	plt.ylabel("")
 	
-	def plot_scatter(x_col, y_col, xlabel, ylabel, filename, hue_col=None, hue_label=None):
-		fig, axes = plt.subplots(1, 2, figsize=(16, 6))
-		
-		# CAES
-		if x_col in caes_nodes.columns and y_col in caes_nodes.columns:
-			kwargs = {"data": caes_nodes, "x": x_col, "y": y_col, "ax": axes[0], "alpha": 0.7}
-			if "n_obs" in caes_nodes.columns:
-				# Convert Int64 to float
-				caes_nodes["n_obs"] = caes_nodes["n_obs"].astype(float)
-				kwargs["size"] = "n_obs"
-				kwargs["sizes"] = (20, 500)
-			if hue_col and hue_col in caes_nodes.columns:
-				kwargs["hue"] = hue_col
-				kwargs["palette"] = "viridis"
-			
-			sns.scatterplot(**kwargs)
-			axes[0].set_title("Economic Branches (CAES)")
-			axes[0].set_xlabel(xlabel)
-			axes[0].set_ylabel(ylabel)
-			if hue_col and hue_col in caes_nodes.columns and axes[0].get_legend():
-				axes[0].legend(title=hue_label, bbox_to_anchor=(1.05, 1), loc='upper left')
-			elif "n_obs" in caes_nodes.columns and axes[0].get_legend():
-				axes[0].legend(title="Total Workers", bbox_to_anchor=(1.05, 1), loc='upper left')
-		
-		# CIUO
-		if x_col in ciuo_nodes.columns and y_col in ciuo_nodes.columns:
-			kwargs = {"data": ciuo_nodes, "x": x_col, "y": y_col, "ax": axes[1], "alpha": 0.7}
-			if "n_obs" in ciuo_nodes.columns:
-				# Convert Int64 to float
-				ciuo_nodes["n_obs"] = ciuo_nodes["n_obs"].astype(float)
-				kwargs["size"] = "n_obs"
-				kwargs["sizes"] = (20, 500)
-			if hue_col and hue_col in ciuo_nodes.columns:
-				kwargs["hue"] = hue_col
-				kwargs["palette"] = "viridis"
-				
-			sns.scatterplot(**kwargs)
-			axes[1].set_title("Occupations (CIUO)")
-			axes[1].set_xlabel(xlabel)
-			axes[1].set_ylabel(ylabel)
-			if hue_col and hue_col in ciuo_nodes.columns and axes[1].get_legend():
-				axes[1].legend(title=hue_label, bbox_to_anchor=(1.05, 1), loc='upper left')
-			elif "n_obs" in ciuo_nodes.columns and axes[1].get_legend():
-				axes[1].legend(title="Total Workers", bbox_to_anchor=(1.05, 1), loc='upper left')
-			
-		plt.tight_layout()
-		plt.savefig(output_dir / filename, bbox_inches="tight")
+	ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: "{:,}".format(int(x))))
+	
+	plt.tight_layout()
+	if save:
+		plt.savefig(output_path, dpi=300, bbox_inches='tight')
 		plt.close()
-
-	# 1. Income vs Education (colored by Female Pct)
-	plot_scatter("higher_education_pct", "income_median", "% Higher Education", "Median Income", "00_income_vs_education.png", hue_col="female_pct", hue_label="% Female")
-	
-	# 2. Income vs Gender (colored by Higher Education Pct)
-	plot_scatter("female_pct", "income_median", "% Female Workers", "Median Income", "00_income_vs_gender.png", hue_col="higher_education_pct", hue_label="% Higher Ed")
-	
-	# 3. Age vs Income (colored by Salaried Pct)
-	plot_scatter("age_median", "income_median", "Median Age", "Median Income", "00_age_vs_income.png", hue_col="salaried_pct", hue_label="% Salaried")
-
-	# 4. Income Inequality (Q3 - Q1) vs Median Income (colored by Higher Education Pct)
-	for df in [caes_nodes, ciuo_nodes]:
-		if "income_q3" in df.columns and "income_q1" in df.columns:
-			df["income_iqr"] = df["income_q3"] - df["income_q1"]
-	
-	plot_scatter("income_median", "income_iqr", "Median Income", "Income IQR (Q3 - Q1)", "00_income_inequality.png", hue_col="higher_education_pct", hue_label="% Higher Ed")
-
-	# 5. Top 10 by workers
-	def plot_top_n_bar(df, label_col, val_col, title, xlabel, filename, n=15):
-		if val_col not in df.columns or label_col not in df.columns:
-			return
-		top_n = df.nlargest(n, val_col)
-		plt.figure(figsize=(12, 8))
-		ax = sns.barplot(data=top_n, x=val_col, y=label_col, hue=label_col, palette="mako", legend=False)
-		plt.title(title)
-		plt.xlabel(xlabel)
-		plt.ylabel("")
-		
-		ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: "{:,}".format(int(x))))
-		
-		plt.tight_layout()
-		plt.savefig(output_dir / filename, bbox_inches="tight")
-		plt.close()
-		
-	if "caeslabel" in caes_nodes.columns:
-		plot_top_n_bar(caes_nodes, "caeslabel", "n_obs", "Top 15 Economic Branches by Total Workers", "Total Workers", "00_top_caes_workers.png")
-
-	if "ciuolabel" in ciuo_nodes.columns:
-		plot_top_n_bar(ciuo_nodes, "ciuolabel", "n_obs", "Top 15 Occupations by Total Workers", "Total Workers", "00_top_ciuo_workers.png")
+	else:
+		plt.show()
 
 
 def plot_alpha_sensitivity(
