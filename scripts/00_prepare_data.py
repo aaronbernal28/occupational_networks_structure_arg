@@ -57,6 +57,9 @@ def main():
 	output3 = dl.export_processed(datasets["ciuo_nodes"], DATA_PROCESSED_PATH, "nodelist_ciuo")
 	print(f"Saved merged dataset to {output1}, {output2}, and {output3}")
 
+	color_map_caes = datasets["caes_nodes"][CAES_LABEL_COLOR].to_dict()
+	color_map_ciuo = datasets["ciuo_nodes"][CIUO_LABEL_COLOR].to_dict()
+
 	# Generate exploratory data analysis plots
 	print(f"Generating exploratory plots in {IMAGE_DIR}...")
 	if "caeslabel" in datasets["caes_nodes"].columns:
@@ -64,6 +67,7 @@ def main():
 			df=datasets["caes_nodes"],
 			label_col="caeslabel",
 			val_col="n_obs",
+			color_col=CAES_LABEL_COLOR,
 			title=None,
 			xlabel="Total Workers",
 			output_path=IMAGE_DIR / "00_top_caes_workers.png",
@@ -76,6 +80,7 @@ def main():
 			df=datasets["ciuo_nodes"],
 			label_col="ciuolabel",
 			val_col="n_obs",
+			color_col=CIUO_LABEL_COLOR,
 			title=None,
 			xlabel="Total Workers",
 			output_path=IMAGE_DIR / "00_top_ciuo_workers.png",

@@ -44,7 +44,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		color_map=color_map,
 		title=None, 
 		output_path=IMAGE_DIR / "14_ciuo_edge_correlation.png", 
-		save=True
+		save=True,
+		perfect_line=False
 	)
 
 if __name__ == "__main__":

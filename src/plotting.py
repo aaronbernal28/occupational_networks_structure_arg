@@ -637,7 +637,7 @@ def plot_projection_by_group(
 	for group, color in group_color_map.items():
 		plt.scatter([], [], color=color, label=label_fn(group))
 
-	plt.legend(title=legend_title, fontsize=9, loc='best')
+	plt.legend(title=legend_title, fontsize=9, loc='best', borderaxespad=8.0)
 	plt.title(title)
 	plt.axis("off")
 	if save:
@@ -725,7 +725,7 @@ def plot_projection_gradient(
 
 	sm = plt.cm.ScalarMappable(cmap=colormap, norm=norm)
 	sm.set_array([])
-	cbar = fig.colorbar(sm, ax=ax, shrink=0.4, pad=0.01)
+	cbar = fig.colorbar(sm, ax=ax, shrink=0.4, pad=-0.15)
 	cbar.set_label(colorbar_label)
 
 	ax.set_title(title)
@@ -968,7 +968,8 @@ def color_ciuo3cat_map_ciuo(ciuo_df: pd.DataFrame, cat_col: str, base_color_col:
 def plot_top_n_bar(
 		df: pd.DataFrame,
 		label_col: str,
-		val_col: str, 
+		val_col: str,
+		color_col: str,
 		title: str,
 		xlabel: str,
 		top_n: int = 15,
@@ -977,15 +978,38 @@ def plot_top_n_bar(
 	) -> None:
 	if val_col not in df.columns or label_col not in df.columns:
 		return
-	top_n = df.nlargest(top_n, val_col)
+	top_df = df.nlargest(top_n, val_col)
+
+	palette_by_label = {}
+	for _, row in top_df.iterrows():
+		label = row[label_col]
+		if color_col in top_df.columns:
+			palette_by_label[label] = ut.parse_color(row[color_col])
+		else:
+			palette_by_label[label] = "gray"
+
 	plt.figure(figsize=(12, 8))
-	ax = sns.barplot(data=top_n, x=val_col, y=label_col, hue=label_col, palette="mako", legend=False)
+	ax = sns.barplot(
+		data=top_df,
+		x=val_col,
+		y=label_col,
+		hue=label_col,
+		dodge=False,
+		palette=palette_by_label,
+		legend=False,
+	)
 	plt.title(title)
 	plt.xlabel(xlabel)
 	plt.ylabel("")
 	
 	ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: "{:,}".format(int(x))))
-	
+
+	# Remove axis borders
+	ax.spines['top'].set_visible(False)
+	ax.spines['right'].set_visible(False)
+	ax.spines['left'].set_visible(False)
+	ax.spines['bottom'].set_visible(False)
+
 	plt.tight_layout()
 	if save:
 		plt.savefig(output_path, dpi=300, bbox_inches='tight')
@@ -1068,7 +1092,7 @@ def plot_alpha_sensitivity(
 
 
 from scipy import stats
-def compute_and_plot_edge_correlation(G: nx.Graph, feature_map: dict, color_map: dict, title: str, output_path: Path, save: bool = True):
+def compute_and_plot_edge_correlation(G: nx.Graph, feature_map: dict, color_map: dict, title: str, output_path: Path, save: bool = True, perfect_line: bool = True) -> None:
 	# Only keep nodes that have the feature
 	valid_nodes = set(feature_map.keys())
 	
@@ -1108,13 +1132,14 @@ def compute_and_plot_edge_correlation(G: nx.Graph, feature_map: dict, color_map:
 	plt.figure(figsize=(9, 8))
 	
 	# Scatter plot of node feature vs average neighbor feature, colored by community
-	sns.scatterplot(x=x_vals, y=y_vals, alpha=0.7, edgecolor="black", c=[color_map.get(u, "gray") for u in plotted_nodes])
-	plt.plot([0, 100], [0, 100], "k--", label="y=x (Perfect Assortativity)", alpha=0.5)
+	sns.scatterplot(x=x_vals, y=y_vals, alpha=0.8, c=[color_map.get(u, "gray") for u in plotted_nodes])
+	if perfect_line:
+		plt.plot([0, 100], [0, 100], "k--", label="y=x (Perfect Assortativity)", alpha=0.5)
 	
 	# Add a legend for the communities
 	unique_colors = sorted(set(color_map.get(u, "gray") for u in plotted_nodes) - {"gray"})
 	for color in unique_colors:
-		plt.scatter([], [], c=color, label=f"Community {color}", edgecolor="black")
+		plt.scatter([], [], c=color, label=color)
 	
 	# Add regression line on top to show trend
 	sns.regplot(x=x_vals, y=y_vals, scatter=False, color="red", line_kws={"linestyle": "--", "alpha": 0.5}, label="Trend")
@@ -1134,8 +1159,8 @@ def compute_and_plot_edge_correlation(G: nx.Graph, feature_map: dict, color_map:
 	plt.title(f"{title}\nAssortativity (Pearson r): {pearson_r:.4f} (p={p_value:.4e})" if title else None)
 	plt.xlabel(f"% Women per node (Node i)")
 	plt.ylabel(f"% Women per weighted average of neighbors (Node i)")
-	#plt.xlim(0, 100)
-	#plt.ylim(0, 100)
+	plt.xlim(-3, 103)
+	plt.ylim(-3, 103)
 	sns.despine()
 	plt.legend()
 
