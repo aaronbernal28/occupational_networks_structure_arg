@@ -230,10 +230,11 @@ def draw_bipartite_by_color(
 		output_path: Path = None, 
 		seed: int = 28, 
 		top_n: int = 6, 
-		shift_x: float = 0.7, 
+		shift_x: float = 0.5, 
 		title: str = "",
 		save: bool = True,
-		figsize: tuple = (12, 8)) -> Dict[str, tuple]:
+		figsize: tuple = (12, 8),
+		font_size: int = 9) -> Dict[str, tuple]:
 	"""Draw the bipartite network with custom layout and return the positions."""
 	np.random.seed(seed)
 
@@ -301,7 +302,7 @@ def draw_bipartite_by_color(
 			graph,
 			pos,
 			labels=label_map,
-			font_size=8,
+			font_size=max(font_size - 1, 6),
 			font_color="black",
 			font_weight="bold",
 			horizontalalignment="left",
@@ -331,10 +332,10 @@ def draw_bipartite_by_color(
 	if caes_groups:
 		leg_l = plt.legend(
 			handles=_make_handles(caes_groups),
-			title="Economic Branches\n(CAES)",
+			title="Economic Branches (CAES)",
 			loc="upper left",
 			bbox_to_anchor=(0.0, 1.0),
-			fontsize=8.5, title_fontsize=8.5,
+			fontsize=max(font_size - 1, 6), title_fontsize=font_size,
 			framealpha=0.85, edgecolor="lightgray",
 			handlelength=1.2, handleheight=1.0,
 			labelspacing=1.2,
@@ -343,17 +344,17 @@ def draw_bipartite_by_color(
 	if ciuo_groups:
 		plt.legend(
 			handles=_make_handles(ciuo_groups),
-			title="Occupations\n(CIUO)",
+			title="Occupations (CIUO)",
 			loc="upper right",
 			bbox_to_anchor=(1.0, 1.0),
-			fontsize=8.5, title_fontsize=8.5,
+			fontsize=max(font_size - 1, 6), title_fontsize=font_size,
 			framealpha=0.85, edgecolor="lightgray",
 			handlelength=1.2, handleheight=1.0,
 			labelspacing=1.2,
 		)
 
 	# Finalize plot
-	plt.title(title)
+	plt.title(title, fontsize=font_size + 1)
 	plt.axis("off")
 	plt.xlim(-1.4, 1.6)
 	if save:
@@ -556,6 +557,8 @@ def plot_projection_by_group(
 	title: str, 
 	legend_title: str, 
 	output_path: Path = None,
+	figsize: tuple = (10, 10),
+	font_size: int = 11,
 	seed: int = 42,
 	save: bool = True,
 	legend_label_fmt=None,
@@ -628,7 +631,7 @@ def plot_projection_by_group(
 		edge_widths = 0.3
 
 	# Plotting
-	plt.figure(figsize=(10, 10))
+	plt.figure(figsize=figsize)
 	nx.draw_networkx_nodes(graph, pos, node_color=node_colors, node_size=node_sizes, alpha=node_alpha)
 	nx.draw_networkx_edges(graph, pos, edge_color="lightgray", width=edge_widths, alpha=edge_alpha)
 
@@ -637,8 +640,8 @@ def plot_projection_by_group(
 	for group, color in group_color_map.items():
 		plt.scatter([], [], color=color, label=label_fn(group))
 
-	plt.legend(title=legend_title, fontsize=9, loc='best', borderaxespad=8.0)
-	plt.title(title)
+	plt.legend(title=legend_title, fontsize=max(font_size - 2, 6), title_fontsize=font_size, loc='best', borderaxespad=8.0)
+	plt.title(title, fontsize=font_size + 1)
 	plt.axis("off")
 	if save:
 		plt.savefig(output_path, bbox_inches="tight")
@@ -655,6 +658,8 @@ def plot_projection_gradient(
 	title: str,
 	colorbar_label: str = "Value",
 	cmap: str = "viridis",
+	figsize: tuple = (10, 10),
+	font_size: int = 11,
 	output_path: Path = None,
 	save: bool = True,
 	factor_node_size: float = 0.5,
@@ -719,16 +724,17 @@ def plot_projection_gradient(
 	else:
 		edge_widths = 0.3
 
-	fig, ax = plt.subplots(figsize=(10, 10))
+	fig, ax = plt.subplots(figsize=figsize)
 	nx.draw_networkx_nodes(subgraph, subpos, ax=ax, node_color=node_colors, node_size=node_sizes, alpha=node_alpha)
 	nx.draw_networkx_edges(subgraph, subpos, ax=ax, edge_color="lightgray", width=edge_widths, alpha=edge_alpha)
 
 	sm = plt.cm.ScalarMappable(cmap=colormap, norm=norm)
 	sm.set_array([])
 	cbar = fig.colorbar(sm, ax=ax, shrink=0.4, pad=-0.15)
-	cbar.set_label(colorbar_label)
+	cbar.set_label(colorbar_label, fontsize=font_size)
+	cbar.ax.tick_params(labelsize=max(font_size - 1, 6))
 
-	ax.set_title(title)
+	ax.set_title(title, fontsize=font_size + 1)
 	ax.axis("off")
 	if save:
 		plt.savefig(output_path, bbox_inches="tight")
@@ -744,6 +750,8 @@ def plot_stacked_by_group(
 	title: str, 
 	output_path: Path, 
 	group_color_map: Dict[str, tuple] = None, 
+	figsize: tuple = (16, 4),
+	font_size: int = 11,
 	save: bool = True,
 	percentage: bool = True) -> None:
 	"""Plot stacked bar chart showing distribution of groups within communities."""
@@ -761,14 +769,25 @@ def plot_stacked_by_group(
 	# Build color list matching the column order
 	if group_color_map:
 		colors = [group_color_map.get(col, 'gray') for col in ct.columns]
-		ax = ct.plot(kind='barh', stacked=True, figsize=(16, 4), width=0.8, color=colors)
+		ax = ct.plot(kind='barh', stacked=True, figsize=figsize, width=0.8, color=colors)
 	else:
-		ax = ct.plot(kind='barh', stacked=True, figsize=(16, 4), width=0.8)
+		ax = ct.plot(kind='barh', stacked=True, figsize=figsize, width=0.8)
 
-	ax.set_xlabel('Percentage (%)' if percentage else 'Count')
-	ax.set_title(title)
+	ax.set_xlabel('Percentage (%)' if percentage else 'Count', fontsize=font_size)
+	ax.set_title(title, fontsize=font_size + 1)
+	ax.tick_params(axis='both', labelsize=font_size - 1)
 	ax.set_xlim(0, 100 if percentage else None)
-	ax.legend(title=group_col, bbox_to_anchor=(1.05, 1), loc='upper left')
+	ax.legend(title=group_col, bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=font_size - 2, title_fontsize=font_size)
+	
+	# Format y-axis labels as C0, C1, ...
+	yticks = ax.get_yticks()
+	ax.set_yticklabels([f"C{int(y)}" for y in yticks])
+
+	# Remove axis borders
+	ax.spines['top'].set_visible(False)
+	ax.spines['right'].set_visible(False)
+	ax.spines['left'].set_visible(False)
+	ax.spines['bottom'].set_visible(False)
 
 	plt.tight_layout()
 	if save:
@@ -973,6 +992,8 @@ def plot_top_n_bar(
 		title: str,
 		xlabel: str,
 		top_n: int = 15,
+		figsize: tuple = (12, 8),
+		font_size: int = 11,
 		output_path: Path = None,
 		save: bool = True,
 	) -> None:
@@ -988,7 +1009,7 @@ def plot_top_n_bar(
 		else:
 			palette_by_label[label] = "gray"
 
-	plt.figure(figsize=(12, 8))
+	plt.figure(figsize=figsize)
 	ax = sns.barplot(
 		data=top_df,
 		x=val_col,
@@ -998,9 +1019,10 @@ def plot_top_n_bar(
 		palette=palette_by_label,
 		legend=False,
 	)
-	plt.title(title)
-	plt.xlabel(xlabel)
-	plt.ylabel("")
+	plt.title(title, fontsize=font_size + 1)
+	plt.xlabel(xlabel, fontsize=font_size)
+	plt.ylabel("", fontsize=font_size)
+	ax.tick_params(axis="both", labelsize=font_size - 1)
 	
 	ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: "{:,}".format(int(x))))
 
@@ -1092,7 +1114,17 @@ def plot_alpha_sensitivity(
 
 
 from scipy import stats
-def compute_and_plot_edge_correlation(G: nx.Graph, feature_map: dict, color_map: dict, title: str, output_path: Path, save: bool = True, perfect_line: bool = True) -> None:
+def compute_and_plot_edge_correlation(
+	G: nx.Graph,
+	feature_map: dict,
+	color_map: dict,
+	title: str,
+	output_path: Path,
+	save: bool = True,
+	perfect_line: bool = True,
+	figsize: tuple = (9, 8),
+	font_size: int = 11,
+) -> None:
 	# Only keep nodes that have the feature
 	valid_nodes = set(feature_map.keys())
 	
@@ -1129,7 +1161,7 @@ def compute_and_plot_edge_correlation(G: nx.Graph, feature_map: dict, color_map:
 		return
 
 	# Plot
-	plt.figure(figsize=(9, 8))
+	plt.figure(figsize=figsize)
 	
 	# Scatter plot of node feature vs average neighbor feature, colored by community
 	sns.scatterplot(x=x_vals, y=y_vals, alpha=0.8, c=[color_map.get(u, "gray") for u in plotted_nodes])
@@ -1156,13 +1188,15 @@ def compute_and_plot_edge_correlation(G: nx.Graph, feature_map: dict, color_map:
 	else:
 		print("Zero correlation: Gender is randomly distributed across the network structure.")
 
-	plt.title(f"{title}\nAssortativity (Pearson r): {pearson_r:.4f} (p={p_value:.4e})" if title else None)
-	plt.xlabel(f"% Women per node (Node i)")
-	plt.ylabel(f"% Women per weighted average of neighbors (Node i)")
+	plt.title(f"{title}\nAssortativity (Pearson r): {pearson_r:.4f} (p={p_value:.4e})" if title else None, fontsize=font_size + 1)
+	plt.xlabel(f"% Women per node (Node i)", fontsize=font_size)
+	plt.ylabel(f"% Women per weighted average of neighbors (Node i)", fontsize=font_size)
+	plt.xticks(fontsize=font_size - 1)
+	plt.yticks(fontsize=font_size - 1)
 	plt.xlim(-3, 103)
 	plt.ylim(-3, 103)
 	sns.despine()
-	plt.legend()
+	plt.legend(fontsize=font_size - 1)
 
 	# Generate Assortativity Scatter Plot (Node value vs Average Neighbor Value)
 	plt.tight_layout()

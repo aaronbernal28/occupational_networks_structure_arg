@@ -90,7 +90,8 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 		output_path=colored_output,
 		title=None,
 		save=True,
-		figsize=(10, 8)
+		figsize=BIPARTITE_FIGSIZE,
+		font_size=PLOT_FONT_SIZE,
 	)
 	print(f"Saved bipartite groups layout to {colored_output}")
 

@@ -50,6 +50,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		group_color_map=group_color_map,
 		title=None,
 		legend_title="Categories",
+		figsize=PROJECTION_FIGSIZE,
+		font_size=PLOT_FONT_SIZE,
 		output_path=output,
 		save=True,
 		method="energy",
@@ -74,6 +76,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		group_color_map=community_colors,
 		title=None,
 		legend_title="Communities",
+		figsize=PROJECTION_FIGSIZE,
+		font_size=PLOT_FONT_SIZE,
 		output_path=community_output,
 		save=True,
 		legend_label_fmt=lambda g: f"C{g}",
@@ -105,6 +109,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		title=None,
 		output_path=stacked_output,
 		group_color_map=group_color_map,
+		figsize=STACKED_FIGSIZE,
+		font_size=PLOT_FONT_SIZE,
 		save=True,
 		percentage=False
 	)
@@ -124,6 +130,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		title=None,
 		colorbar_label="% Women",
 		cmap="coolwarm",
+		figsize=PROJECTION_FIGSIZE,
+		font_size=PLOT_FONT_SIZE,
 		output_path=female_output,
 		save=True,
 	)
@@ -137,6 +145,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		title=None,
 		colorbar_label="Mean age (years)",
 		cmap="Dark2",
+		figsize=PROJECTION_FIGSIZE,
+		font_size=PLOT_FONT_SIZE,
 		output_path=age_output,
 		save=True,
 	)
@@ -151,6 +161,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 			title=None,
 			colorbar_label="% Public Sector",
 			cmap="PRGn",
+			figsize=PROJECTION_FIGSIZE,
+			font_size=PLOT_FONT_SIZE,
 			output_path=pub_sector_output,
 			save=True,
 		)

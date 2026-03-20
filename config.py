@@ -46,6 +46,13 @@ MAX_CAES_ID = 10000  # Threshold to disambiguate CAES and CIUO IDs
 
 IMAGE_DIR = Path(__file__).parent / Path("images")
 
+TOP_N_BAR_FIGSIZE = (8, 6)
+EDGE_CORRELATION_FIGSIZE = (6, 6)
+BIPARTITE_FIGSIZE = (12, 6)
+PROJECTION_FIGSIZE = (8, 8)
+STACKED_FIGSIZE = (12, 3)
+PLOT_FONT_SIZE = 11
+
 LOGSCALE = False
 
 COMMUNITY_COLORS_PALETTE = [f"C{i}" for i in range(10)] + ["black", "gold", "darkred", "navy", "darkcyan"]

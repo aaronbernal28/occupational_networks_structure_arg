@@ -45,7 +45,9 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		title=None, 
 		output_path=IMAGE_DIR / "14_ciuo_edge_correlation.png", 
 		save=True,
-		perfect_line=False
+		perfect_line=False,
+		figsize=EDGE_CORRELATION_FIGSIZE,
+		font_size=PLOT_FONT_SIZE,
 	)
 
 if __name__ == "__main__":
