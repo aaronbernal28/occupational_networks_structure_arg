@@ -88,7 +88,7 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 		label_map=label_map_groups,
 		top_n=None,
 		output_path=colored_output,
-		title="Bipartite network with CAES and CIUO groups",
+		title=None,
 		save=True,
 		figsize=(10, 8)
 	)
