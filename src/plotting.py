@@ -638,7 +638,7 @@ def plot_projection_by_group(
 	for group, color in group_color_map.items():
 		plt.scatter([], [], color=color, label=label_fn(group))
 
-	plt.legend(title=legend_title, fontsize=max(font_size - 2, 6), title_fontsize=font_size, loc='best', borderaxespad=8.0)
+	plt.legend(title=legend_title, fontsize=max(font_size - 2, 6), title_fontsize=font_size, loc='best', borderaxespad=4.0, framealpha=0.7)
 	plt.title(title, fontsize=font_size + 1)
 	plt.axis("off")
 	if save:

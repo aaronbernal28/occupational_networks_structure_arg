@@ -5,8 +5,8 @@ DATA_RAW_PATH = Path(__file__).parent / Path("data/raw")
 DATA_PROCESSED_PATH = Path(__file__).parent / Path("data/processed")
 
 DATA_ENES_PISAC = {
-    "source": DATA_RAW_PATH / "base_enespersonas.csv",
-    "url": None, #"https://datasets.datos.mincyt.gob.ar/dataset/b0c0ae96-4028-4d0e-919a-c6830110f6b6/resource/421a7e29-7d15-4b69-a2e8-d7242b58b770/download/base_enespersonas.csv",
+    "source": None, #DATA_RAW_PATH / "base_enespersonas.csv",
+    "url": "https://datasets.datos.mincyt.gob.ar/dataset/b0c0ae96-4028-4d0e-919a-c6830110f6b6/resource/421a7e29-7d15-4b69-a2e8-d7242b58b770/download/base_enespersonas.csv",
     "col_id": ["nocues", "nhog"],
     "col_caes_id": "v182caes",
     "col_ciuo_id": "v183ciuo",
@@ -59,7 +59,7 @@ TOP_N_BAR_FIGSIZE = (8, 6)
 EDGE_CORRELATION_FIGSIZE = (6, 6)
 BIPARTITE_FIGSIZE = (14, 6)
 PROJECTION_FIGSIZE = (8, 8)
-STACKED_FIGSIZE = (12, 4)
+STACKED_FIGSIZE = (12, 3.5)
 PLOT_FONT_SIZE = 14
 
 LOGSCALE = False
