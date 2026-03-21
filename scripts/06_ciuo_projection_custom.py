@@ -138,10 +138,9 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 	print(f"Saved CIUO community distribution to {stacked_output}")
 
 	# Gradient plots: % women and mean age
-	features = nc.compute_group_characteristics(enes_df, group_col=ciuo_id)
-	female_map = features["female_pct"].dropna().to_dict()
-	age_map = features["age_mean"].dropna().to_dict()
-	pub_sector_map = features["public_sector_pct"].dropna().to_dict() if "public_sector_pct" in features else {}
+	female_map = nodelist_ciuo_df["female_pct"].dropna().to_dict()
+	age_map = nodelist_ciuo_df["age_mean"].dropna().to_dict()
+	pub_sector_map = nodelist_ciuo_df["public_sector_pct"].dropna().to_dict() if "public_sector_pct" in nodelist_ciuo_df.columns else {}
 
 	female_output = cfg.IMAGE_DIR / "06_ciuo_female_pct.png"
 	pl.plot_projection_gradient(
@@ -194,6 +193,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 			node_size_exponent=0.9,
 		)
 		print(f"Saved CIUO public-sector-pct gradient to {pub_sector_output}")
+
+	return nodelist_ciuo_df
 
 
 if __name__ == "__main__":

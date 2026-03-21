@@ -60,10 +60,6 @@ def load_nodelist_caes(
 
 	color_map = color_agrupation_map_caes(caes_df, ag_col=caes_ag_col, base_color_col=caes_letra_color_col)
 	caes_df[caes_ag_color_col] = caes_df[caes_ag_col].map(color_map)
-
-
-	caes_df[caes_letra_col] = caes_df[caes_letra_col].apply(lambda x: x.split(".")[0])
-	caes_df[caes_ag_col] = caes_df[caes_ag_col].apply(lambda x: x.split(".")[0])
 	return caes_df
 
 
@@ -91,8 +87,6 @@ def load_nodelist_ciuo(
 
 	color_map = color_ciuo3cat_map_ciuo(ciuo_df, cat_col=ciuo_3cat_col, base_color_col=ciuo_letra_color_col)
 	ciuo_df[ciuo_3cat_color_col] = ciuo_df[ciuo_3cat_col].map(color_map)
-
-	ciuo_df[ciuo_letra_col] = ciuo_df[ciuo_letra_col].apply(lambda x: x.split(".")[0])
 	return ciuo_df
 
 
@@ -102,78 +96,120 @@ def merge_enes_with_metadata(enes_df: pd.DataFrame, caes_df: pd.DataFrame, ciuo_
 	merged = merged.merge(ciuo_df, left_on=ciuo_id, right_index=True, how="inner")
 	return merged
 
+def get_dataset(data_config: dict) -> pd.DataFrame:
+	"""Extract the dataset using the provided configuration."""
+	def _read_csv_auto(path_or_url):
+		# Infer delimiter to support both ';' and ',' ENES sources.
+		return pd.read_csv(path_or_url, sep=None, engine="python")
+
+	if data_config["source"] is not None:
+		return _read_csv_auto(data_config["source"])
+	elif data_config["url"] is not None:
+		return _read_csv_auto(data_config["url"])
+	else:
+		raise ValueError("Data configuration must include either 'source' or 'url'.")
 
 def load_dataset(
-	enes_path: Path,
-	caes_path: Path,
-	ciuo_path: Path,
-	caes_id: str,
-	ciuo_id: str,
-	max_caes_id: int,
-	caes_letra_col: str,
-	caes_ag_col: str,
-	ciuo_letra_col: str,
-	ciuo_3cat_col: str,
-	caes_label_color_col: str,
-	caes_letra_color_col: str,
-	caes_ag_color_col: str,
-	ciuo_label_color_col: str,
-	ciuo_letra_color_col: str,
-	ciuo_3cat_color_col: str,
+	enes_config: dict,
+	caes_config: dict,
+	ciuo_config: dict,
+	extra_enes_config: list[dict] = None,
 ) -> Dict[str, pd.DataFrame]:
 	"""
-	Load all required dataframes and return them as a dict.
+	Load ENES, CAES, and CIUO datasets from config dictionaries.
+	Merges with metadata and optionally appends extra datasets using column renaming.
 	"""
-	
-	if not enes_path.exists() or not caes_path.exists() or not ciuo_path.exists():
-		raise FileNotFoundError(f"CSV files not found at {enes_path}, {caes_path}, or {ciuo_path}. Place the required files under data/raw/ or provide custom paths.")
+	# Extract column names from base ENES config
+	caes_id = enes_config["col_caes_id"]
+	ciuo_id = enes_config["col_ciuo_id"]
+	sex_col = enes_config["col_sex_id"]
+	public_col = enes_config["col_public_worker"]
+	income_col = enes_config["col_total_income"]
 
-	try:
-		enes_raw = load_enes_base(enes_path, caes_id, ciuo_id, max_caes_id=max_caes_id)
-		if "v188" in enes_raw.columns:
-			enes_raw["sector_publico"] = (enes_raw["v188"] == 1)
-		if "M3_7" in enes_raw.columns:
-			enes_raw["sector_publico"] = (enes_raw["M3_7"] == 1)
-		enes_raw = enes_raw[[col for col in [caes_id, ciuo_id, "v108", "v109", "ITI", "nivel_ed", "estado", "cat_ocup", "v206a", "f_calib3", "region", "sector_publico"] if col in enes_raw.columns]]
-	except Exception as e:
-		raise RuntimeError(f"Error loading ENES base data from {enes_path}: {e}") from e
-	
-	try:
-		caes_df = load_nodelist_caes(
-			caes_path,
-			caes_id,
-			caes_letra_col=caes_letra_col,
-			caes_ag_col=caes_ag_col,
-			caes_label_color_col=caes_label_color_col,
-			caes_letra_color_col=caes_letra_color_col,
-			caes_ag_color_col=caes_ag_color_col,
-		)
-		ciuo_df = load_nodelist_ciuo(
-			ciuo_path,
-			ciuo_id,
-			max_caes_id=max_caes_id,
-			ciuo_letra_col=ciuo_letra_col,
-			ciuo_3cat_col=ciuo_3cat_col,
-			ciuo_label_color_col=ciuo_label_color_col,
-			ciuo_letra_color_col=ciuo_letra_color_col,
-			ciuo_3cat_color_col=ciuo_3cat_color_col,
-		)
-	except Exception as e:
-		raise RuntimeError(f"Error loading node list data from {caes_path} or {ciuo_path}: {e}") from e
-	
-	try:
-		enes = merge_enes_with_metadata(enes_raw, caes_df, ciuo_df, caes_id, ciuo_id)
-	except Exception as e:
-		raise RuntimeError(f"Error merging ENES data with metadata: {e}") from e
-	
+	# Extract CAES column names
+	caes_letra = caes_config["col_letra"]
+	caes_ag = caes_config["col_ag"]
+	caes_label_color = caes_config["col_label_color"]
+	caes_letra_color = caes_config["col_letra_color"]
+	caes_ag_color = caes_config["col_ag_color"]
+
+	# Extract CIUO column names
+	ciuo_letra = ciuo_config["col_letra"]
+	ciuo_3cat = ciuo_config["col_3cat"]
+	ciuo_label_color = ciuo_config["col_label_color"]
+	ciuo_letra_color = ciuo_config["col_letra_color"]
+	ciuo_3cat_color = ciuo_config["col_3cat_color"]
+
+	max_caes_id = 10000
+
+	# Load base ENES dataset
+	enes_df = get_dataset(enes_config)
+
+	# Append extra datasets (e.g., 2021 survey) by renaming columns
+	if extra_enes_config:
+		for extra_enes_data in extra_enes_config:
+			if extra_enes_data.get("source") is None and extra_enes_data.get("url") is None:
+				continue
+
+			extra_df = get_dataset(extra_enes_data)
+
+			# Build column rename mapping
+			rename_mapping = {
+				extra_enes_data["col_caes_id"]: caes_id,
+				extra_enes_data["col_ciuo_id"]: ciuo_id,
+			}
+
+			# Add optional columns if they exist
+			extra_sex = extra_enes_data.get("col_sex_id")
+			if extra_sex and extra_sex in extra_df.columns:
+				rename_mapping[extra_sex] = sex_col
+
+			extra_public = extra_enes_data.get("col_public_worker")
+			if extra_public and extra_public in extra_df.columns:
+				rename_mapping[extra_public] = public_col
+
+			extra_income = extra_enes_data.get("col_total_income")
+			if extra_income and extra_income in extra_df.columns:
+				rename_mapping[extra_income] = income_col
+
+			extra_df = extra_df.rename(columns=rename_mapping)
+			extra_df["encuesta"] = extra_enes_data.get("year", "extra")
+			enes_df = pd.concat([enes_df, extra_df], ignore_index=True)
+
+	# Process ENES IDs: drop missing, convert to int, and apply disambiguation
+	enes_df = enes_df.dropna(subset=[ciuo_id, caes_id])
+	enes_df[caes_id] = enes_df[caes_id].astype(int)
+	enes_df[ciuo_id] = enes_df[ciuo_id].astype(int)
+	enes_df[caes_id] = enes_df[caes_id].apply(lambda x: ut.desambiated_caes_id(x))
+	enes_df[ciuo_id] = enes_df[ciuo_id].apply(lambda x: ut.desambiated_ciuo_id(x, max_caes_id))
+
+	# Load and process node lists
+	caes_df = load_nodelist_caes(
+		caes_config["source"],
+		caes_id,
+		caes_letra_col=caes_letra,
+		caes_ag_col=caes_ag,
+		caes_label_color_col=caes_label_color,
+		caes_letra_color_col=caes_letra_color,
+		caes_ag_color_col=caes_ag_color,
+	)
+
+	ciuo_df = load_nodelist_ciuo(
+		ciuo_config["source"],
+		ciuo_id,
+		max_caes_id=max_caes_id,
+		ciuo_letra_col=ciuo_letra,
+		ciuo_3cat_col=ciuo_3cat,
+		ciuo_label_color_col=ciuo_label_color,
+		ciuo_letra_color_col=ciuo_letra_color,
+		ciuo_3cat_color_col=ciuo_3cat_color,
+	)
+
+	# Merge ENES with node metadata
+	enes = merge_enes_with_metadata(enes_df, caes_df, ciuo_df, caes_id, ciuo_id)
+
 	if enes.empty:
-		raise ValueError("Merged ENES dataset is empty after joining with CAES and CIUO metadata. Check for mismatched IDs.")
-	
-	if set(enes[caes_id].unique()) & set(enes[ciuo_id].unique()) != set():
-		raise ValueError("ID desambiguation failed: overlapping CAES and CIUO IDs detected.")
-
-	if "encuesta" not in enes.columns:
-		enes["encuesta"] = 2019  # Add default survey year if missing
+		raise ValueError("Merged ENES dataset is empty after joining with CAES and CIUO metadata.")
 
 	return {"enes": enes, "caes_nodes": caes_df, "ciuo_nodes": ciuo_df}
 

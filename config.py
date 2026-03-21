@@ -19,6 +19,7 @@ DATA_EXTRA = [
     {
         "source": DATA_RAW_PATH / "base_enespersonas_2021.csv",
         "url": None,
+        "year": 2021,
         "col_id": "CUEST",
         "col_caes_id": "CAES_num",
         "col_ciuo_id": "CIUO_encuestado",
@@ -56,10 +57,10 @@ IMAGE_DIR = Path(__file__).parent / Path("images")
 
 TOP_N_BAR_FIGSIZE = (8, 6)
 EDGE_CORRELATION_FIGSIZE = (6, 6)
-BIPARTITE_FIGSIZE = (12, 6)
+BIPARTITE_FIGSIZE = (14, 6)
 PROJECTION_FIGSIZE = (8, 8)
-STACKED_FIGSIZE = (12, 3)
-PLOT_FONT_SIZE = 13
+STACKED_FIGSIZE = (12, 4)
+PLOT_FONT_SIZE = 14
 
 LOGSCALE = False
 
