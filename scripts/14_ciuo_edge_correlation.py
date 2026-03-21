@@ -1,17 +1,24 @@
-from scripts import *
+import config as cfg
 import pandas as pd
 import networkx as nx
 import numpy as np
+import src.graph_construction as gc
+import src.plotting as pl
 
 def main(enes_df=None, nodelist_ciuo_df=None):
+	caes_id = cfg.DATA_ENES_PISAC["col_caes_id"]
+	ciuo_id = cfg.DATA_ENES_PISAC["col_ciuo_id"]
+	enes_path = cfg.DATA_PROCESSED_PATH / "base_enespersonas.csv"
+	ciuo_nodelist_path = cfg.DATA_PROCESSED_PATH / "nodelist_ciuo.csv"
+
 	if enes_df is None:
-		enes_df = pd.read_csv(ENES_PATH)
+		enes_df = pd.read_csv(enes_path)
 	if nodelist_ciuo_df is None:
-		nodelist_ciuo_df = pd.read_csv(CIUO_NODELIST_PATH, index_col=CIUO_ID)
+		nodelist_ciuo_df = pd.read_csv(ciuo_nodelist_path, index_col=ciuo_id)
 
 	# Accept both nodelist shapes: CIUO as a regular column or already set as index.
-	if CIUO_ID in nodelist_ciuo_df.columns:
-		nodelist_ciuo_df = nodelist_ciuo_df.set_index(CIUO_ID)
+	if ciuo_id in nodelist_ciuo_df.columns:
+		nodelist_ciuo_df = nodelist_ciuo_df.set_index(ciuo_id)
 
 	missing_cols = [col for col in ["female_pct", "community"] if col not in nodelist_ciuo_df.columns]
 	if missing_cols:
@@ -19,14 +26,17 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 
 	feature_map = nodelist_ciuo_df["female_pct"].to_dict()
 	color_map = nodelist_ciuo_df["community"].to_dict()
-	color_map = {k: COMMUNITY_COLORS_PALETTE[int(v) % len(COMMUNITY_COLORS_PALETTE)] if v>=0 else "gray" for k, v in color_map.items()}
+	color_map = {
+		k: cfg.COMMUNITY_COLORS_PALETTE[int(v) % len(cfg.COMMUNITY_COLORS_PALETTE)] if v >= 0 else "gray"
+		for k, v in color_map.items()
+	}
 
 	print("Building bipartite graph...")
 	bipartite_graph = gc.build_bipartite_graph(
 		enes_df,
-		CAES_ID,
-		CIUO_ID,
-		logscale=LOGSCALE,
+		caes_id,
+		ciuo_id,
+		logscale=cfg.LOGSCALE,
 	)
 
 	# CIUO PROJECTION
@@ -37,17 +47,17 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		weight_function=gc.weighted_hidalgo_proximity_weight
 	)
 	
-	IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+	cfg.IMAGE_DIR.mkdir(parents=True, exist_ok=True)
 	pl.compute_and_plot_edge_correlation(
 		G=ciuo_projection,
 		feature_map=feature_map,
 		color_map=color_map,
 		title=None, 
-		output_path=IMAGE_DIR / "14_ciuo_edge_correlation.png", 
+		output_path=cfg.IMAGE_DIR / "14_ciuo_edge_correlation.png", 
 		save=True,
 		perfect_line=False,
-		figsize=EDGE_CORRELATION_FIGSIZE,
-		font_size=PLOT_FONT_SIZE,
+		figsize=cfg.EDGE_CORRELATION_FIGSIZE,
+		font_size=cfg.PLOT_FONT_SIZE,
 	)
 
 if __name__ == "__main__":

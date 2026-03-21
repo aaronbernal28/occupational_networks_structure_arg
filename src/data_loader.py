@@ -41,8 +41,6 @@ def load_nodelist_caes(
 	caes_id: str,
 	caes_letra_col: str,
 	caes_ag_col: str,
-	caes_letra_old_col: str,
-	caes_ag_old_col: str,
 	caes_label_color_col: str,
 	caes_letra_color_col: str,
 	caes_ag_color_col: str,
@@ -64,8 +62,6 @@ def load_nodelist_caes(
 	caes_df[caes_ag_color_col] = caes_df[caes_ag_col].map(color_map)
 
 
-	caes_df[caes_letra_old_col] = caes_df[caes_letra_col]
-	caes_df[caes_ag_old_col] = caes_df[caes_ag_col]
 	caes_df[caes_letra_col] = caes_df[caes_letra_col].apply(lambda x: x.split(".")[0])
 	caes_df[caes_ag_col] = caes_df[caes_ag_col].apply(lambda x: x.split(".")[0])
 	return caes_df
@@ -77,7 +73,6 @@ def load_nodelist_ciuo(
 	max_caes_id: int,
 	ciuo_letra_col: str,
 	ciuo_3cat_col: str,
-	ciuo_letra_old_col: str,
 	ciuo_label_color_col: str,
 	ciuo_letra_color_col: str,
 	ciuo_3cat_color_col: str,
@@ -97,7 +92,6 @@ def load_nodelist_ciuo(
 	color_map = color_ciuo3cat_map_ciuo(ciuo_df, cat_col=ciuo_3cat_col, base_color_col=ciuo_letra_color_col)
 	ciuo_df[ciuo_3cat_color_col] = ciuo_df[ciuo_3cat_col].map(color_map)
 
-	ciuo_df[ciuo_letra_old_col] = ciuo_df[ciuo_letra_col]
 	ciuo_df[ciuo_letra_col] = ciuo_df[ciuo_letra_col].apply(lambda x: x.split(".")[0])
 	return ciuo_df
 
@@ -118,11 +112,8 @@ def load_dataset(
 	max_caes_id: int,
 	caes_letra_col: str,
 	caes_ag_col: str,
-	caes_letra_old_col: str,
-	caes_ag_old_col: str,
 	ciuo_letra_col: str,
 	ciuo_3cat_col: str,
-	ciuo_letra_old_col: str,
 	caes_label_color_col: str,
 	caes_letra_color_col: str,
 	caes_ag_color_col: str,
@@ -153,8 +144,6 @@ def load_dataset(
 			caes_id,
 			caes_letra_col=caes_letra_col,
 			caes_ag_col=caes_ag_col,
-			caes_letra_old_col=caes_letra_old_col,
-			caes_ag_old_col=caes_ag_old_col,
 			caes_label_color_col=caes_label_color_col,
 			caes_letra_color_col=caes_letra_color_col,
 			caes_ag_color_col=caes_ag_color_col,
@@ -165,7 +154,6 @@ def load_dataset(
 			max_caes_id=max_caes_id,
 			ciuo_letra_col=ciuo_letra_col,
 			ciuo_3cat_col=ciuo_3cat_col,
-			ciuo_letra_old_col=ciuo_letra_old_col,
 			ciuo_label_color_col=ciuo_label_color_col,
 			ciuo_letra_color_col=ciuo_letra_color_col,
 			ciuo_3cat_color_col=ciuo_3cat_color_col,

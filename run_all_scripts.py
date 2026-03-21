@@ -1,7 +1,8 @@
 import importlib
-import pandas as pd
 import time
-from config import *
+
+import config as cfg
+import pandas as pd
 
 run_00_prepare_data = importlib.import_module('scripts.00_prepare_data').main
 run_02_bipartite = importlib.import_module('scripts.02_bipartite').main
@@ -28,15 +29,15 @@ if __name__ == "__main__":
 	# Load data once after preparation
 	print("\nLoading datasets...")
 	start_time = time.time()
-	enes_df = pd.read_csv(ENES_PATH)
-	nodelist_caes_df = pd.read_csv(CAES_NODELIST_PATH, index_col=CAES_ID)
-	nodelist_ciuo_df = pd.read_csv(CIUO_NODELIST_PATH, index_col=CIUO_ID)
+	enes_df = pd.read_csv(cfg.DATA_PROCESSED_PATH / "base_enespersonas.csv")
+	nodelist_caes_df = pd.read_csv(cfg.DATA_PROCESSED_PATH / "nodelist_caes.csv", index_col=cfg.DATA_ENES_PISAC["col_caes_id"])
+	nodelist_ciuo_df = pd.read_csv(cfg.DATA_PROCESSED_PATH / "nodelist_ciuo.csv", index_col=cfg.DATA_ENES_PISAC["col_ciuo_id"])
 	print(f"Finished loading datasets in {time.time() - start_time:.2f} seconds.")
 	
 	run_step("Running bipartite graph construction", run_02_bipartite, enes_df=enes_df, nodelist_caes_df=nodelist_caes_df, nodelist_ciuo_df=nodelist_ciuo_df)
 	
 	run_step("Analyzing CIUO projection with custom weights", run_06_ciuo_projection_custom, enes_df=enes_df, nodelist_ciuo_df=nodelist_ciuo_df)
-	nodelist_ciuo_df = pd.read_csv(CIUO_NODELIST_PATH, index_col=CIUO_ID)
+	nodelist_ciuo_df = pd.read_csv(cfg.DATA_PROCESSED_PATH / "nodelist_ciuo.csv", index_col=cfg.DATA_ENES_PISAC["col_ciuo_id"])
 	run_step("Analyzing CIUO gender correlation", run_14_ciuo_edge_correlation, enes_df=enes_df, nodelist_ciuo_df=nodelist_ciuo_df)
 
 	total_elapsed_time = time.time() - total_start_time

@@ -1,23 +1,36 @@
-from scripts import *
+import config as cfg
 import pandas as pd
+import src.communities as comm
+import src.graph_construction as gc
+import src.metrics as metrics
+import src.plotting as pl
+import src.utils as utils
 
 
 def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 	CAES_PARTITION = 1
 	CIUO_PARTITION = 0
+	caes_id = cfg.DATA_ENES_PISAC["col_caes_id"]
+	ciuo_id = cfg.DATA_ENES_PISAC["col_ciuo_id"]
+	caes_ag = cfg.DATA_NODELIST_CAES["col_ag"]
+	ciuo_3cat = cfg.DATA_NODELIST_CIUO["col_3cat"]
+
+	enes_path = cfg.DATA_PROCESSED_PATH / "base_enespersonas.csv"
+	caes_nodelist_path = cfg.DATA_PROCESSED_PATH / "nodelist_caes.csv"
+	ciuo_nodelist_path = cfg.DATA_PROCESSED_PATH / "nodelist_ciuo.csv"
 
 	if enes_df is None:
-		enes_df = pd.read_csv(ENES_PATH)
+		enes_df = pd.read_csv(enes_path)
 	if nodelist_caes_df is None:
-		nodelist_caes_df = pd.read_csv(CAES_NODELIST_PATH, index_col=CAES_ID)
+		nodelist_caes_df = pd.read_csv(caes_nodelist_path, index_col=caes_id)
 	if nodelist_ciuo_df is None:
-		nodelist_ciuo_df = pd.read_csv(CIUO_NODELIST_PATH, index_col=CIUO_ID)
+		nodelist_ciuo_df = pd.read_csv(ciuo_nodelist_path, index_col=ciuo_id)
 
 	bipartite_graph = gc.build_bipartite_graph(
 		enes_df,
-		CAES_ID,
-		CIUO_ID,
-		logscale=LOGSCALE,
+		caes_id,
+		ciuo_id,
+		logscale=cfg.LOGSCALE,
 		caes_partition=CAES_PARTITION,
 		ciuo_partition=CIUO_PARTITION,
 	)
@@ -45,8 +58,8 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 	print(f"CAES nodes: {len(caes_nodes)}")
 	print(f"CIUO nodes: {len(ciuo_nodes)}")
 
-	caes_group_col = CAES_AG_OLD
-	ciuo_group_col = CIUO_3CAT
+	caes_group_col = caes_ag
+	ciuo_group_col = ciuo_3cat
 	if caes_group_col not in nodelist_caes_df.columns:
 		raise KeyError(f"Missing '{caes_group_col}' column in CAES node list.")
 	if ciuo_group_col not in nodelist_ciuo_df.columns:
@@ -56,8 +69,8 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 	ciuo_group_map = nodelist_ciuo_df[ciuo_group_col].to_dict()
 
 	# Use color columns from CSV files
-	caes_color_col = CAES_AG_COLOR
-	ciuo_color_col = CIUO_3CAT_COLOR
+	caes_color_col = cfg.DATA_NODELIST_CAES["col_ag_color"]
+	ciuo_color_col = cfg.DATA_NODELIST_CIUO["col_3cat_color"]
 	if caes_color_col not in nodelist_caes_df.columns:
 		raise KeyError(f"Missing '{caes_color_col}' column in CAES node list.")
 	if ciuo_color_col not in nodelist_ciuo_df.columns:
@@ -81,7 +94,7 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 			group = ciuo_group_map.get(node, "Unknown")
 			color_map_global[node] = ciuo_palette.get(group, "gray")
 
-	colored_output = IMAGE_DIR / "02_bipartite_colored_groups.png"
+	colored_output = cfg.IMAGE_DIR / "02_bipartite_colored_groups.png"
 	pl.draw_bipartite_by_color(
 		bipartite_graph,
 		color_map=color_map_global,
@@ -90,8 +103,8 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 		output_path=colored_output,
 		title=None,
 		save=True,
-		figsize=BIPARTITE_FIGSIZE,
-		font_size=PLOT_FONT_SIZE,
+		figsize=cfg.BIPARTITE_FIGSIZE,
+		font_size=cfg.PLOT_FONT_SIZE,
 	)
 	print(f"Saved bipartite groups layout to {colored_output}")
 
