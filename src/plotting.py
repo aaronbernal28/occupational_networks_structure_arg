@@ -4,7 +4,6 @@ Plotting utilities extracted from the exploratory notebook.
 from pathlib import Path
 from typing import Dict, Iterable, Mapping
 import src.utils as ut
-from persim import plot_diagrams
 
 import matplotlib.patches as patches
 import matplotlib.path as mpath
@@ -13,7 +12,6 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import gudhi
 import textwrap
 
 plt.rcParams.update({"figure.dpi": 100, "savefig.dpi": 200})
@@ -792,47 +790,6 @@ def plot_stacked_by_group(
 	plt.tight_layout()
 	if save:
 		plt.savefig(output_path, bbox_inches="tight")
-		plt.close()
-	else:
-		plt.show()
-
-
-def plot_persistence_diagrams(diagrams, title='Persistence Diagrams', output_path: Path = None, save: bool = True):
-	"""Plot persistence diagrams.
-	 Parameters:
-	 - diagrams: The persistence diagrams to plot (list of numpy arrays (n,2)).
-	 - title: Title of the plot.
-	 - save_path: If provided, the path to save the plot image.
-	 """
-	plt.figure(figsize=(8, 6))
-	plot_diagrams(diagrams, show=False)
-	plt.title(title)
-	if save:
-		plt.savefig(output_path)
-		plt.close()
-	else:
-		plt.show()
-
-
-def plot_persistence_barcodes(
-	diagrams,
-	title: str = "Persistence Barcodes",
-	output_path: Path = None,
-	save: bool = True,
-) -> None:
-	"""Plot persistence barcodes using GUDHI."""
-	gudhi_diagrams = []
-	for dim, dgm in enumerate(diagrams):
-		if len(dgm) == 0:
-			continue
-		for birth, death in dgm:
-			gudhi_diagrams.append((dim, (float(birth), float(death))))
-
-	plt.figure(figsize=(8, 6))
-	gudhi.plot_persistence_barcode(gudhi_diagrams)
-	plt.title(title)
-	if save:
-		plt.savefig(output_path)
 		plt.close()
 	else:
 		plt.show()

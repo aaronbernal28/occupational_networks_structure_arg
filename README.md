@@ -85,6 +85,9 @@ occupational_and_branch_of_activity_networks/
 Python 3.12.9 is recommended (my current environment).
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
