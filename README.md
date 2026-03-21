@@ -21,68 +21,63 @@
 
 ## General Description
 
-Aquí iria el abstract del paper
+This work analyzes the structure of the Argentine labor market through a complex networks approach that links occupations (CIUO-08) and branches of economic activity (CAES 1.0). Using microdata from the ENES (2019) and ESAyPP (2021) surveys, we build a high-resolution bipartite network and its corresponding unipartite projections to uncover interdependence patterns not visible with traditional methods. The results reveal a modular organization where industrial sectors and social services occupy differentiated regions of the network, while commerce acts as a bridge node that connects both spaces.
+
+In the occupational network, we observe a marked segmentation between manual and non-manual occupations, along with the presence of transversal occupations that connect multiple economic sectors. A central finding is that gender segregation has a topological correlate: occupations with similar gender compositions tend to cluster in the network (homophily), indicating that inequality is written into the relational structure of the labor market. These results show the potential of network analysis to understand the structural organization of the labor market and its patterns of segmentation.
 
 ## Project Structure
 
 ```text
-occupational_and_branch_of_activity_networks/
-├── config.py            # Configuration file with paths and parameters
-├── requirements.txt     # Python dependencies
-├── run_all_scripts.py   # Execute complete pipeline
+occupational_networks_structure_arg/
+├── config.py                          # Configuration file with paths and parameters
+├── requirements.txt                   # Python dependencies
+├── run_all_scripts.py                 # Execute complete pipeline
 ├── data/
-│   ├── raw/             # Raw survey data and node lists
-│   └── processed/       # Processed and merged datasets
-├── images/              # Generated visualizations
-├── notebooks/           # Exploratory analysis notebooks
-├── scripts/             # Analysis pipeline
-│   ├── 00_prepare_data.py         # Merge and prepare datasets
-│   ├── 01_heatmap.py              # Generate adjacency heatmaps
-│   ├── 02_bipartite.py            # Visualize bipartite network
-│   ├── 03_caes_projection.py      # CAES weighted projection
-│   ├── 04_ciuo_projection.py      # CIUO weighted projection
-│   ├── 05_caes_projection_custom.py   # CAES custom weight functions
-│   ├── 06_ciuo_projection_custom.py   # CIUO custom weight functions
-│   ├── 07_caes_tda.py             # TDA on CAES network
-│   ├── 08_ciuo_tda.py             # TDA on CIUO network
-│   ├── 09_caes_backbone_disparity.py  # Backbone extraction for CAES
-│   ├── 10_ciuo_backbone_disparity.py  # Backbone extraction for CIUO
-│   └── so on for other scripts...
-├── src/                 # Source code modules
-│   ├── communities.py   # Community detection algorithms
-│   ├── data_loader.py   # Data loading and preprocessing
-│   ├── graph_construction.py  # Bipartite and projection methods
-│   ├── metrics.py       # Network metrics and statistics
-│   ├── plotting.py      # Visualization functions
-│   ├── topology.py      # Topological data analysis
-│   └── utils.py         # Utility functions
+│   ├── raw/                           # Raw survey data and node lists
+│   │   ├── base_enespersonas_2021.csv
+│   │   ├── nodelist_caes.csv
+│   │   └── nodelist_ciuo.csv
+│   ├── processed/                     # Processed and merged datasets
+│   │   ├── base_enespersonas.csv
+│   │   ├── nodelist_caes.csv
+│   │   └── nodelist_ciuo.csv
+│   └── gephi/                         # Optional exports for Gephi
+├── images/                            # Generated visualizations
+├── scripts/                           # Analysis pipeline
+│   ├── 00_prepare_data.py             # Merge data, compute characteristics, EDA plots
+│   ├── 02_bipartite.py                # Visualize bipartite network by group
+│   ├── 06_ciuo_projection_custom.py   # CIUO projection + communities + gradients
+│   └── 14_ciuo_edge_correlation.py    # Edge correlation plot (gender/communities)
+├── src/                               # Source code modules
+│   ├── communities.py                 # Community detection algorithms
+│   ├── data_loader.py                 # Data loading and preprocessing
+│   ├── graph_construction.py          # Bipartite and projection methods
+│   ├── metrics.py                     # Network metrics and statistics
+│   ├── node_characteristics.py        # Group-level feature computation
+│   ├── plotting.py                    # Visualization functions
+│   └── utils.py                       # Utility functions
 ```
 
 ## Methodology
 
-1. **Data Preparation**: Loads and merges ENES survey data with classification node lists for CAES (economic activities) and CIUO (occupations).
-2. **Bipartite Network Construction**: Creates a weighted bipartite graph where edges connect occupations to economic activity branches based on employment relationships.
-3. **Network Projections**: Generates unipartite projections using multiple weighting functions:
-	- Standard weighted projection
-	- Hidalgo proximity (Hausmann et al., 2007)
-	- Dot product weight (Newman, 2001)
-	- Cosine similarity weight
-	- Weighted Higaldo proximity
-4. **Community Detection**: Applies the Louvain algorithm to identify communities in projected networks.
-5. **Backbone Extraction**: Uses the disparity filter method to extract the most significant edges.
-6. **Topological Analysis**: Computes persistent homology on distance matrices derived from network weights.
-7. **Visualization**: Generates heatmaps, network layouts, degree distributions, persistence diagrams, and community structure plots.
+1. **Data Preparation**: Loads ENES/ESAyPP microdata and CAES/CIUO node lists, computes group-level characteristics, and exports processed datasets.
+2. **Exploratory Plots**: Generates top-N bar charts for CAES and CIUO employment counts.
+3. **Bipartite Network Construction**: Builds the CAES-CIUO bipartite graph, logs summary metrics, and plots a colored bipartite layout by group.
+4. **CIUO Projection (Custom Weights)**: Creates a CIUO projection using weighted Hidalgo proximity, plots the network by CIUO categories, and stores node positions.
+5. **Community Detection**: Runs Louvain with resolution search on the CIUO projection and visualizes community structure and distributions by CIUO letters.
+6. **Gradient Visualizations**: Produces CIUO projection gradients for % women, mean age, and (if present) % public sector.
+7. **Edge Correlation**: Relates CIUO edge weights to gender composition and community coloring.
 
 ## Key Dependencies
 
-- **Network Analysis**: NetworkX, scikit-learn
-- **TDA Libraries**: Ripser, Persim, GUDHI for persistent homology
+- **Network Analysis**: NetworkX
 - **Scientific Computing**: NumPy, Pandas, SciPy
 - **Visualization**: Matplotlib, Seaborn
+- **File I/O**: openpyxl
 
 ## Installation
 
-Python 3.12.9 is recommended (my current environment).
+Python 3.12.3 is recommended.
 
 ```bash
 python3 -m venv .venv
@@ -106,11 +101,14 @@ pip install -r requirements.txt
 
 3. **Run individual analysis scripts** (optional):
 	```bash
-	# Generate heatmap of bipartite adjacency matrix
-	python -m scripts.01_heatmap
-	
-	# Generate visualization of bipartite network
+	# Build bipartite graph and group-colored layout
 	python -m scripts.02_bipartite
+	
+	# CIUO projection with custom weights + community/gradient plots
+	python -m scripts.06_ciuo_projection_custom
+	
+	# Edge correlation plot on CIUO projection
+	python -m scripts.14_ciuo_edge_correlation
 	```
 
 4. **Explore results**: Generated visualizations are saved in the `images/` directory.
