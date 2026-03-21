@@ -55,6 +55,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		output_path=output,
 		save=True,
 		method="energy",
+		factor_node_size=0.5,
+		node_size_exponent=0.9,
 	)
 	nodelist_ciuo_df = dl.insert_positions(nodelist_ciuo_df, pos)
 	dl.export_processed(nodelist_ciuo_df, DATA_PROCESSED_PATH, "nodelist_ciuo")
@@ -81,7 +83,9 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		output_path=community_output,
 		save=True,
 		legend_label_fmt=lambda g: f"C{g}",
-		pos=pos
+		pos=pos,
+		factor_node_size=0.5,
+		node_size_exponent=0.9,
 	)
 	print(f"Saved CIUO Louvain communities to {community_output}")
 	nodelist_ciuo_df["community"] = nodelist_ciuo_df.index.map(communities_ciuo).fillna(-1).astype(int)
@@ -134,6 +138,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		font_size=PLOT_FONT_SIZE,
 		output_path=female_output,
 		save=True,
+		factor_node_size=0.5,
+		node_size_exponent=0.9,
 	)
 	print(f"Saved CIUO female-pct gradient to {female_output}")
 
@@ -149,6 +155,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		font_size=PLOT_FONT_SIZE,
 		output_path=age_output,
 		save=True,
+		factor_node_size=0.5,
+		node_size_exponent=0.9,
 	)
 	print(f"Saved CIUO age-mean gradient to {age_output}")
 	
@@ -165,6 +173,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 			font_size=PLOT_FONT_SIZE,
 			output_path=pub_sector_output,
 			save=True,
+			factor_node_size=0.5,
+			node_size_exponent=0.9,
 		)
 		print(f"Saved CIUO public-sector-pct gradient to {pub_sector_output}")
 

@@ -1146,8 +1146,8 @@ def compute_and_plot_edge_correlation(
 		print("Zero correlation: Gender is randomly distributed across the network structure.")
 
 	plt.title(f"{title}\nAssortativity (Pearson r): {pearson_r:.4f} (p={p_value:.4e})" if title else None, fontsize=font_size + 1)
-	plt.xlabel(f"% Women per node (Node i)", fontsize=font_size)
-	plt.ylabel(f"% Women per weighted average of neighbors (Node i)", fontsize=font_size)
+	plt.xlabel("X_i", fontsize=font_size)
+	plt.ylabel("Y_i", fontsize=font_size)
 	plt.xticks(fontsize=font_size - 1)
 	plt.yticks(fontsize=font_size - 1)
 	plt.xlim(-3, 103)

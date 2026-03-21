@@ -217,4 +217,5 @@ reference/
 main.bbl
 main.synctex(busy)
 
-data/
+data/processed/
+data/raw/base_enespersonas_2021.csv
