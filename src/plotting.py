@@ -260,11 +260,37 @@ def draw_bipartite_by_color(
 
 	# Defining color and size maps
 	node_colors = [color_map.get(int(node), "gray") for node in graph.nodes()]
-	size_map = [degree * 5 for _, degree in graph.degree()]
+	size_map = {node: degree * 3 for node, degree in graph.degree()}
+	caes_nodes = [
+		node for node in graph.nodes()
+		if graph.nodes[node].get("bipartite") == ut.get_class_index("caes")
+	]
+	ciuo_nodes = [
+		node for node in graph.nodes()
+		if graph.nodes[node].get("bipartite") == ut.get_class_index("ciuo")
+	]
 
 	# Plotting
 	plt.figure(figsize=figsize)
-	nx.draw(graph, pos, with_labels=False, node_color=node_colors, node_size=size_map, edge_color="white", width=0.1, alpha=0.7)
+	nx.draw_networkx_edges(graph, pos, edge_color="white", width=0.1, alpha=0.7)
+	nx.draw_networkx_nodes(
+		graph,
+		pos,
+		nodelist=caes_nodes,
+		node_color=[color_map.get(int(node), "gray") for node in caes_nodes],
+		node_size=[size_map[node] for node in caes_nodes],
+		node_shape="P",
+		alpha=0.7,
+	)
+	nx.draw_networkx_nodes(
+		graph,
+		pos,
+		nodelist=ciuo_nodes,
+		node_color=[color_map.get(int(node), "gray") for node in ciuo_nodes],
+		node_size=[size_map[node] for node in ciuo_nodes],
+		node_shape="o",
+		alpha=0.7,
+	)
 
 	# Draw spline edges
 	path_cls = mpath.Path
@@ -275,7 +301,7 @@ def draw_bipartite_by_color(
 
 		# Define Bezier curve control points
 		control1 = (np.mean([start[0], end[0]]), start[1])
-		control2 = (np.mean([start[0], end[0]]), end[1])
+		control2 = (np.mean([start[0], end[0]]), start[1])
 		verts = [start, control1, control2, end]
 		codes = [path_cls.MOVETO, path_cls.CURVE4, path_cls.CURVE4, path_cls.CURVE4]
 		path = path_cls(verts, codes)
@@ -321,15 +347,15 @@ def draw_bipartite_by_color(
 			else:
 				ciuo_groups[lbl] = color
 
-	def _make_handles(groups):
+	def _make_handles(groups, marker_shape='o'):
 		return [
-			plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=c, markersize=8, label=textwrap.fill(lbl, 28), linestyle='')
+			plt.Line2D([0], [0], marker=marker_shape, color='w', markerfacecolor=c, markersize=8, label=textwrap.fill(lbl, 28), linestyle='')
 			for lbl, c in sorted(groups.items())
 		]
 
 	if caes_groups:
 		leg_l = plt.legend(
-			handles=_make_handles(caes_groups),
+			handles=_make_handles(caes_groups, marker_shape='P'),
 			title="Economic Branches (CAES)",
 			loc="upper left",
 			bbox_to_anchor=(0.0, 1.0),
@@ -341,7 +367,7 @@ def draw_bipartite_by_color(
 		plt.gca().add_artist(leg_l)
 	if ciuo_groups:
 		plt.legend(
-			handles=_make_handles(ciuo_groups),
+			handles=_make_handles(ciuo_groups, marker_shape='o'),
 			title="Occupations (CIUO)",
 			loc="upper right",
 			bbox_to_anchor=(1.0, 1.0),
