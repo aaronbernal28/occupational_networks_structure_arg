@@ -13,6 +13,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import textwrap
+LIGTHGRAY = "#a8a8a8"
 
 plt.rcParams.update({"figure.dpi": 100, "savefig.dpi": 200})
 
@@ -107,8 +108,8 @@ def plot_rejection_heatmap(p_values: np.ndarray, rejected: np.ndarray, rownames:
 	annot_df = pd.DataFrame(annot, index=df.index, columns=df.columns)
 	n_rejected = int(rejected.sum())
 	title = (
-		f"Wald test - p-values (Bonferroni alpha/d = {bonferroni_threshold:.3g})\n"
-		f"n rejected = {n_rejected} / {rejected.size} ({100 * n_rejected / rejected.size:.1f}%)"
+		f"Prueba de Wald - p-valores (Bonferroni alpha/d = {bonferroni_threshold:.3g})\n"
+		f"n rechazadas = {n_rejected} / {rejected.size} ({100 * n_rejected / rejected.size:.1f}%)"
 	)
 
 	n_black = 25
@@ -259,7 +260,7 @@ def draw_bipartite_by_color(
 			pos[node][1] = normalize_ciuo_y(pos[node][1])
 
 	# Defining color and size maps
-	node_colors = [color_map.get(int(node), "gray") for node in graph.nodes()]
+	node_colors = [color_map.get(int(node), LIGTHGRAY) for node in graph.nodes()]
 	size_map = {node: degree * 3 for node, degree in graph.degree()}
 	caes_nodes = [
 		node for node in graph.nodes()
@@ -277,7 +278,7 @@ def draw_bipartite_by_color(
 		graph,
 		pos,
 		nodelist=caes_nodes,
-		node_color=[color_map.get(int(node), "gray") for node in caes_nodes],
+		node_color=[color_map.get(int(node), LIGTHGRAY) for node in caes_nodes],
 		node_size=[size_map[node] for node in caes_nodes],
 		node_shape="P",
 		alpha=0.7,
@@ -286,7 +287,7 @@ def draw_bipartite_by_color(
 		graph,
 		pos,
 		nodelist=ciuo_nodes,
-		node_color=[color_map.get(int(node), "gray") for node in ciuo_nodes],
+		node_color=[color_map.get(int(node), LIGTHGRAY) for node in ciuo_nodes],
 		node_size=[size_map[node] for node in ciuo_nodes],
 		node_shape="o",
 		alpha=0.7,
@@ -307,7 +308,7 @@ def draw_bipartite_by_color(
 		path = path_cls(verts, codes)
 
 		# Assign color based on starting node
-		color = color_map.get(int(u), "gray")
+		color = color_map.get(int(u), LIGTHGRAY)
 
 		# Draw the edge
 		patch = patches.PathPatch(path, facecolor="none", edgecolor=color, lw=0.1, alpha=0.5)
@@ -341,7 +342,7 @@ def draw_bipartite_by_color(
 		for node in graph.nodes():
 			node_id = int(node)
 			lbl = label_map.get(node_id, str(node_id))
-			color = color_map.get(node_id, "gray")
+			color = color_map.get(node_id, LIGTHGRAY)
 			if graph.nodes[node].get("bipartite") == ut.get_class_index("caes"):
 				caes_groups[lbl] = color
 			else:
@@ -356,7 +357,7 @@ def draw_bipartite_by_color(
 	if caes_groups:
 		leg_l = plt.legend(
 			handles=_make_handles(caes_groups, marker_shape='P'),
-			title="Economic Branches (CAES)",
+			title="Ramas de actividad (CAES)",
 			loc="upper left",
 			bbox_to_anchor=(0.0, 1.0),
 			fontsize=max(font_size - 1, 6), title_fontsize=font_size,
@@ -368,7 +369,7 @@ def draw_bipartite_by_color(
 	if ciuo_groups:
 		plt.legend(
 			handles=_make_handles(ciuo_groups, marker_shape='o'),
-			title="Occupations (CIUO)",
+			title="Ocupaciones (CIUO)",
 			loc="upper right",
 			bbox_to_anchor=(1.0, 1.0),
 			fontsize=max(font_size - 1, 6), title_fontsize=font_size,
@@ -449,7 +450,7 @@ def draw_bipartite_normal_layout_by_color(
 			[start, ctrl1, ctrl2, end],
 			[path_cls.MOVETO, path_cls.CURVE4, path_cls.CURVE4, path_cls.CURVE4],
 		)
-		color = color_map.get(int(u), "gray")
+		color = color_map.get(int(u), LIGTHGRAY)
 		ax.add_patch(patches.PathPatch(
 			path, facecolor="none", edgecolor=color, lw=edge_lw, alpha=edge_alpha,
 		))
@@ -458,7 +459,7 @@ def draw_bipartite_normal_layout_by_color(
 	degrees = dict(graph.degree())
 	for node in graph.nodes():
 		x, y = pos[node]
-		color = color_map.get(int(node), "gray")
+		color = color_map.get(int(node), LIGTHGRAY)
 		size  = np.sqrt(degrees[node] + 1) * node_scale
 		ax.scatter(x, y, s=size**2 * 0.15, c=[color], zorder=3, linewidths=0)
 
@@ -469,7 +470,7 @@ def draw_bipartite_normal_layout_by_color(
 		for node in graph.nodes():
 			node_id = int(node)
 			lbl = label_map.get(node_id, str(node_id))
-			c   = color_map.get(node_id, "gray")
+			c   = color_map.get(node_id, LIGTHGRAY)
 			if graph.nodes[node].get("bipartite") == caes_idx:
 				caes_groups[lbl] = c
 			else:
@@ -484,7 +485,7 @@ def draw_bipartite_normal_layout_by_color(
 	if caes_groups:
 		leg_l = ax.legend(
 			handles=_make_handles(caes_groups),
-			title="Economic Branches\n(CAES)",
+			title="Ramas economicas\n(CAES)",
 			loc="upper left",
 			bbox_to_anchor=(0.0, 1.0),
 			fontsize=8.5, title_fontsize=8.5,
@@ -496,7 +497,7 @@ def draw_bipartite_normal_layout_by_color(
 	if ciuo_groups:
 		ax.legend(
 			handles=_make_handles(ciuo_groups),
-			title="Occupations\n(CIUO)",
+			title="Ocupaciones\n(CIUO)",
 			loc="upper right",
 			bbox_to_anchor=(1.0, 1.0),
 			fontsize=8.5, title_fontsize=8.5,
@@ -543,7 +544,7 @@ def plot_degree_histogram(degrees: Iterable, color: str, title: str, output_path
 			ax.set_ylim(-0.05 * ylim_max, ylim_max)
 	
 	ax.set_xlabel("k")
-	ax.set_ylabel("Frequency")
+	ax.set_ylabel("Frecuencia")
 	ax.set_title(f"{title}\n<k> = {np.mean(degrees_array):.2f}")
 	ax.grid(True, alpha=0.3)
 	
@@ -560,9 +561,9 @@ def plot_degree_histograms(degrees: Dict[str, list], colors: Dict[str, str], out
 	"""Plot degree histograms for all nodes, CAES nodes, and CIUO nodes."""
 	fig, axes = plt.subplots(1, 3, figsize=(18, 5))
 	configs = [
-		(degrees["all"], colors["all"], "Degrees (all nodes)"),
-		(degrees["caes"], colors["caes"], "Degrees CAES"),
-		(degrees["ciuo"], colors["ciuo"], "Degrees CIUO"),
+		(degrees["all"], colors["all"], "Grados (todos los nodos)"),
+		(degrees["caes"], colors["caes"], "Grados CAES"),
+		(degrees["ciuo"], colors["ciuo"], "Grados CIUO"),
 	]
 	for i, (values, color, title) in enumerate(configs):
 		plot_degree_histogram(values, color, title, ax=axes[i], logscale=logscale)
@@ -634,7 +635,7 @@ def plot_projection_by_group(
 		pos = {node: (-y, x) for node, (x, y) in pos.items()}
 
 	# Prepare node colors and sizes
-	node_colors = [group_color_map.get(group_map.get(node), "gray") for node in graph.nodes()]
+	node_colors = [group_color_map.get(group_map.get(node), LIGTHGRAY) for node in graph.nodes()]
 	if node_size_map is not None:
 		raw_sizes = [node_size_map.get(node, 1) for node in graph.nodes()]
 	else:
@@ -680,7 +681,7 @@ def plot_projection_gradient(
 	pos: dict,
 	node_values: dict,
 	title: str,
-	colorbar_label: str = "Value",
+	colorbar_label: str = "Valor",
 	cmap: str = "viridis",
 	figsize: tuple = (10, 10),
 	font_size: int = 11,
@@ -774,6 +775,7 @@ def plot_stacked_by_group(
 	title: str, 
 	output_path: Path, 
 	group_color_map: Dict[str, tuple] = None, 
+	legend_title: str = None,
 	figsize: tuple = (16, 4),
 	font_size: int = 11,
 	save: bool = True,
@@ -797,11 +799,12 @@ def plot_stacked_by_group(
 	else:
 		ax = ct.plot(kind='barh', stacked=True, figsize=figsize, width=0.8)
 
-	ax.set_xlabel('Percentage (%)' if percentage else 'Count', fontsize=font_size)
+	ax.set_xlabel('Porcentaje (%)' if percentage else 'Conteo', fontsize=font_size)
 	ax.set_title(title, fontsize=font_size + 1)
 	ax.tick_params(axis='both', labelsize=font_size - 1)
 	ax.set_xlim(0, 100 if percentage else None)
-	ax.legend(title=group_col, bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=font_size - 2, title_fontsize=font_size)
+	legend_title = legend_title or group_col
+	ax.legend(title=legend_title, bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=font_size - 2, title_fontsize=font_size)
 	
 	# Format y-axis labels as C0, C1, ...
 	yticks = ax.get_yticks()
@@ -825,7 +828,7 @@ def plot_distance_histogram(
 	distance_matrix: np.ndarray,
 	output_path: Path = None,
 	bins: int = 30,
-	title: str = "Distance histogram",
+	title: str = "Histograma de distancias",
 	include_infinite: bool = True,
 	save: bool = True,
 ) -> None:
@@ -841,9 +844,9 @@ def plot_distance_histogram(
 		inf_x = bin_edges[-1] + bin_width
 		plt.bar([inf_x], [inf_count], width=bin_width * 0.8, color="tomato", alpha=0.8)
 		plt.xticks(list(plt.xticks()[0]) + [inf_x], list(plt.xticks()[0]) + ["inf"])
-	plt.xlabel("Distance")
-	plt.ylabel("Frequency")
-	plt.title(f"{title}\nfinite={len(finite)} | inf={inf_count}")
+	plt.xlabel("Distancia")
+	plt.ylabel("Frecuencia")
+	plt.title(f"{title}\nfinito={len(finite)} | inf={inf_count}")
 	plt.grid(True, alpha=0.3)
 	plt.tight_layout()
 	if save:
@@ -856,7 +859,7 @@ def plot_distance_histogram(
 def plot_distance_heatmap(
 	distance_matrix: np.ndarray,
 	output_path: Path = None,
-	title: str = "Distance matrix",
+	title: str = "Matriz de distancias",
 	labels: Iterable[str] = None,
 	save: bool = True,
 ) -> None:
@@ -898,13 +901,13 @@ def plot_backbone_weight_histogram(
 	fig, ax = plt.subplots(figsize=(10, 6))
 	
 	sns.histplot(original_weights, bins=50, kde=True, ax=ax, color='steelblue', 
-	             alpha=0.3, label=f'Original ({len(original_weights)} edges)')
+	             alpha=0.3, label=f'Original ({len(original_weights)} aristas)')
 	sns.histplot(backbone_weights, bins=50, kde=True, ax=ax, color='coral', 
-	             alpha=0.3, label=f'Backbone ({len(backbone_weights)} edges)')
+	             alpha=0.3, label=f'Esqueleto ({len(backbone_weights)} aristas)')
 	
-	ax.set_title(f'{title_prefix} Edge Weight Distribution: Original vs Backbone (alpha={alpha})')
-	ax.set_xlabel('Edge Weight')
-	ax.set_ylabel('Frequency')
+	ax.set_title(f'{title_prefix} Distribucion de pesos de aristas: Original vs Esqueleto (alpha={alpha})')
+	ax.set_xlabel('Peso de arista')
+	ax.set_ylabel('Frecuencia')
 	ax.set_yscale('log')
 	ax.set_ylim(bottom=1e-1)
 	ax.legend()
@@ -990,7 +993,7 @@ def plot_top_n_bar(
 		if color_col in top_df.columns:
 			palette_by_label[label] = ut.parse_color(row[color_col])
 		else:
-			palette_by_label[label] = "gray"
+			palette_by_label[label] = "steelblue"
 
 	plt.figure(figsize=figsize)
 	ax = sns.barplot(
@@ -1060,17 +1063,17 @@ def plot_alpha_sensitivity(
 	color_mod = "darkorchid"
 	color_lcc = "firebrick"
 
-	l1, = ax.plot(alphas, nodes_with_edges, color=color_nodes, linewidth=2, label="Nodes")
-	l2, = ax.plot(alphas, edge_counts, color=color_edges, linewidth=2, linestyle="--", label="Edges")
-	l3, = ax.plot(alphas, clustering_coefficients, color=color_clust, linewidth=2, linestyle=":", label="Avg. clustering coeff.")
+	l1, = ax.plot(alphas, nodes_with_edges, color=color_nodes, linewidth=2, label="Nodos")
+	l2, = ax.plot(alphas, edge_counts, color=color_edges, linewidth=2, linestyle="--", label="Aristas")
+	l3, = ax.plot(alphas, clustering_coefficients, color=color_clust, linewidth=2, linestyle=":", label="Coef. de clustering prom.")
 
 	lines = [l1, l2, l3]
 	if modularities is not None:
-		l4, = ax.plot(alphas, modularities, color=color_mod, linewidth=2, label="Modularity (Louvain - relative)")
+		l4, = ax.plot(alphas, modularities, color=color_mod, linewidth=2, label="Modularidad (Louvain - relativa)")
 		lines.append(l4)
 	
 	if nodes_largest_cc is not None:
-		l5, = ax.plot(alphas, nodes_largest_cc, color=color_lcc, linewidth=2, linestyle="-.", label="Nodes (largest CC)")
+		l5, = ax.plot(alphas, nodes_largest_cc, color=color_lcc, linewidth=2, linestyle="-.", label="Nodos (mayor CC)")
 		lines.append(l5)
 
 	# Reference vertical line
@@ -1079,7 +1082,7 @@ def plot_alpha_sensitivity(
 
 	ax.legend(handles=lines, fontsize=10)
 	ax.set_title(title, fontsize=13)
-	ax.set_xlabel("Alpha", fontsize=12)
+	ax.set_xlabel("Alfa", fontsize=12)
 	ax.tick_params(axis="y")
 	ax.set_ylim(0, 1.05)
 	if logscale:
@@ -1103,6 +1106,9 @@ def compute_and_plot_edge_correlation(
 	color_map: dict,
 	title: str,
 	output_path: Path,
+	community_map: dict = None,
+	highlight_communities: Iterable[int] = None,
+	legend_label_fmt=None,
 	save: bool = True,
 	perfect_line: bool = True,
 	figsize: tuple = (9, 8),
@@ -1140,21 +1146,42 @@ def compute_and_plot_edge_correlation(
 		plotted_nodes.append(u)
 
 	if len(x_vals) < 2:
-		print(f"Warning: Not enough valid points to compute correlation for {title}.")
+		print(f"Advertencia: no hay suficientes puntos validos para calcular la correlacion de {title}.")
 		return
+
+	highlight_set = set(highlight_communities) if highlight_communities else None
+
+	def _node_color(node_id: int) -> str:
+		if highlight_set and community_map is not None:
+			community = community_map.get(node_id)
+			if community in highlight_set:
+				return color_map.get(node_id, LIGTHGRAY)
+			return LIGTHGRAY  # light gray for non-highlighted nodes
+		return color_map.get(node_id, LIGTHGRAY)
 
 	# Plot
 	plt.figure(figsize=figsize)
 	
 	# Scatter plot of node feature vs average neighbor feature, colored by community
-	sns.scatterplot(x=x_vals, y=y_vals, alpha=0.8, c=[color_map.get(u, "gray") for u in plotted_nodes])
+	sns.scatterplot(x=x_vals, y=y_vals, alpha=0.8, c=[_node_color(u) for u in plotted_nodes])
 	if perfect_line:
-		plt.plot([0, 100], [0, 100], "k--", label="y=x (Perfect Assortativity)", alpha=0.5)
+		plt.plot([0, 100], [0, 100], "k--", label="y=x (Asortatividad perfecta)", alpha=0.5)
 	
 	# Add a legend for the communities
-	unique_colors = sorted(set(color_map.get(u, "gray") for u in plotted_nodes) - {"gray"})
-	for color in unique_colors:
-		plt.scatter([], [], c=color, label=color)
+	if highlight_set and community_map is not None:
+		label_fn = legend_label_fmt or (lambda c: f"C{c}")
+		for community in sorted(highlight_set):
+			color = None
+			for node_id, node_community in community_map.items():
+				if node_community == community:
+					color = color_map.get(node_id, LIGTHGRAY)
+					break
+			if color:
+				plt.scatter([], [], c=color, label=label_fn(community))
+	else:
+		unique_colors = sorted(set(color_map.get(u, LIGTHGRAY) for u in plotted_nodes) - {LIGTHGRAY})
+		for color in unique_colors:
+			plt.scatter([], [], c=color, label=color)
 	
 	# Add regression line on top to show trend
 	sns.regplot(x=x_vals, y=y_vals, scatter=False, color="red", line_kws={"linestyle": "--", "alpha": 0.5}, label="Trend")
@@ -1163,15 +1190,15 @@ def compute_and_plot_edge_correlation(
 	pearson_r, p_value = stats.pearsonr(x_vals, y_vals)
 
 	print(f"--- {title} ---")
-	print(f"Assortativity Coefficient (Pearson r): {pearson_r:.4f} (p-value: {p_value:.4e})")
+	print(f"Coeficiente de asortatividad (Pearson r): {pearson_r:.4f} (p-valor: {p_value:.4e})")
 	if pearson_r > 0 and p_value < 0.05:
-		print("Positive correlation: Gender homophily exists. Occupations with similar gender compositions cluster together.")
+		print("Correlacion positiva: existe homofilia de genero. Ocupaciones con composiciones similares se agrupan.")
 	elif pearson_r < 0 and p_value < 0.05:
-		print("Negative correlation: Heterophily exists. Occupations connect primarily to those of opposite gender compositions.")
+		print("Correlacion negativa: existe heterofilia. Ocupaciones conectan principalmente con composiciones opuestas.")
 	else:
-		print("Zero correlation: Gender is randomly distributed across the network structure.")
+		print("Correlacion nula: el genero se distribuye aleatoriamente en la red.")
 
-	plt.title(f"{title}\nAssortativity (Pearson r): {pearson_r:.4f} (p={p_value:.4e})" if title else None, fontsize=font_size + 1)
+	plt.title(f"{title}\nAsortatividad (Pearson r): {pearson_r:.4f} (p={p_value:.4e})" if title else None, fontsize=font_size + 1)
 	plt.xlabel("X_i", fontsize=font_size)
 	plt.ylabel("Y_i", fontsize=font_size)
 	plt.xticks(fontsize=font_size - 1)

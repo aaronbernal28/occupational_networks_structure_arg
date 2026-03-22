@@ -25,10 +25,10 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		raise KeyError(f"Missing required columns in nodelist_ciuo_df: {missing_cols}")
 
 	feature_map = nodelist_ciuo_df["female_pct"].to_dict()
-	color_map = nodelist_ciuo_df["community"].to_dict()
+	community_map = nodelist_ciuo_df["community"].to_dict()
 	color_map = {
 		k: cfg.COMMUNITY_COLORS_PALETTE[int(v) % len(cfg.COMMUNITY_COLORS_PALETTE)] if v >= 0 else "gray"
-		for k, v in color_map.items()
+		for k, v in community_map.items()
 	}
 
 	print("Building bipartite graph...")
@@ -52,6 +52,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		G=ciuo_projection,
 		feature_map=feature_map,
 		color_map=color_map,
+		community_map=community_map,
+		highlight_communities=[2, 7],
 		title=None, 
 		output_path=cfg.IMAGE_DIR / "14_ciuo_edge_correlation.png", 
 		save=True,

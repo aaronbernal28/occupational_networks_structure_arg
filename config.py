@@ -64,4 +64,5 @@ PLOT_FONT_SIZE = 14
 
 LOGSCALE = False
 
-COMMUNITY_COLORS_PALETTE = [f"C{i}" for i in range(10)] + ["black", "gold", "darkred", "navy", "darkcyan"]
+COMMUNITY_COLORS_PALETTE = [f"C{i}" for i in range(10)] + ["gold", "darkred", "navy", "darkcyan"]
+COMMUNITY_COLORS_PALETTE[7] = "#151515" # Override color for community 7 to black for better visibility

@@ -27,9 +27,6 @@ def main():
 	output3 = dl.export_processed(datasets["ciuo_nodes"], cfg.DATA_PROCESSED_PATH, "nodelist_ciuo")
 	print(f"Saved merged dataset to {output1}, {output2}, and {output3}")
 
-	color_map_caes = datasets["caes_nodes"][cfg.DATA_NODELIST_CAES["col_label_color"]].to_dict()
-	color_map_ciuo = datasets["ciuo_nodes"][cfg.DATA_NODELIST_CIUO["col_label_color"]].to_dict()
-
 	# Generate exploratory data analysis plots
 	print(f"Generating exploratory plots in {cfg.IMAGE_DIR}...")
 	if "caeslabel" in datasets["caes_nodes"].columns:
@@ -37,9 +34,9 @@ def main():
 			df=datasets["caes_nodes"],
 			label_col="caeslabel",
 			val_col="n_obs",
-			color_col=cfg.DATA_NODELIST_CAES["col_label_color"],
+			color_col=None,
 			title=None,
-			xlabel="Total Workers",
+			xlabel="Cantidad de trabajadores",
 			figsize=cfg.TOP_N_BAR_FIGSIZE,
 			font_size=cfg.PLOT_FONT_SIZE,
 			output_path=cfg.IMAGE_DIR / "00_top_caes_workers.png",
@@ -52,9 +49,9 @@ def main():
 			df=datasets["ciuo_nodes"],
 			label_col="ciuolabel",
 			val_col="n_obs",
-			color_col=cfg.DATA_NODELIST_CIUO["col_label_color"],
+			color_col=None,
 			title=None,
-			xlabel="Total Workers",
+			xlabel="Cantidad de trabajadores",
 			figsize=cfg.TOP_N_BAR_FIGSIZE,
 			font_size=cfg.PLOT_FONT_SIZE,
 			output_path=cfg.IMAGE_DIR / "00_top_ciuo_workers.png",
