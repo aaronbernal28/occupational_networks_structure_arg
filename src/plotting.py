@@ -16,7 +16,7 @@ import seaborn as sns
 import textwrap
 LIGTHGRAY = "#a8a8a8"
 
-plt.rcParams.update({"figure.dpi": 100, "savefig.dpi": 200})
+plt.rcParams.update({"figure.dpi": 100, "savefig.dpi": 100})
 
 
 def _mean_edge_color(color_u, color_v):
