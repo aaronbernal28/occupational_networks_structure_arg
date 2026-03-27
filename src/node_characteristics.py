@@ -16,7 +16,7 @@ def compute_group_characteristics(
 	age_col: str = "v108",
 	sex_col: str = "v109",
 	income_col: str = "ITI",
-	public_sector_col: str = "sector_publico",
+	public_sector_col: str = "v188",
 ) -> pd.DataFrame:
 	"""Aggregate descriptive characteristics by group column."""
 	# Backward compatibility: accept either col_group or group_col.

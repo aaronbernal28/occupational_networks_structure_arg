@@ -8,6 +8,7 @@ import src.utils as ut
 import matplotlib.patches as patches
 import matplotlib.path as mpath
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 import networkx as nx
 import numpy as np
 import pandas as pd
@@ -16,6 +17,49 @@ import textwrap
 LIGTHGRAY = "#a8a8a8"
 
 plt.rcParams.update({"figure.dpi": 100, "savefig.dpi": 200})
+
+
+def _mean_edge_color(color_u, color_v):
+	"""Return the mean RGB color between two node colors."""
+	rgb_u = np.asarray(mcolors.to_rgb(color_u), dtype=float)
+	rgb_v = np.asarray(mcolors.to_rgb(color_v), dtype=float)
+	return tuple(((rgb_u + rgb_v) / 2.0).tolist())
+
+
+def _edge_alpha_from_weight(
+	weight: float,
+	max_weight: float,
+	*,
+	alpha_max: float = 0.4,
+	alpha_min: float = 0.05,
+) -> float:
+	"""Map an edge weight to an alpha in [alpha_min, min(alpha_max, 0.6)]."""
+	alpha_cap = min(float(alpha_max), 0.6)
+	alpha_floor = max(0.0, float(alpha_min))
+	if alpha_floor > alpha_cap:
+		alpha_floor = alpha_cap
+
+	try:
+		w = float(weight)
+	except (TypeError, ValueError):
+		w = 0.0
+	if not np.isfinite(w) or w <= 0:
+		return alpha_floor
+
+	try:
+		mw = float(max_weight)
+	except (TypeError, ValueError):
+		mw = 0.0
+	if not np.isfinite(mw) or mw <= 0:
+		return alpha_floor
+
+	r = max(0.0, min(1.0, w / mw))
+	return alpha_floor + (alpha_cap - alpha_floor) * r
+
+
+def _edge_rgba_from_node_colors(color_u, color_v, alpha: float):
+	rgb = _mean_edge_color(color_u, color_v)
+	return mcolors.to_rgba(rgb, alpha=alpha)
 
 
 def plot_heatmap(biadjacency: pd.DataFrame, output_path: Path = None, save: bool = True, font_size: int = None) -> None:
@@ -233,8 +277,22 @@ def draw_bipartite_by_color(
 		title: str = "",
 		save: bool = True,
 		figsize: tuple = (12, 8),
-		font_size: int = 9) -> Dict[str, tuple]:
-	"""Draw the bipartite network with custom layout and return the positions."""
+		edge_alpha: float = 0.9,
+		font_size: int = 9,
+		legend_marker_size: float = 11.0,
+		factor_node_size: float = 3.0,
+		node_size_map: Mapping[int, float] = None,
+		node_size_exponent: float = 1.0) -> Dict[str, tuple]:
+	"""Draw the bipartite network with custom layout and return the positions.
+
+	Parameters:
+	- factor_node_size: Multiplier for node sizes.
+	- node_size_map: Optional mapping from node -> scalar (e.g. worker counts) used for sizing.
+	  Falls back to degree when not provided.
+	- node_size_exponent: Power transform applied before the factor.
+	- node_size_exponent: Power transform applied before the factor.
+	- legend_marker_size: Marker size (points) used in the legend examples (triangle/circle).
+	"""
 	np.random.seed(seed)
 
 	assert set(color_map.keys()) >= set(graph.nodes()), "Graph contains nodes not present in color map."
@@ -261,7 +319,20 @@ def draw_bipartite_by_color(
 
 	# Defining color and size maps
 	node_colors = [color_map.get(int(node), LIGTHGRAY) for node in graph.nodes()]
-	size_map = {node: degree * 3 for node, degree in graph.degree()}
+	if node_size_map is not None:
+		raw_sizes = {
+			node: float(
+				node_size_map.get(node, node_size_map.get(int(node), 1.0))
+			)
+			for node in graph.nodes()
+		}
+	else:
+		raw_sizes = {node: float(degree) for node, degree in graph.degree()}
+
+	size_map = {
+		node: float(np.power(max(raw_sizes.get(node, 1.0), 0.0), node_size_exponent) * factor_node_size)
+		for node in graph.nodes()
+	}
 	caes_nodes = [
 		node for node in graph.nodes()
 		if graph.nodes[node].get("bipartite") == ut.get_class_index("caes")
@@ -273,15 +344,16 @@ def draw_bipartite_by_color(
 
 	# Plotting
 	plt.figure(figsize=figsize)
-	nx.draw_networkx_edges(graph, pos, edge_color="white", width=0.1, alpha=0.7)
+	#nx.draw_networkx_edges(graph, pos, edge_color="white", width=0.1, alpha=0.7)
 	nx.draw_networkx_nodes(
 		graph,
 		pos,
 		nodelist=caes_nodes,
 		node_color=[color_map.get(int(node), LIGTHGRAY) for node in caes_nodes],
 		node_size=[size_map[node] for node in caes_nodes],
-		node_shape="P",
+		node_shape="^",
 		alpha=0.7,
+		#edgecolors="white",
 	)
 	nx.draw_networkx_nodes(
 		graph,
@@ -291,6 +363,7 @@ def draw_bipartite_by_color(
 		node_size=[size_map[node] for node in ciuo_nodes],
 		node_shape="o",
 		alpha=0.7,
+		#edgecolors="white",
 	)
 
 	# Draw spline edges
@@ -311,7 +384,7 @@ def draw_bipartite_by_color(
 		color = color_map.get(int(u), LIGTHGRAY)
 
 		# Draw the edge
-		patch = patches.PathPatch(path, facecolor="none", edgecolor=color, lw=0.1, alpha=0.5)
+		patch = patches.PathPatch(path, facecolor="none", edgecolor=color, lw=0.1, alpha=edge_alpha)
 		plt.gca().add_patch(patch)
 
 	if top_n is not None and len(label_map.values()) > top_n:
@@ -349,14 +422,24 @@ def draw_bipartite_by_color(
 				ciuo_groups[lbl] = color
 
 	def _make_handles(groups, marker_shape='o'):
+		ms = float(legend_marker_size) if legend_marker_size is not None else 11.0
 		return [
-			plt.Line2D([0], [0], marker=marker_shape, color='w', markerfacecolor=c, markersize=8, label=textwrap.fill(lbl, 28), linestyle='')
+			plt.Line2D(
+				[0],
+				[0],
+				marker=marker_shape,
+				color='w',
+				markerfacecolor=c,
+				markersize=ms,
+				label=textwrap.fill(lbl, 28),
+				linestyle='',
+			)
 			for lbl, c in sorted(groups.items())
 		]
 
 	if caes_groups:
 		leg_l = plt.legend(
-			handles=_make_handles(caes_groups, marker_shape='P'),
+			handles=_make_handles(caes_groups, marker_shape='^'),
 			title="Ramas de actividad (CAES)",
 			loc="upper left",
 			bbox_to_anchor=(0.0, 1.0),
@@ -441,6 +524,8 @@ def draw_bipartite_normal_layout_by_color(
 		graph.edges(),
 		key=lambda e: pos[e[1]][1],   # sort by target y → reduces colour mixing
 	)
+	weights = [graph[u][v].get("weight", 1.0) for u, v in edges_sorted]
+	max_weight = max(weights) if weights else 0.0
 	for u, v in edges_sorted:
 		start, end = pos[u], pos[v]
 		mx = 0.0  # midpoint x → straight-line control gives S-curve
@@ -450,9 +535,13 @@ def draw_bipartite_normal_layout_by_color(
 			[start, ctrl1, ctrl2, end],
 			[path_cls.MOVETO, path_cls.CURVE4, path_cls.CURVE4, path_cls.CURVE4],
 		)
-		color = color_map.get(int(u), LIGTHGRAY)
+		color_u = color_map.get(int(u), LIGTHGRAY)
+		color_v = color_map.get(int(v), LIGTHGRAY)
+		w = graph[u][v].get("weight", 1.0)
+		alpha = _edge_alpha_from_weight(w, max_weight, alpha_max=edge_alpha)
+		edge_color = _edge_rgba_from_node_colors(color_u, color_v, alpha)
 		ax.add_patch(patches.PathPatch(
-			path, facecolor="none", edgecolor=color, lw=edge_lw, alpha=edge_alpha,
+			path, facecolor="none", edgecolor=edge_color, lw=edge_lw, alpha=1.0,
 		))
 
 	# Nodes
@@ -595,8 +684,8 @@ def plot_projection_by_group(
 	pos: dict = None,
 	rotate: bool = False,
 	method: str = "auto",
-	edge_alpha: float = 0.8,
-	node_alpha: float = 0.7,
+	edge_alpha: float = 0.1,
+	node_alpha: float = 0.5,
 	) -> dict:
 	"""
 	Plot the graph with nodes colored by their group.
@@ -636,6 +725,7 @@ def plot_projection_by_group(
 
 	# Prepare node colors and sizes
 	node_colors = [group_color_map.get(group_map.get(node), LIGTHGRAY) for node in graph.nodes()]
+	node_color_by_node = {node: group_color_map.get(group_map.get(node), LIGTHGRAY) for node in graph.nodes()}
 	if node_size_map is not None:
 		raw_sizes = [node_size_map.get(node, 1) for node in graph.nodes()]
 	else:
@@ -643,13 +733,15 @@ def plot_projection_by_group(
 
 	node_sizes = [np.power(s, node_size_exponent) * factor_node_size for s in raw_sizes]
 
-	# Prepare edge widths
-	if graph.number_of_edges() > 0:
+	# Prepare edge widths and alphas
+	edges = list(graph.edges())
+	if len(edges) > 0:
 		edge_data = next(iter(graph.edges(data=True)))[-1]
 		if "weight" in edge_data:
-			weights = [graph[u][v].get("weight", 1) for u, v in graph.edges()]
-			max_weight = max(weights) if max(weights) > 0 else 1
+			weights = [graph[u][v].get("weight", 1.0) for u, v in edges]
+			max_weight = max(weights) if max(weights) > 0 else 1.0
 			edge_widths = [0.1 + 1.9 * (w / max_weight) for w in weights]
+			edge_alphas = [_edge_alpha_from_weight(w, max_weight, alpha_max=edge_alpha) for w in weights]
 		else:
 			edge_widths = 0.3
 	else:
@@ -658,7 +750,18 @@ def plot_projection_by_group(
 	# Plotting
 	plt.figure(figsize=figsize)
 	nx.draw_networkx_nodes(graph, pos, node_color=node_colors, node_size=node_sizes, alpha=node_alpha)
-	nx.draw_networkx_edges(graph, pos, edge_color="lightgray", width=edge_widths, alpha=edge_alpha)
+	if len(edges) > 0:
+		if isinstance(edge_alphas, list):
+			edge_colors = [
+				_edge_rgba_from_node_colors(node_color_by_node[u], node_color_by_node[v], a)
+				for (u, v), a in zip(edges, edge_alphas)
+			]
+		else:
+			edge_colors = [
+				_edge_rgba_from_node_colors(node_color_by_node[u], node_color_by_node[v], edge_alphas)
+				for u, v in edges
+			]
+		nx.draw_networkx_edges(graph, pos, edgelist=edges, edge_color=edge_colors, width=edge_widths, alpha=edge_alpha)
 
 	# Create legend
 	label_fn = legend_label_fmt or (lambda g: g)
@@ -692,8 +795,8 @@ def plot_projection_gradient(
 	vmin: float = None,
 	vmax: float = None,
 	node_size_exponent: float = 1.0,
-	edge_alpha: float = 0.8,
-	node_alpha: float = 0.7):
+	edge_alpha: float = 0.1,
+	node_alpha: float = 0.5):
 	"""Plot the projection network with nodes colored by a continuous scalar gradient.
 
 	Parameters:
@@ -727,6 +830,7 @@ def plot_projection_gradient(
 		colormap(norm(v)) if np.isfinite(v) else "lightgray"
 		for v in values
 	]
+	node_color_by_node = {n: c for n, c in zip(nodes, node_colors)}
 	if node_size_map is not None:
 		raw_sizes = [node_size_map.get(n, 1) for n in nodes]
 	else:
@@ -737,13 +841,15 @@ def plot_projection_gradient(
 	subgraph = graph.subgraph(nodes)
 	subpos = {n: pos[n] for n in nodes}
 
-	# Prepare edge widths for subgraph
-	if subgraph.number_of_edges() > 0:
+	# Prepare edge widths and alphas for subgraph
+	edges = list(subgraph.edges())
+	if len(edges) > 0:
 		edge_data = next(iter(subgraph.edges(data=True)))[-1]
 		if "weight" in edge_data:
-			weights = [subgraph[u][v].get("weight", 1) for u, v in subgraph.edges()]
-			max_weight = max(weights) if max(weights) > 0 else 1
+			weights = [subgraph[u][v].get("weight", 1.0) for u, v in edges]
+			max_weight = max(weights) if max(weights) > 0 else 1.0
 			edge_widths = [0.1 + 1.9 * (w / max_weight) for w in weights]
+			edge_alphas = [_edge_alpha_from_weight(w, max_weight, alpha_max=edge_alpha) for w in weights]
 		else:
 			edge_widths = 0.3
 	else:
@@ -751,7 +857,26 @@ def plot_projection_gradient(
 
 	fig, ax = plt.subplots(figsize=figsize)
 	nx.draw_networkx_nodes(subgraph, subpos, ax=ax, node_color=node_colors, node_size=node_sizes, alpha=node_alpha)
-	nx.draw_networkx_edges(subgraph, subpos, ax=ax, edge_color="lightgray", width=edge_widths, alpha=edge_alpha)
+	if len(edges) > 0:
+		if isinstance(edge_alphas, list):
+			edge_colors = [
+				_edge_rgba_from_node_colors(
+					node_color_by_node.get(u, "lightgray"),
+					node_color_by_node.get(v, "lightgray"),
+					a,
+				)
+				for (u, v), a in zip(edges, edge_alphas)
+			]
+		else:
+			edge_colors = [
+				_edge_rgba_from_node_colors(
+					node_color_by_node.get(u, "lightgray"),
+					node_color_by_node.get(v, "lightgray"),
+					edge_alphas,
+				)
+				for u, v in edges
+			]
+		nx.draw_networkx_edges(subgraph, subpos, ax=ax, edgelist=edges, edge_color=edge_colors, width=edge_widths, alpha=edge_alpha)
 
 	sm = plt.cm.ScalarMappable(cmap=colormap, norm=norm)
 	sm.set_array([])
@@ -1108,7 +1233,10 @@ def compute_and_plot_edge_correlation(
 	output_path: Path,
 	community_map: dict = None,
 	highlight_communities: Iterable[int] = None,
+	node_size_map: dict = None,
 	legend_label_fmt=None,
+	factor_node_size: float = 1.0,
+	node_size_exponent: float = 1.0,
 	save: bool = True,
 	perfect_line: bool = True,
 	figsize: tuple = (9, 8),
@@ -1150,6 +1278,7 @@ def compute_and_plot_edge_correlation(
 		return
 
 	highlight_set = set(highlight_communities) if highlight_communities else None
+	raw_node_sizes = node_size_map or {}
 
 	def _node_color(node_id: int) -> str:
 		if highlight_set and community_map is not None:
@@ -1161,9 +1290,21 @@ def compute_and_plot_edge_correlation(
 
 	# Plot
 	plt.figure(figsize=figsize)
+	node_sizes = [
+		float(np.power(max(raw_node_sizes.get(u, 1.0), 0.0), node_size_exponent) * factor_node_size)
+		for u in plotted_nodes
+	]
 	
 	# Scatter plot of node feature vs average neighbor feature, colored by community
-	sns.scatterplot(x=x_vals, y=y_vals, alpha=0.8, c=[_node_color(u) for u in plotted_nodes])
+	sns.scatterplot(
+		x=x_vals,
+		y=y_vals,
+		s=node_sizes,
+		alpha=0.7,
+		c=[_node_color(u) for u in plotted_nodes],
+		edgecolor="white",
+		linewidth=0.5,
+	)
 	if perfect_line:
 		plt.plot([0, 100], [0, 100], "k--", label="y=x (Asortatividad perfecta)", alpha=0.5)
 	

@@ -96,7 +96,7 @@ pip install -r requirements.txt
 
 2. **Run the complete analysis pipeline**:
 	```bash
-	python run_all_scripts.py
+	python -m run_all_scripts.py
 	```
 
 3. **Run individual analysis scripts** (optional):

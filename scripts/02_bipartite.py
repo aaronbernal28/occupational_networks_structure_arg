@@ -35,6 +35,11 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 		ciuo_partition=CIUO_PARTITION,
 	)
 
+	# Node sizes proportional to absolute workers from processed node lists.
+	caes_worker_counts = nodelist_caes_df["n_obs"].to_dict()
+	ciuo_worker_counts = nodelist_ciuo_df["n_obs"].to_dict()
+	node_size_map_workers = {**caes_worker_counts, **ciuo_worker_counts}
+
 	caes_nodes = [
 		node
 		for node in bipartite_graph.nodes
@@ -105,6 +110,9 @@ def main(enes_df=None, nodelist_caes_df=None, nodelist_ciuo_df=None):
 		save=True,
 		figsize=cfg.BIPARTITE_FIGSIZE,
 		font_size=cfg.PLOT_FONT_SIZE,
+		node_size_map=node_size_map_workers,
+		factor_node_size=0.6,
+		node_size_exponent=0.8,
 	)
 	print(f"Saved bipartite groups layout to {colored_output}")
 

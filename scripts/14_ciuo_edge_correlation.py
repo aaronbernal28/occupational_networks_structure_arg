@@ -20,12 +20,13 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 	if ciuo_id in nodelist_ciuo_df.columns:
 		nodelist_ciuo_df = nodelist_ciuo_df.set_index(ciuo_id)
 
-	missing_cols = [col for col in ["female_pct", "community"] if col not in nodelist_ciuo_df.columns]
+	missing_cols = [col for col in ["female_pct", "community", "n_obs"] if col not in nodelist_ciuo_df.columns]
 	if missing_cols:
 		raise KeyError(f"Missing required columns in nodelist_ciuo_df: {missing_cols}")
 
 	feature_map = nodelist_ciuo_df["female_pct"].to_dict()
 	community_map = nodelist_ciuo_df["community"].to_dict()
+	ciuo_worker_counts = nodelist_ciuo_df["n_obs"].to_dict()
 	color_map = {
 		k: cfg.COMMUNITY_COLORS_PALETTE[int(v) % len(cfg.COMMUNITY_COLORS_PALETTE)] if v >= 0 else "gray"
 		for k, v in community_map.items()
@@ -53,11 +54,14 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		feature_map=feature_map,
 		color_map=color_map,
 		community_map=community_map,
-		highlight_communities=[2, 7],
+		highlight_communities=[0, 2, 6, 7],
+		node_size_map=ciuo_worker_counts,
 		title=None, 
 		output_path=cfg.IMAGE_DIR / "14_ciuo_edge_correlation.png", 
 		save=True,
 		perfect_line=False,
+		factor_node_size=1.2,
+		node_size_exponent=0.8,
 		figsize=cfg.EDGE_CORRELATION_FIGSIZE,
 		font_size=cfg.PLOT_FONT_SIZE,
 	)

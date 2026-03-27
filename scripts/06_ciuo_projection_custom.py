@@ -8,6 +8,10 @@ import src.node_characteristics as nc
 import src.plotting as pl
 import src.utils as utils
 
+FACTOR_NODE_SIZE = 0.6
+NODE_SIZE_EXPONENT = 0.8
+EDGE_ALPHA = 0.1
+NODE_ALPHA = 0.7
 
 def main(enes_df=None, nodelist_ciuo_df=None):
 	caes_id = cfg.DATA_ENES_PISAC["col_caes_id"]
@@ -57,6 +61,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		raise KeyError(f"Missing '{color_col}' column in CIUO node list.")
 	
 	group_color_map = nodelist_ciuo_df.groupby(group_col)[color_col].first().apply(utils.parse_color).to_dict()
+	
+	ciuo_worker_counts = nodelist_ciuo_df["n_obs"].to_dict()
 
 	cfg.IMAGE_DIR.mkdir(parents=True, exist_ok=True)
 	output = cfg.IMAGE_DIR / "06_custom_ciuo_projection_by_group.png"
@@ -72,8 +78,11 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		output_path=output,
 		save=True,
 		method="energy",
-		factor_node_size=0.5,
-		node_size_exponent=0.9,
+		node_size_map=ciuo_worker_counts,
+		factor_node_size=FACTOR_NODE_SIZE,
+		node_size_exponent=NODE_SIZE_EXPONENT,
+		edge_alpha=EDGE_ALPHA,
+		node_alpha=NODE_ALPHA,
 	)
 	nodelist_ciuo_df = dl.insert_positions(nodelist_ciuo_df, pos)
 	dl.export_processed(nodelist_ciuo_df, cfg.DATA_PROCESSED_PATH, "nodelist_ciuo")
@@ -101,8 +110,11 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		save=True,
 		legend_label_fmt=lambda g: f"C{g}",
 		pos=pos,
-		factor_node_size=0.5,
-		node_size_exponent=0.9,
+		node_size_map=ciuo_worker_counts,
+		factor_node_size=FACTOR_NODE_SIZE,
+		node_size_exponent=NODE_SIZE_EXPONENT,
+		edge_alpha=EDGE_ALPHA,
+		node_alpha=NODE_ALPHA,
 	)
 	print(f"Saved CIUO Louvain communities to {community_output}")
 	nodelist_ciuo_df["community"] = nodelist_ciuo_df.index.map(communities_ciuo).fillna(-1).astype(int)
@@ -155,8 +167,11 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		font_size=cfg.PLOT_FONT_SIZE,
 		output_path=female_output,
 		save=True,
-		factor_node_size=0.5,
-		node_size_exponent=0.9,
+		node_size_map=ciuo_worker_counts,
+		factor_node_size=FACTOR_NODE_SIZE,
+		node_size_exponent=NODE_SIZE_EXPONENT,
+		edge_alpha=EDGE_ALPHA,
+		node_alpha=NODE_ALPHA,
 	)
 	print(f"Saved CIUO female-pct gradient to {female_output}")
 
@@ -172,8 +187,11 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		font_size=cfg.PLOT_FONT_SIZE,
 		output_path=age_output,
 		save=True,
-		factor_node_size=0.5,
-		node_size_exponent=0.9,
+		node_size_map=ciuo_worker_counts,
+		factor_node_size=FACTOR_NODE_SIZE,
+		node_size_exponent=NODE_SIZE_EXPONENT,
+		edge_alpha=EDGE_ALPHA,
+		node_alpha=NODE_ALPHA,
 	)
 	print(f"Saved CIUO age-mean gradient to {age_output}")
 	
@@ -190,8 +208,11 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 			font_size=cfg.PLOT_FONT_SIZE,
 			output_path=pub_sector_output,
 			save=True,
-			factor_node_size=0.5,
-			node_size_exponent=0.9,
+			node_size_map=ciuo_worker_counts,
+			factor_node_size=FACTOR_NODE_SIZE,
+			node_size_exponent=NODE_SIZE_EXPONENT,
+			edge_alpha=EDGE_ALPHA,
+			node_alpha=NODE_ALPHA,
 		)
 		print(f"Saved CIUO public-sector-pct gradient to {pub_sector_output}")
 

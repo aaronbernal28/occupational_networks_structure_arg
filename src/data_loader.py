@@ -151,7 +151,11 @@ def load_dataset(
 			if extra_enes_data.get("source") is None and extra_enes_data.get("url") is None:
 				continue
 
-			extra_df = get_dataset(extra_enes_data)
+			try:
+				extra_df = get_dataset(extra_enes_data)
+			except Exception as e:
+				print(f"Failed to load extra ENES dataset from {extra_enes_data.get('source') or extra_enes_data.get('url')}: {e}")
+				continue
 
 			# Build column rename mapping
 			rename_mapping = {
@@ -160,17 +164,12 @@ def load_dataset(
 			}
 
 			# Add optional columns if they exist
-			extra_sex = extra_enes_data.get("col_sex_id")
-			if extra_sex and extra_sex in extra_df.columns:
-				rename_mapping[extra_sex] = sex_col
-
-			extra_public = extra_enes_data.get("col_public_worker")
-			if extra_public and extra_public in extra_df.columns:
-				rename_mapping[extra_public] = public_col
-
-			extra_income = extra_enes_data.get("col_total_income")
-			if extra_income and extra_income in extra_df.columns:
-				rename_mapping[extra_income] = income_col
+			for extra_col_key in ["col_sex_id", "col_public_worker", "col_total_income"]:
+				extra_col = extra_enes_data.get(extra_col_key)
+				if extra_col and extra_col in extra_df.columns:
+					rename_mapping[extra_col] = enes_config[extra_col_key]
+				else:
+					print(f"Warning: Extra ENES dataset is missing expected column '{extra_enes_data.get(extra_col_key)}' for '{extra_col_key}'.")
 
 			extra_df = extra_df.rename(columns=rename_mapping)
 			extra_df["encuesta"] = extra_enes_data.get("year", "extra")
