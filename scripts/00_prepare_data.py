@@ -40,7 +40,7 @@ def main():
 			figsize=cfg.TOP_N_BAR_FIGSIZE,
 			font_size=cfg.PLOT_FONT_SIZE,
 			output_path=cfg.IMAGE_DIR / "00_top_caes_workers.png",
-			top_n=15,
+			top_n=10,
 			save=True,
 		)
 
@@ -55,7 +55,7 @@ def main():
 			figsize=cfg.TOP_N_BAR_FIGSIZE,
 			font_size=cfg.PLOT_FONT_SIZE,
 			output_path=cfg.IMAGE_DIR / "00_top_ciuo_workers.png",
-			top_n=15,
+			top_n=10,
 			save=True,
 		)
 

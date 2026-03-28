@@ -55,7 +55,7 @@ MAX_CAES_ID = 10000  # Threshold to disambiguate CAES and CIUO IDs
 
 IMAGE_DIR = Path(__file__).parent / Path("images")
 
-TOP_N_BAR_FIGSIZE = (8, 6)
+TOP_N_BAR_FIGSIZE = (6, 4)
 EDGE_CORRELATION_FIGSIZE = (6, 6)
 BIPARTITE_FIGSIZE = (20, 6)
 PROJECTION_FIGSIZE = (8, 8)
