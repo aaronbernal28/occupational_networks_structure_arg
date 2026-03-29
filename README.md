@@ -1,4 +1,4 @@
-# Occupational Networks: Structure and Gender Gap.
+# Occupational Networks: Labor Market Structure and Gender Gap in Argentina
 
 ### Authors
 * **Joaquín Carrascosa** ¹
@@ -21,9 +21,11 @@
 
 ## General Description
 
-This work analyzes the structure of the Argentine labor market through a complex networks approach that links occupations (CIUO-08) and branches of economic activity (CAES 1.0). Using microdata from the ENES (2019) and ESAyPP (2021) surveys, we build a high-resolution bipartite network and its corresponding unipartite projections to uncover interdependence patterns not visible with traditional methods. The results reveal a modular organization where industrial sectors and social services occupy differentiated regions of the network, while commerce acts as a bridge node that connects both spaces.
+This paper analyzes the structure of the Argentine labor market using a complex networks approach that links occupations (ISCO-08) and economic sectors (CAES 1.0). Using microdata from the ENES (2019) and ESAyPP (2021) surveys, we construct a high-resolution bipartite network and its corresponding one-mode projections to uncover patterns of interdependence that are not visible through traditional methods.
 
-In the occupational network, we observe a marked segmentation between manual and non-manual occupations, along with the presence of transversal occupations that connect multiple economic sectors. A central finding is that gender segregation has a topological correlate: occupations with similar gender compositions tend to cluster in the network (homophily), indicating that inequality is written into the relational structure of the labor market. These results show the potential of network analysis to understand the structural organization of the labor market and its patterns of segmentation.
+The results reveal a modular organization in which industrial activities and social services occupy distinct regions of the network, while commerce acts as a bridging node connecting both spaces. In the occupational network, we observe a clear segmentation between manual and non-manual occupations, together with the presence of transversal occupations that connect multiple economic sectors.
+
+A central finding is that gender segregation has a topological counterpart: occupations with similar gender composition tend to cluster in the network (homophily), indicating that inequality is embedded in the relational structure of the labor market. These results highlight the potential of network analysis to better understand the structural organization of labor markets and their patterns of segmentation.
 
 ## Project Structure
 

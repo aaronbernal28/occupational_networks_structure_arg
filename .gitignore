@@ -223,3 +223,4 @@ data/raw/metadata_base_enespersonas.csv
 main.*
 !main.tex
 images_new/
+data/raw/base_enespersonas.csv
