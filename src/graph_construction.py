@@ -43,6 +43,30 @@ def build_bipartite_graph(
 	return graph
 
 
+def build_biadjacency(
+	enes_df: pd.DataFrame,
+	caes_col: str,
+	ciuo_col: str,
+	logscale: bool = False,
+	rownames=None,
+	colnames=None,
+) -> pd.DataFrame:
+	"""Return the CAES-by-CIUO biadjacency matrix (counts)."""
+	matrix = pd.crosstab(enes_df[caes_col], enes_df[ciuo_col])
+	
+	# Reindex to include all specified row/column names if provided
+	if rownames is not None:
+		matrix = matrix.reindex(index=rownames, fill_value=0)
+	if colnames is not None:
+		matrix = matrix.reindex(columns=colnames, fill_value=0)
+	
+	matrix = np.log1p(matrix) if logscale else matrix
+
+	if type(matrix) is not pd.DataFrame:
+		raise ValueError("Biadjacency matrix construction failed; result is not a DataFrame.")
+	return matrix
+
+
 def generic_weighted_projected_graph(graph: nx.Graph, target_partition: int, weight_function = None) -> nx.Graph:
 	"""Weighted projection onto a bipartite partition using a custom weight function."""
 	nodes = [node for node in graph.nodes if graph.nodes[node].get("bipartite") == target_partition]

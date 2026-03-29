@@ -92,6 +92,27 @@ def load_nodelist_ciuo(
 
 def merge_enes_with_metadata(enes_df: pd.DataFrame, caes_df: pd.DataFrame, ciuo_df: pd.DataFrame, caes_id: str, ciuo_id: str) -> pd.DataFrame:
 	"""Attach CAES and CIUO labels to the ENES responses."""
+	missing_caes = sorted(set(enes_df[caes_id].unique()) - set(caes_df.index))
+	missing_ciuo = sorted(set(enes_df[ciuo_id].unique()) - set(ciuo_df.index))
+	if missing_caes or missing_ciuo:
+		dropped_mask = enes_df[caes_id].isin(missing_caes) | enes_df[ciuo_id].isin(missing_ciuo)
+		dropped_rows = int(dropped_mask.sum())
+		if missing_caes:
+			preview = ", ".join(str(code) for code in missing_caes[:20])
+			print(
+				"Warning: CAES codes missing from node list. "
+				f"Missing count={len(missing_caes)}, preview=[{preview}]"
+			)
+		if missing_ciuo:
+			preview = ", ".join(str(code) for code in missing_ciuo[:20])
+			print(
+				"Warning: CIUO codes missing from node list. "
+				f"Missing count={len(missing_ciuo)}, preview=[{preview}]"
+			)
+		print(
+			"Warning: Rows dropped by metadata merge. "
+			f"Dropped rows={dropped_rows}"
+		)
 	merged = enes_df.merge(caes_df, left_on=caes_id, right_index=True, how="inner")
 	merged = merged.merge(ciuo_df, left_on=ciuo_id, right_index=True, how="inner")
 	return merged
