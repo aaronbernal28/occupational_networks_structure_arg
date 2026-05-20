@@ -5,6 +5,7 @@
 * **Aaron Bernal Huanca** ²
 * **Viktoriya Semeshenko** ³
 * **Carlos Sarraute** ⁴
+* **Ariel Salgadoz** ^5
 
 ### Affiliations
 1. **CONICET - Universidad de Buenos Aires** Instituto de Investigaciones Gino Germani (IIGG-UBA)  
@@ -16,6 +17,7 @@
 
 4. **Disruptive Research Institute** Email: [csarraute@disruptiveresearch.org](mailto:csarraute@disruptiveresearch.org)
 
+5. **Instituto Tecnológico de Buenos Aires (ITBA)** Email: [asalgadoz@itba.edu.ar](mailto:asalgadoz@itba.edu.ar)
 
 **Subject:** Social Network Science
 

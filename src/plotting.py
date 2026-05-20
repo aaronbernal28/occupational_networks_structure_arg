@@ -440,7 +440,7 @@ def draw_bipartite_by_color(
 	if caes_groups:
 		leg_l = plt.legend(
 			handles=_make_handles(caes_groups, marker_shape='^'),
-			title="Ramas de actividad (CAES)",
+			title="Industries (CAES)",
 			loc="upper left",
 			bbox_to_anchor=(0.0, 1.0),
 			fontsize=max(font_size - 1, 6), title_fontsize=font_size,
@@ -452,7 +452,7 @@ def draw_bipartite_by_color(
 	if ciuo_groups:
 		plt.legend(
 			handles=_make_handles(ciuo_groups, marker_shape='o'),
-			title="Ocupaciones (CIUO)",
+			title="Occupations (ISCO)",
 			loc="upper right",
 			bbox_to_anchor=(1.0, 1.0),
 			fontsize=max(font_size - 1, 6), title_fontsize=font_size,
@@ -574,7 +574,7 @@ def draw_bipartite_normal_layout_by_color(
 	if caes_groups:
 		leg_l = ax.legend(
 			handles=_make_handles(caes_groups),
-			title="Ramas economicas\n(CAES)",
+			title="Industries\n(CAES)",
 			loc="upper left",
 			bbox_to_anchor=(0.0, 1.0),
 			fontsize=8.5, title_fontsize=8.5,
@@ -586,7 +586,7 @@ def draw_bipartite_normal_layout_by_color(
 	if ciuo_groups:
 		ax.legend(
 			handles=_make_handles(ciuo_groups),
-			title="Ocupaciones\n(CIUO)",
+			title="Occupations\n(ISCO)",
 			loc="upper right",
 			bbox_to_anchor=(1.0, 1.0),
 			fontsize=8.5, title_fontsize=8.5,
@@ -924,7 +924,7 @@ def plot_stacked_by_group(
 	else:
 		ax = ct.plot(kind='barh', stacked=True, figsize=figsize, width=0.8)
 
-	ax.set_xlabel('Porcentaje (%)' if percentage else 'Conteo', fontsize=font_size)
+	ax.set_xlabel('Percentage (%)' if percentage else 'Occupations', fontsize=font_size)
 	ax.set_title(title, fontsize=font_size + 1)
 	ax.tick_params(axis='both', labelsize=font_size - 1)
 	ax.set_xlim(0, 100 if percentage else None)
