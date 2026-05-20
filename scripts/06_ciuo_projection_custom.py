@@ -12,6 +12,7 @@ FACTOR_NODE_SIZE = 0.6
 NODE_SIZE_EXPONENT = 0.8
 EDGE_ALPHA = 0.1
 NODE_ALPHA = 0.7
+JAMA_PALETTE = ["#374E55", "#DF8F44", "#00A1D5", "#B24745", "#79AF97", "#6A6599", "#80796B", "#05897B", "#5C068C","#333333"]
 
 def main(enes_df=None, nodelist_ciuo_df=None):
 	caes_id = cfg.DATA_ENES_PISAC["col_caes_id"]
@@ -19,7 +20,6 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 	ciuo_3cat = cfg.DATA_NODELIST_CIUO["col_3cat"]
 	ciuo_3cat_color = cfg.DATA_NODELIST_CIUO["col_3cat_color"]
 	ciuo_letra = cfg.DATA_NODELIST_CIUO["col_letra"]
-	ciuo_letra_color = cfg.DATA_NODELIST_CIUO["col_letra_color"]
 
 	enes_path = cfg.DATA_PROCESSED_PATH / "base_enespersonas.csv"
 	ciuo_nodelist_path = cfg.DATA_PROCESSED_PATH / "nodelist_ciuo.csv"
@@ -127,13 +127,6 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 
 	group_map = nodelist_ciuo_df[group_col].to_dict()
 
-	# Use color column from CSV file
-	color_col = ciuo_letra_color
-	if color_col not in nodelist_ciuo_df.columns:
-		raise KeyError(f"Missing '{color_col}' column in CIUO node list.")
-	
-	group_color_map = nodelist_ciuo_df.groupby(group_col)[color_col].first().apply(utils.parse_color).to_dict()
-	
 	stacked_output = cfg.IMAGE_DIR / "06_custom_ciuo_community_distribution.png"
 	pl.plot_stacked_by_group(
 		nodelist_ciuo_df,
@@ -141,12 +134,12 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		community_map=communities_ciuo,
 		title=None,
 		output_path=stacked_output,
-		group_color_map=group_color_map,
+		palette=JAMA_PALETTE,
 		legend_title="1D categories ISCO",
 		figsize=cfg.STACKED_FIGSIZE,
 		font_size=cfg.PLOT_FONT_SIZE,
 		save=True,
-		percentage=False
+		percentage=True,
 	)
 	print(f"Saved CIUO community distribution to {stacked_output}")
 

@@ -49,6 +49,7 @@ DATA_NODELIST_CIUO = {
     "col_label_color": "ciuolabel_color",
     "col_letra_color": "ciuo1diglabel_color",
     "col_3cat_color": "ciuo3cat_color",
+	"source_en": DATA_RAW_PATH / "ISCO.xlsx - ISCO_08.csv",
 }
 
 MAX_CAES_ID = 10000  # Threshold to disambiguate CAES and CIUO IDs

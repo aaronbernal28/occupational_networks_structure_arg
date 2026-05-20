@@ -893,6 +893,13 @@ def plot_projection_gradient(
 		plt.show()
 
 
+def _cycle_palette(palette: Iterable[str], n_colors: int) -> list:
+	colors = list(palette) if palette is not None else []
+	if not colors:
+		return []
+	return [colors[i % len(colors)] for i in range(n_colors)]
+
+
 def plot_stacked_by_group(
 	df_index: pd.DataFrame, 
 	group_col: str, 
@@ -904,7 +911,8 @@ def plot_stacked_by_group(
 	figsize: tuple = (16, 4),
 	font_size: int = 11,
 	save: bool = True,
-	percentage: bool = True) -> None:
+	percentage: bool = True,
+	palette: Iterable[str] = None) -> None:
 	"""Plot stacked bar chart showing distribution of groups within communities."""
 	df_index_copy = df_index.copy()
 	df_index_copy["community"] = df_index_copy.index.map(community_map)
@@ -920,6 +928,9 @@ def plot_stacked_by_group(
 	# Build color list matching the column order
 	if group_color_map:
 		colors = [group_color_map.get(col, 'gray') for col in ct.columns]
+		ax = ct.plot(kind='barh', stacked=True, figsize=figsize, width=0.8, color=colors)
+	elif palette:
+		colors = _cycle_palette(palette, len(ct.columns))
 		ax = ct.plot(kind='barh', stacked=True, figsize=figsize, width=0.8, color=colors)
 	else:
 		ax = ct.plot(kind='barh', stacked=True, figsize=figsize, width=0.8)

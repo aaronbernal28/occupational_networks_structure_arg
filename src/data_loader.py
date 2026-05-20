@@ -90,6 +90,38 @@ def load_nodelist_ciuo(
 	return ciuo_df
 
 
+def nodelist_translate_ciuo_labels(
+	ciuo_df: pd.DataFrame,
+	ciuo_es_path: Path,
+	max_caes_id: int,
+) -> pd.DataFrame:
+	"""Load CIUO node metadata and normalize labels."""
+	ciuo_es_df = pd.read_csv(ciuo_es_path)
+	try:
+		ciuo_es_df["unit"] = ciuo_es_df["unit"].astype(int)
+	except Exception:
+		print("Warning: 'unit' column in CIUO translation file could not be converted to int. Check the file format.")
+		return ciuo_df
+	
+	ciuo_es_df["unit"] = ciuo_es_df["unit"].apply(lambda x: ut.desambiated_ciuo_id(x, max_caes_id=max_caes_id))
+	ciuo_es_df = ciuo_es_df.set_index("unit")
+	columns = ciuo_df.columns.tolist()
+	
+	# Build mapping from original CIUO codes to English labels
+	ciuo_df = ciuo_df.merge(ciuo_es_df, left_index=True, right_index=True, how="left")
+
+	for col_old, col_new in zip(["ciuolabel"], ["description"]):
+		# Prioritize translated label if available, otherwise keep original
+		ciuo_df[col_old] = ciuo_df.apply(lambda row: row[col_new] if pd.notna(row[col_new]) else row[col_old], axis=1)
+	
+	ciuo_df["ciuo1diglabel"] = ciuo_df["major_label"]
+	
+	ciuo_df = ciuo_df[columns]  # Reorder to original columns
+	print("CIUO labels translated to English where available.")
+	print(ciuo_df.head())
+	return ciuo_df
+
+
 def merge_enes_with_metadata(enes_df: pd.DataFrame, caes_df: pd.DataFrame, ciuo_df: pd.DataFrame, caes_id: str, ciuo_id: str) -> pd.DataFrame:
 	"""Attach CAES and CIUO labels to the ENES responses."""
 	missing_caes = sorted(set(enes_df[caes_id].unique()) - set(caes_df.index))
@@ -224,6 +256,8 @@ def load_dataset(
 		ciuo_letra_color_col=ciuo_letra_color,
 		ciuo_3cat_color_col=ciuo_3cat_color,
 	)
+
+	ciuo_df = nodelist_translate_ciuo_labels(ciuo_df, Path(ciuo_config.get("source_en", "")), max_caes_id)
 
 	# Merge ENES with node metadata
 	enes = merge_enes_with_metadata(enes_df, caes_df, ciuo_df, caes_id, ciuo_id)
