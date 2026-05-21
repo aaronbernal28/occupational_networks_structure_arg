@@ -1,12 +1,12 @@
 import config as cfg
 import networkx as nx
 import pandas as pd
+import seaborn as sns
 import src.communities as comm
 import src.data_loader as dl
 import src.graph_construction as gc
 import src.node_characteristics as nc
 import src.plotting as pl
-import src.utils as utils
 
 FACTOR_NODE_SIZE = 0.6
 NODE_SIZE_EXPONENT = 0.8
@@ -18,7 +18,6 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 	caes_id = cfg.DATA_ENES_PISAC["col_caes_id"]
 	ciuo_id = cfg.DATA_ENES_PISAC["col_ciuo_id"]
 	ciuo_3cat = cfg.DATA_NODELIST_CIUO["col_3cat"]
-	ciuo_3cat_color = cfg.DATA_NODELIST_CIUO["col_3cat_color"]
 	ciuo_letra = cfg.DATA_NODELIST_CIUO["col_letra"]
 
 	enes_path = cfg.DATA_PROCESSED_PATH / "base_enespersonas.csv"
@@ -54,13 +53,20 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		raise KeyError(f"Missing '{group_col}' column in CIUO node list.")
 
 	group_map = nodelist_ciuo_df[group_col].to_dict()
-	
-	# Use color column from CSV file
-	color_col = ciuo_3cat_color
-	if color_col not in nodelist_ciuo_df.columns:
-		raise KeyError(f"Missing '{color_col}' column in CIUO node list.")
-	
-	group_color_map = nodelist_ciuo_df.groupby(group_col)[color_col].first().apply(utils.parse_color).to_dict()
+
+	# Custom palette for the CIUO 3-category projection
+	palette_tail = sns.color_palette()[-3:]
+	group_labels = sorted(set(group_map.values()))
+	blue_label = "Blue-collar worker"
+	group_color_map = {}
+	if blue_label in group_labels:
+		group_color_map[blue_label] = "blue"
+		group_labels = [label for label in group_labels if label != blue_label]
+	for idx, label in enumerate(group_labels):
+		if idx < len(palette_tail):
+			group_color_map[label] = palette_tail[idx]
+		else:
+			group_color_map[label] = palette_tail[-1]
 	
 	ciuo_worker_counts = nodelist_ciuo_df["n_obs"].to_dict()
 
@@ -77,6 +83,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		font_size=cfg.PLOT_FONT_SIZE,
 		output_path=output,
 		save=True,
+		legend_loc="center left",
+		legend_bbox_to_anchor=(0.7, 0.5),
 		method="energy",
 		node_size_map=ciuo_worker_counts,
 		factor_node_size=FACTOR_NODE_SIZE,
@@ -109,6 +117,8 @@ def main(enes_df=None, nodelist_ciuo_df=None):
 		output_path=community_output,
 		save=True,
 		legend_label_fmt=lambda g: f"C{g}",
+		legend_loc="center right",
+		legend_bbox_to_anchor=(1.22, 0.5),
 		pos=pos,
 		node_size_map=ciuo_worker_counts,
 		factor_node_size=FACTOR_NODE_SIZE,

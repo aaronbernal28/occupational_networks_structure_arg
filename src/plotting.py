@@ -676,6 +676,8 @@ def plot_projection_by_group(
 	seed: int = 42,
 	save: bool = True,
 	legend_label_fmt=None,
+	legend_loc: str = "best",
+	legend_bbox_to_anchor: tuple = None,
 	spring_layout_iterations: int = 1000,
 	spring_layout_k: float = None,
 	factor_node_size: int = 0.5,
@@ -768,7 +770,15 @@ def plot_projection_by_group(
 	for group, color in group_color_map.items():
 		plt.scatter([], [], color=color, label=label_fn(group))
 
-	plt.legend(title=legend_title, fontsize=max(font_size - 2, 6), title_fontsize=font_size, loc='best', borderaxespad=4.0, framealpha=0.7)
+	plt.legend(
+		title=legend_title,
+		fontsize=max(font_size - 2, 6),
+		title_fontsize=font_size,
+		loc=legend_loc,
+		bbox_to_anchor=legend_bbox_to_anchor,
+		borderaxespad=4.0,
+		framealpha=0.7,
+	)
 	plt.title(title, fontsize=font_size + 1)
 	plt.axis("off")
 	if save:

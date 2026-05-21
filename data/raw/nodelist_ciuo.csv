@@ -1,594 +1,594 @@
 v183ciuo,ciuolabel,ciuo1diglabel,ciuo3cat
-0,Oc. Militares,0. Oc. militares,3. White-collar Workers
-1,Of. FF.AA.,0. Oc. militares,3. White-collar Workers
-2,Suboficiales FF.AA.,0. Oc. militares,3. White-collar Workers
-3,Miemb. FF.AA n/c,0. Oc. militares,3. White-collar Workers
-11,Of. FF.AA.,0. Oc. militares,1. White-collar Workers
-21,Suboficiales FF.AA.,0. Oc. militares,3. White-collar Workers
-31,Miemb. FF.AA n/c,0. Oc. militares,3. White-collar Workers
-110,Of. FF.AA.,0. Oc. militares,1. White-collar Workers
-210,Suboficiales FF.AA.,0. Oc. militares,3. White-collar Workers
-310,Miemb. FF.AA n/c,0. Oc. militares,3. White-collar Workers
-1000,Dir. Y Ger.,1. Gerentes y directivos,1. White-collar Workers
-1100,Dir. Admin. Pública,1. Gerentes y directivos,1. White-collar Workers
-1110,Miemb. Poder judicial,1. Gerentes y directivos,1. White-collar Workers
-1111,Miemb. Poder legislativo,1. Gerentes y directivos,1. White-collar Workers
-1112,Direct. Adm. Pública,1. Gerentes y directivos,1. White-collar Workers
-1113,Jefes de pequeñas poblaciones,1. Gerentes y directivos,1. White-collar Workers
-1114,Dir. Org. Interés especial,1. Gerentes y directivos,1. White-collar Workers
-1120,Ger. Generales,1. Gerentes y directivos,1. White-collar Workers
-1200,Dir. adm. y com.,1. Gerentes y directivos,1. White-collar Workers
-1210,Dir. adm. y serv.,1. Gerentes y directivos,1. White-collar Workers
-1211,Dir. Financieros,1. Gerentes y directivos,1. White-collar Workers
-1212,Dir. RR.HH.,1. Gerentes y directivos,1. White-collar Workers
-1213,Dir. Pol. y planificación,1. Gerentes y directivos,1. White-collar Workers
-1219,Dir. Servicios n/c,1. Gerentes y directivos,1. White-collar Workers
-1220,Dir. Ventas y com,1. Gerentes y directivos,1. White-collar Workers
-1221,Dir. Ventas y com,1. Gerentes y directivos,1. White-collar Workers
-1222,Dir. Publicidad y rel públicas,1. Gerentes y directivos,1. White-collar Workers
-1223,Dir R&D,1. Gerentes y directivos,1. White-collar Workers
-1300,Dir. Producción,1. Gerentes y directivos,1. White-collar Workers
-1310,Dir. Prod agropecuaria,1. Gerentes y directivos,1. White-collar Workers
-1311,Dir. Prod agropecuaria,1. Gerentes y directivos,1. White-collar Workers
-1312,Dir. Prod pisicultura,1. Gerentes y directivos,1. White-collar Workers
-1320,"Dir. Ind manufacturera, minería",1. Gerentes y directivos,1. White-collar Workers
-1321,Dir. Ind manufacturera,1. Gerentes y directivos,1. White-collar Workers
-1322,Dir. minería,1. Gerentes y directivos,1. White-collar Workers
-1323,Dir. emp. construcción,1. Gerentes y directivos,1. White-collar Workers
-1324,"Dir. emp. abastecimiento, distribución y afines",1. Gerentes y directivos,1. White-collar Workers
-1330,Dir. serv. IT,1. Gerentes y directivos,1. White-collar Workers
-1340,Dir. serv. profesionales,1. Gerentes y directivos,1. White-collar Workers
-1341,Dir. Cuidados infantiles,1. Gerentes y directivos,1. White-collar Workers
-1342,Dir. serv. salud,1. Gerentes y directivos,1. White-collar Workers
-1343,Dir. Cuid. Pers edad.,1. Gerentes y directivos,1. White-collar Workers
-1344,Dir. bienestar social,1. Gerentes y directivos,1. White-collar Workers
-1345,Dir. Serv. Educación,1. Gerentes y directivos,1. White-collar Workers
-1346,Ger bancos y serv financieros,1. Gerentes y directivos,1. White-collar Workers
-1349,Dir. serv. profesionales,1. Gerentes y directivos,1. White-collar Workers
-1400,Ger. Hoteles y restaurantes,1. Gerentes y directivos,1. White-collar Workers
-1410,Ger. hot. y rest.,1. Gerentes y directivos,1. White-collar Workers
-1411,Ger. Hoteles,1. Gerentes y directivos,1. White-collar Workers
-1412,Ger. Restaurantes,1. Gerentes y directivos,1. White-collar Workers
-1420,Ger. Com. Por mayor,1. Gerentes y directivos,1. White-collar Workers
-1430,Ger. n/c,1. Gerentes y directivos,1. White-collar Workers
-1431,"Ger cent. Deportivos, esparicmiento y culturales",1. Gerentes y directivos,1. White-collar Workers
-1439,Ger. Serv. n/c,1. Gerentes y directivos,1. White-collar Workers
-2000,Profesionales científicos e intelectuales,2. Profesionales,1. White-collar Workers
-2100,Prof. ciencia e ingeniería,2. Profesionales,1. White-collar Workers
-2111,Físicos y astrónomos,2. Profesionales,1. White-collar Workers
-2112,Meteorólogos,2. Profesionales,1. White-collar Workers
-2113,Químicos,2. Profesionales,1. White-collar Workers
-2114,Geólogos y geofísicos,2. Profesionales,1. White-collar Workers
-2120,"Matemáticos, actuarios y estadísticos",2. Profesionales,1. White-collar Workers
-2130,Prof. Biología,2. Profesionales,1. White-collar Workers
-2131,"Biólogos, botánicos, zoólogos y afines",2. Profesionales,1. White-collar Workers
-2132,Agrónomos y afines,2. Profesionales,1. White-collar Workers
-2133,Prof. Protec. med.ambiental,2. Profesionales,1. White-collar Workers
-2140,Ingenieros,2. Profesionales,1. White-collar Workers
-2141,Ing. Industriales y producción,2. Profesionales,1. White-collar Workers
-2142,Ingenieros civiles,2. Profesionales,1. White-collar Workers
-2143,Ing. med.ambiental,2. Profesionales,1. White-collar Workers
-2144,Ing. Mecánicos,2. Profesionales,1. White-collar Workers
-2145,Ing. Químicos,2. Profesionales,1. White-collar Workers
-2146,Ing. Met. Y minas,2. Profesionales,1. White-collar Workers
-2149,Ingenieros n/c,2. Profesionales,1. White-collar Workers
-2150,Ing. Electrotécnología,2. Profesionales,1. White-collar Workers
-2151,Ing. Electricista,2. Profesionales,1. White-collar Workers
-2152,Ing. Electrónicos,2. Profesionales,1. White-collar Workers
-2153,Ing. Telecomunicaciones,2. Profesionales,1. White-collar Workers
-2160,"Arquitectos, urbanistas, agrimensores y diseñadores",2. Profesionales,1. White-collar Workers
-2161,Arquitectos,2. Profesionales,1. White-collar Workers
-2162,Arquitectos paisajistas,2. Profesionales,1. White-collar Workers
-2163,Dis. Prendas y productos,2. Profesionales,1. White-collar Workers
-2164,Urbanistas e ingenieros de tránsito,2. Profesionales,1. White-collar Workers
-2165,Cartógrafos y agrimensores,2. Profesionales,1. White-collar Workers
-2166,Dis. gráficos,2. Profesionales,1. White-collar Workers
-2200,Prof. Salud,2. Profesionales,1. White-collar Workers
-2210,Médicos,2. Profesionales,1. White-collar Workers
-2211,Médicos generales,2. Profesionales,1. White-collar Workers
-2212,Médicos especialistas,2. Profesionales,1. White-collar Workers
-2220,Prof. Enfermería y partería,2. Profesionales,1. White-collar Workers
-2221,Prof. Enfermería y partería,2. Profesionales,1. White-collar Workers
-2222,Prof. Partería,2. Profesionales,1. White-collar Workers
-2230,Prof. Medicina tradicional y alternativa,2. Profesionales,1. White-collar Workers
-2240,Paramédicos,2. Profesionales,1. White-collar Workers
-2250,Veterinarios,2. Profesionales,1. White-collar Workers
-2260,Prof. Salud,2. Profesionales,1. White-collar Workers
-2261,Dentistas,2. Profesionales,1. White-collar Workers
-2262,Farmacéuticos,2. Profesionales,1. White-collar Workers
-2263,Prof. Salud e higiene laboral,2. Profesionales,1. White-collar Workers
-2264,Fisioterapeutas,2. Profesionales,1. White-collar Workers
-2265,Dietistas y nutricionistas,2. Profesionales,1. White-collar Workers
-2266,Audiólogos y logopedas,2. Profesionales,1. White-collar Workers
-2267,Optometristas,2. Profesionales,1. White-collar Workers
-2269,Prof. Salud n/c,2. Profesionales,1. White-collar Workers
-2300,General Education Teacher,Teaching Professionals,1. White-collar Workers
-2310,Prof. Universitarios y ed superior,2. Profesionales,1. White-collar Workers
-2320,Prof. Form. Profesional,2. Profesionales,1. White-collar Workers
-2330,Prof. Secundarios,2. Profesionales,1. White-collar Workers
-2340,Maest. Primaria y preescolar,2. Profesionales,1. White-collar Workers
-2341,Maest. Primaria,2. Profesionales,1. White-collar Workers
-2342,Maest. Preescolar,2. Profesionales,1. White-collar Workers
-2350,Prof. Enseñanza,2. Profesionales,1. White-collar Workers
-2351,Esp. Mét. Pedagógicos,2. Profesionales,1. White-collar Workers
-2352,Ed. Nec. Especiales,2. Profesionales,1. White-collar Workers
-2353,Profesores idiomas,2. Profesionales,1. White-collar Workers
-2354,Profesores música,2. Profesionales,1. White-collar Workers
-2355,Profesores arte,2. Profesionales,1. White-collar Workers
-2356,Inst. IT,2. Profesionales,1. White-collar Workers
-2359,Prof. enseñanza,2. Profesionales,1. White-collar Workers
-2400,Esp. Admin pública,2. Profesionales,1. White-collar Workers
-2410,Esp. Finanzas,2. Profesionales,1. White-collar Workers
-2411,Contables,2. Profesionales,1. White-collar Workers
-2412,Asesores financieros y en inversiones,2. Profesionales,1. White-collar Workers
-2413,An. financieros,2. Profesionales,1. White-collar Workers
-2420,Esp. Org y adm.,2. Profesionales,1. White-collar Workers
-2421,An. gestión y organización,2. Profesionales,1. White-collar Workers
-2422,Esp. Pol. Administración,2. Profesionales,1. White-collar Workers
-2423,Esp. Pol. Y serv. Personal,2. Profesionales,1. White-collar Workers
-2424,Esp. Formación personal,2. Profesionales,1. White-collar Workers
-2430,"Prof. Venta, comercialización",2. Profesionales,1. White-collar Workers
-2431,Prof. Publicidad y marketing,2. Profesionales,1. White-collar Workers
-2432,Prof. Rel. Públicas,2. Profesionales,1. White-collar Workers
-2433,Prof. Ventas médicas,2. Profesionales,1. White-collar Workers
-2434,Prof. Ventas IT,2. Profesionales,1. White-collar Workers
-2500,Profesionales IT,2. Profesionales,1. White-collar Workers
-2510,Des. Y An. Software,2. Profesionales,1. White-collar Workers
-2511,An. de sistemas,2. Profesionales,1. White-collar Workers
-2512,Des. software,2. Profesionales,1. White-collar Workers
-2513,Des. Web y multimedia,2. Profesionales,1. White-collar Workers
-2514,Programadores,2. Profesionales,1. White-collar Workers
-2519,Des. Y An. Software,2. Profesionales,1. White-collar Workers
-2520,Esp. Bases de datos,2. Profesionales,1. White-collar Workers
-2521,Adm. Base de datos,2. Profesionales,1. White-collar Workers
-2522,Admin. sistemas,2. Profesionales,1. White-collar Workers
-2523,Prof. Redes informáticas,2. Profesionales,1. White-collar Workers
-2529,Esp. Bases de datos,2. Profesionales,1. White-collar Workers
-2600,"Prof. Derecho, Cs Sociales",2. Profesionales,1. White-collar Workers
-2610,Prof. Derecho,2. Profesionales,1. White-collar Workers
-2611,Abogados,2. Profesionales,1. White-collar Workers
-2612,Jueces,2. Profesionales,1. White-collar Workers
-2619,Prof. Derecho n/c,2. Profesionales,1. White-collar Workers
-2620,"Archivistas, bibliotecarios, curadores y afines",2. Profesionales,1. White-collar Workers
-2621,Archivistas y curadores de museos,2. Profesionales,1. White-collar Workers
-2622,"Bibliotecarios, documentalistas y afines",2. Profesionales,1. White-collar Workers
-2630,Esp. cs. Sociales,2. Profesionales,1. White-collar Workers
-2631,Economistas,2. Profesionales,1. White-collar Workers
-2632,"Sociólogos, antropólogos y afines",2. Profesionales,1. White-collar Workers
-2633,"Filósofos, historiadores y especialistas en ciencias políticas",2. Profesionales,1. White-collar Workers
-2634,Psicólogos,2. Profesionales,1. White-collar Workers
-2635,Prof. Trabajo social,2. Profesionales,1. White-collar Workers
-2636,Prof. Religiosos,2. Profesionales,1. White-collar Workers
-2640,Aut. periodistas y lingüistas,2. Profesionales,1. White-collar Workers
-2641,Aut. escritores,2. Profesionales,1. White-collar Workers
-2642,Periodistas,2. Profesionales,1. White-collar Workers
-2643,"Traductores, intérpretes y lingüistas",2. Profesionales,1. White-collar Workers
-2650,Artistas creativos e interpretativos,2. Profesionales,1. White-collar Workers
-2651,Artistaplásticos,2. Profesionales,1. White-collar Workers
-2652,"Músicos, cantantes y compositores",2. Profesionales,1. White-collar Workers
-2653,Bailarines y coreógrafos,2. Profesionales,1. White-collar Workers
-2654,Dir. cine teatro,2. Profesionales,1. White-collar Workers
-2655,Actores,2. Profesionales,1. White-collar Workers
-2656,"Locutores de radio, televisión y otros med.s de comunicación",2. Profesionales,1. White-collar Workers
-2659,Artistas creativos e interpretativos no clasificados bajo otros epígrafes,2. Profesionales,1. White-collar Workers
-3000,Téc. Y prof. N. Medio. mediop,3. Técnicos,1. White-collar Workers
-3100,Prof. med. ciencia e ingeniería,3. Técnicos,1. White-collar Workers
-3110,Téc. Cs. Físicas e ingeniería,3. Técnicos,1. White-collar Workers
-3111,Téc. cs. físicas y químicas,3. Técnicos,1. White-collar Workers
-3112,Téc. Ing. Civil,3. Técnicos,1. White-collar Workers
-3113,Electrotécnicos,3. Técnicos,1. White-collar Workers
-3114,Téc. electrónica,3. Técnicos,1. White-collar Workers
-3115,Téc. Ing. mecánica,3. Técnicos,1. White-collar Workers
-3116,Téc. química industrial,3. Técnicos,1. White-collar Workers
-3117,"Tec. Ingeniería, industria y minas",3. Técnicos,1. White-collar Workers
-3118,Dibujant. Técnicos,3. Técnicos,1. White-collar Workers
-3119,Téc. Cs. Físicas,3. Técnicos,1. White-collar Workers
-3120,"Supv. Construcción, ingeniería y construcción",3. Técnicos,1. White-collar Workers
-3121,Supv. Ingeniería y minas,3. Técnicos,1. White-collar Workers
-3122,Supv. Ind. manufactureras,3. Técnicos,1. White-collar Workers
-3123,Sup. Construcción,3. Técnicos,1. White-collar Workers
-3130,Téc. Ctrl. procesos,3. Técnicos,1. White-collar Workers
-3131,Op. Prod. Energia,3. Técnicos,1. White-collar Workers
-3132,Op. Incineradores y plantas de agua,3. Técnicos,1. White-collar Workers
-3133,Cont. Inst químicas,3. Técnicos,1. White-collar Workers
-3134,Op. Refinamiento petroleo y gas,3. Técnicos,1. White-collar Workers
-3135,Cont. prod. metales,3. Técnicos,1. White-collar Workers
-3139,Téc. Ctrl. Procesos n/c,3. Técnicos,1. White-collar Workers
-3140,Téc. Cs. biológicas y afines,3. Técnicos,1. White-collar Workers
-3141,Téc. Cs. Biológicas,3. Técnicos,1. White-collar Workers
-3142,Téc. agropecuarios,3. Técnicos,1. White-collar Workers
-3143,Téc. forestales,3. Técnicos,1. White-collar Workers
-3150,Técnicos navegación marítima y aeronáutica,3. Técnicos,1. White-collar Workers
-3151,Of. Maquinistas navegación,3. Técnicos,1. White-collar Workers
-3152,"Capitanes, oficiales de cubierta y prácticos",3. Técnicos,1. White-collar Workers
-3153,Pilotos de aviación y afines,3. Técnicos,1. White-collar Workers
-3154,Cont. tráf. aéreo,3. Técnicos,1. White-collar Workers
-3155,Téc. Seg. aeronáutica,3. Técnicos,1. White-collar Workers
-3200,Prof. med. salud,3. Técnicos,1. White-collar Workers
-3210,Téc. médicos y farmacéuticos,3. Técnicos,1. White-collar Workers
-3211,Téc. diagnóstico y tratamiento médico,3. Técnicos,1. White-collar Workers
-3212,Téc. Lab. médicos,3. Técnicos,1. White-collar Workers
-3213,Téc. farmacéuticos,3. Técnicos,1. White-collar Workers
-3214,Téc. prótesis médicas y dentales,3. Técnicos,1. White-collar Workers
-3220,Prof. med. enfermería y partería,3. Técnicos,1. White-collar Workers
-3221,Prof. med. enfermería,3. Técnicos,1. White-collar Workers
-3222,Prof. med. partería,3. Técnicos,1. White-collar Workers
-3230,Prof. med. medicina tradicional y alternativa,3. Técnicos,1. White-collar Workers
-3232,Prof. med. medicina tradicional y alternativa,3. Técnicos,1. White-collar Workers
-3240,Téc. veterinarios,3. Técnicos,1. White-collar Workers
-3250,Prof med. salud,3. Técnicos,1. White-collar Workers
-3251,Aux. y ay. Dentista,3. Técnicos,1. White-collar Workers
-3252,Téc. Doc. Sanitaria,3. Técnicos,1. White-collar Workers
-3253,T ra. Comu. Salud,3. Técnicos,1. White-collar Workers
-3254,Téc. optometría y ópticos,3. Técnicos,1. White-collar Workers
-3255,Téc. fisioterapeutas,3. Técnicos,1. White-collar Workers
-3256,Asistentes médicos,3. Técnicos,1. White-collar Workers
-3257,Insp. Salud y laboral,3. Técnicos,1. White-collar Workers
-3258,Ay. de ambulancias,3. Técnicos,1. White-collar Workers
-3259,Prof med. salud n/c,3. Técnicos,1. White-collar Workers
-3300,Prof. Med. Financieros,3. Técnicos,1. White-collar Workers
-3310,Prof. Med. Finanzas y matemáticas,3. Técnicos,1. White-collar Workers
-3311,"Ag. bolsa, cambio y otros servicios financieros",3. Técnicos,1. White-collar Workers
-3312,Of. Préstamos y créditos,3. Técnicos,1. White-collar Workers
-3313,Tenedores de libros,3. Técnicos,1. White-collar Workers
-3314,Prof. med. estadística y afines,3. Técnicos,1. White-collar Workers
-3315,Tasadores,3. Técnicos,1. White-collar Workers
-3320,Ag. comerciales y corredores,3. Técnicos,1. White-collar Workers
-3321,Ag. de seguros,3. Técnicos,1. White-collar Workers
-3322,Rep. Comerciales,3. Técnicos,1. White-collar Workers
-3323,Ag. de compras,3. Técnicos,1. White-collar Workers
-3324,Ag. de compras y consignatarios,3. Técnicos,1. White-collar Workers
-3330,Ag. serv. comerciales,3. Técnicos,1. White-collar Workers
-3331,Dec. o gest. aduana,3. Técnicos,1. White-collar Workers
-3332,Org. Eventos y conferencias,3. Técnicos,1. White-collar Workers
-3333,Ag. de empleo y contratistas de mano de obra,3. Técnicos,1. White-collar Workers
-3334,Ag. inmobiliarios,3. Técnicos,1. White-collar Workers
-3339,Ag. serv. comerciales n/c,3. Técnicos,1. White-collar Workers
-3340,Secretarios administrativos y especializados,3. Técnicos,1. White-collar Workers
-3341,Supv. Secretaría,3. Técnicos,1. White-collar Workers
-3342,Secretarios jurídicos,3. Técnicos,1. White-collar Workers
-3343,Secretarios administrativos y ejecutivos,3. Técnicos,1. White-collar Workers
-3344,Secretarios médicos,3. Técnicos,1. White-collar Workers
-3350,Ag. adm. pública para la aplicación de la ley y afines,3. Técnicos,1. White-collar Workers
-3351,Ag. aduana e inspectores de fronteras,3. Técnicos,1. White-collar Workers
-3352,Ag. adm. tributaria,3. Técnicos,1. White-collar Workers
-3353,Ag. seg. Social,3. Técnicos,1. White-collar Workers
-3354,Ag. serv. licencias y permisos,3. Técnicos,1. White-collar Workers
-3355,Insp. De policía,3. Técnicos,1. White-collar Workers
-3359,Ag. adm. pública para la aplicacion de la ley y afines no clasificados bajo otros epígrafes,3. Técnicos,1. White-collar Workers
-3400,Prof. med. jurídico,3. Técnicos,1. White-collar Workers
-3410,Prof. Med. Jurídicos y sociales,3. Técnicos,1. White-collar Workers
-3411,Prof. med. derecho,3. Técnicos,1. White-collar Workers
-3412,Traby asist. Sociales nivel medio,3. Técnicos,1. White-collar Workers
-3413,Aux. laicos religiones,3. Técnicos,1. White-collar Workers
-3420,Ent. deportivos,3. Técnicos,1. White-collar Workers
-3421,Atletas y deportistas,3. Técnicos,1. White-collar Workers
-3422,"Ent. Deportivos, arbitros",3. Técnicos,1. White-collar Workers
-3423,Inst. ed física,3. Técnicos,1. White-collar Workers
-3430,"Prof. med. Act culturales, artísticas y humanas",3. Técnicos,1. White-collar Workers
-3431,Fotógrafos,3. Técnicos,1. White-collar Workers
-3432,Dis. De interior,3. Técnicos,1. White-collar Workers
-3433,"Téc. arte, museos y bibliotecas",3. Técnicos,1. White-collar Workers
-3434,Chefs,3. Técnicos,1. White-collar Workers
-3435,Prof med. Act artísticas y culturales,3. Técnicos,1. White-collar Workers
-3500,Téc. IT,3. Técnicos,1. White-collar Workers
-3510,Téc. Op. IT n/c,3. Técnicos,1. White-collar Workers
-3511,Téc. Op. IT,3. Técnicos,1. White-collar Workers
-3512,Téc. Asistencia IT,3. Técnicos,1. White-collar Workers
-3513,Téc. redes y sistemas de computadores,3. Técnicos,1. White-collar Workers
-3514,Técnicos Web,3. Técnicos,1. White-collar Workers
-3520,Téc. telecomunicaciones y radiodifusión,3. Técnicos,1. White-collar Workers
-3521,Téc. radiodifusión y grabación audio visual,3. Técnicos,1. White-collar Workers
-3522,Téc. Ing. telecomunicaciones,3. Técnicos,1. White-collar Workers
-4000,Apoyo administrativo,4. Trabajadores administrativos,1. White-collar Workers
-4100,Oficinistas n/c,4. Trabajadores administrativos,1. White-collar Workers
-4110,Oficinistas,4. Trabajadores administrativos,1. White-collar Workers
-4120,Secretarios (general),4. Trabajadores administrativos,1. White-collar Workers
-4130,Op. Maq oficina,4. Trabajadores administrativos,1. White-collar Workers
-4131,Op. Pros de texto y mecanógrafos,4. Trabajadores administrativos,1. White-collar Workers
-4132,Grab. De datos,4. Trabajadores administrativos,1. White-collar Workers
-4200,Emp. Trato directo con el público,4. Trabajadores administrativos,1. White-collar Workers
-4210,Cobradores y pagadores,4. Trabajadores administrativos,1. White-collar Workers
-4211,Cajeros bancos y afines,4. Trabajadores administrativos,1. White-collar Workers
-4212,Recep. apuestas y afines,4. Trabajadores administrativos,1. White-collar Workers
-4213,Prestamistas,4. Trabajadores administrativos,1. White-collar Workers
-4214,Cobradres,4. Trabajadores administrativos,1. White-collar Workers
-4220,Emp. Serv. Información,4. Trabajadores administrativos,1. White-collar Workers
-4221,Emp. Ag. Viajes,4. Trabajadores administrativos,1. White-collar Workers
-4222,Emp. cent. Llamadas,4. Trabajadores administrativos,1. White-collar Workers
-4223,Telefonistas,4. Trabajadores administrativos,1. White-collar Workers
-4224,Recepcionistas de hoteles,4. Trabajadores administrativos,1. White-collar Workers
-4225,Emp. Informaciónes,4. Trabajadores administrativos,1. White-collar Workers
-4226,Recepcionistas (general),4. Trabajadores administrativos,1. White-collar Workers
-4227,Encuestadores y entrevistadores,4. Trabajadores administrativos,1. White-collar Workers
-4229,Emp. Serv. Información,4. Trabajadores administrativos,1. White-collar Workers
-4300,Emp. Contables y materiales,4. Trabajadores administrativos,1. White-collar Workers
-4310,Aux. contables y financieros,4. Trabajadores administrativos,1. White-collar Workers
-4311,Emp. Contabilidad,4. Trabajadores administrativos,1. White-collar Workers
-4312,Emp. Serv. Estadísticos,4. Trabajadores administrativos,1. White-collar Workers
-4313,Emp. Nóminas,4. Trabajadores administrativos,1. White-collar Workers
-4320,Emp. Registro materiales,4. Trabajadores administrativos,1. White-collar Workers
-4321,Emp. Ctrl. Abastecimiento,4. Trabajadores administrativos,1. White-collar Workers
-4322,Emp. Apoyo producción,4. Trabajadores administrativos,1. White-collar Workers
-4323,Emp. Serv. Transporte,4. Trabajadores administrativos,1. White-collar Workers
-4400,Pers. Administrativo,4. Trabajadores administrativos,1. White-collar Workers
-4410,Pers. Administrativo n/c,4. Trabajadores administrativos,1. White-collar Workers
-4411,Emp. bibliotecas,4. Trabajadores administrativos,1. White-collar Workers
-4412,Emp. Serv. Correos,4. Trabajadores administrativos,1. White-collar Workers
-4413,"Cod. datos, correctores de pruebas de imprenta y afines",4. Trabajadores administrativos,1. White-collar Workers
-4414,Escribientes públicos,4. Trabajadores administrativos,1. White-collar Workers
-4415,Emp. archivos,4. Trabajadores administrativos,1. White-collar Workers
-4416,Emp. Serv. De personal,4. Trabajadores administrativos,1. White-collar Workers
-4419,Apoyo administrativo,4. Trabajadores administrativos,1. White-collar Workers
-5000,Trab. servicios y vendedores de comercios y mercados,5. Service and Sales Workers,2. Service and Sales Workers
-5100,Trab. Serv. Personales,5. Service and Sales Workers,2. Service and Sales Workers
-5110,Serv. Pasajeros,5. Service and Sales Workers,2. Service and Sales Workers
-5111,Aux. serv. abordo,5. Service and Sales Workers,2. Service and Sales Workers
-5112,Cobradores transporte público,5. Service and Sales Workers,2. Service and Sales Workers
-5113,Guías de turismo,5. Service and Sales Workers,2. Service and Sales Workers
-5120,Cocineros,5. Service and Sales Workers,2. Service and Sales Workers
-5130,Camareros,5. Service and Sales Workers,2. Service and Sales Workers
-5131,Camarero mesas,5. Service and Sales Workers,2. Service and Sales Workers
-5132,Camarer barra,5. Service and Sales Workers,2. Service and Sales Workers
-5140,"Peluqueros, especialistas en tratamientos de belleza y afines",5. Service and Sales Workers,2. Service and Sales Workers
-5141,Peluqueros,5. Service and Sales Workers,2. Service and Sales Workers
-5142,Esp. Trat belleza,5. Service and Sales Workers,2. Service and Sales Workers
-5150,Sup. Mantenimiento y limpieza,5. Service and Sales Workers,2. Service and Sales Workers
-5151,Sup. Mantenimiento y limpieza hoteles y establecimientos,5. Service and Sales Workers,2. Service and Sales Workers
-5152,Ecónomos y mayordomos domésticos,5. Service and Sales Workers,2. Service and Sales Workers
-5153,Conserjes,5. Service and Sales Workers,2. Service and Sales Workers
-5160,Trab serv. Personales,5. Service and Sales Workers,2. Service and Sales Workers
-5161,"Astrólogos, adivinadores y afines",5. Service and Sales Workers,2. Service and Sales Workers
-5162,Acompañantes y ayudantes de cámara,5. Service and Sales Workers,2. Service and Sales Workers
-5163,Pers. pompas fúnebres y embalsamadores,5. Service and Sales Workers,2. Service and Sales Workers
-5164,Cuid. de animales,5. Service and Sales Workers,2. Service and Sales Workers
-5165,Inst. autoescuela,5. Service and Sales Workers,2. Service and Sales Workers
-5169,Trab. Serv. personales no clasificados bajo otros epígrafes,5. Service and Sales Workers,2. Service and Sales Workers
-5200,Vendedores,5. Service and Sales Workers,2. Service and Sales Workers
-5210,Vend. callejeros y de puestos de mercado,5. Service and Sales Workers,2. Service and Sales Workers
-5211,Vend. quioscos y de puestos de mercado,5. Service and Sales Workers,2. Service and Sales Workers
-5212,Vend. Ambulantes comida,5. Service and Sales Workers,2. Service and Sales Workers
-5220,Comerciantes y vendedores de tiendas y almacenes,5. Service and Sales Workers,2. Service and Sales Workers
-5221,Comerciantes,5. Service and Sales Workers,2. Service and Sales Workers
-5222,Supv. Tiendas y almacenes,5. Service and Sales Workers,2. Service and Sales Workers
-5223,Vendedores,5. Service and Sales Workers,2. Service and Sales Workers
-5230,Cajeros y expendedores de billetes,5. Service and Sales Workers,2. Service and Sales Workers
-5240,Vendedores n/c,5. Service and Sales Workers,2. Service and Sales Workers
-5241,"Modelos de moda, arte y publicidad",5. Service and Sales Workers,2. Service and Sales Workers
-5242,Dem. tiendas,5. Service and Sales Workers,2. Service and Sales Workers
-5243,Vend. puerta a puerta,5. Service and Sales Workers,2. Service and Sales Workers
-5244,Vend. Telefónicos,5. Service and Sales Workers,2. Service and Sales Workers
-5245,Exp. Gasolineras,5. Service and Sales Workers,2. Service and Sales Workers
-5246,Vend. comidas al mostrador,5. Service and Sales Workers,2. Service and Sales Workers
-5249,Vendedoren/c,5. Service and Sales Workers,2. Service and Sales Workers
-5300,Trab. Cuidados personales,5. Service and Sales Workers,2. Service and Sales Workers
-5310,Cuid. niños y auxiliares de maestros,5. Service and Sales Workers,2. Service and Sales Workers
-5311,Cuid. de niños,5. Service and Sales Workers,2. Service and Sales Workers
-5312,Aux. de maestros,5. Service and Sales Workers,2. Service and Sales Workers
-5320,Trab. Cuid. Personales en servicios de salud,5. Service and Sales Workers,2. Service and Sales Workers
-5321,Trab. Cuid. Pers. instituciones,5. Service and Sales Workers,2. Service and Sales Workers
-5322,Trab. Cuid. personales,5. Service and Sales Workers,2. Service and Sales Workers
-5329,Trab. Cuid. Pers servicios de salud n/c,5. Service and Sales Workers,2. Service and Sales Workers
-5400,Serv. Protección,5. Service and Sales Workers,2. Service and Sales Workers
-5410,Serv. Protección,5. Service and Sales Workers,2. Service and Sales Workers
-5411,Bomberos,5. Service and Sales Workers,2. Service and Sales Workers
-5412,Policías,5. Service and Sales Workers,2. Service and Sales Workers
-5413,Guar. de prisión,5. Service and Sales Workers,2. Service and Sales Workers
-5414,Guardias de protección,5. Service and Sales Workers,2. Service and Sales Workers
-5419,Serv. Protección n/c,5. Service and Sales Workers,2. Service and Sales Workers
-6000,"Agricultores y trabajadores calificados agropecuarios, forestales y pesqueros",6. Trabajadores agropecuarios,3. White-collar Workers
-6100,Agricultores y trabajadores calificados de explotaciones agropecuarias con destino al mercado,6. Trabajadores agropecuarios,3. White-collar Workers
-6110,Agricultores y trabajadores calificados de jardines y de cultivos para el mercado,6. Trabajadores agropecuarios,3. White-collar Workers
-6111,Agricultores y trabajadores calificados de cultivos extensivos,6. Trabajadores agropecuarios,3. White-collar Workers
-6112,Agricultores y trabajadores calificados de plantaciones de árboles y arbustos,6. Trabajadores agropecuarios,3. White-collar Workers
-6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines",6. Trabajadores agropecuarios,3. White-collar Workers
-6114,Agricultores y trabajadores calificados de cultivos mixtos,6. Trabajadores agropecuarios,3. White-collar Workers
-6120,Criadores y trabajadores pecuarios calificados de la cría de animales para el mercado y afines,6. Trabajadores agropecuarios,3. White-collar Workers
-6121,Criadores de ganado,6. Trabajadores agropecuarios,3. White-collar Workers
-6122,Avicultores y trabajadores calificados de la avicultura,6. Trabajadores agropecuarios,3. White-collar Workers
-6123,Apicultores y sericultores y trabajadores calificados de la apicultura y la sericultura,6. Trabajadores agropecuarios,3. White-collar Workers
-6129,Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes,6. Trabajadores agropecuarios,3. White-collar Workers
-6130,Prod y trab agrop,6. Trabajadores agropecuarios,3. White-collar Workers
-6200,"Trab. forestales calificados, pescadores y cazadores",6. Trabajadores agropecuarios,3. White-collar Workers
-6210,Trab. forestales calificados y afines,6. Trabajadores agropecuarios,3. White-collar Workers
-6220,"Pescadores, cazadores y tramperos",6. Trabajadores agropecuarios,3. White-collar Workers
-6221,Trab. acuicultura,6. Trabajadores agropecuarios,3. White-collar Workers
-6222,Pescadores de agua dulce y en aguas costeras,6. Trabajadores agropecuarios,3. White-collar Workers
-6223,Pescadores de alta mar,6. Trabajadores agropecuarios,3. White-collar Workers
-6224,Cazadores y tramperos,6. Trabajadores agropecuarios,3. White-collar Workers
-6300,"Trab. agropecuarios, pescadores, cazadores y recolectores de subsistencia",6. Trabajadores agropecuarios,3. White-collar Workers
-6310,Trab. agrícolas de subsistencia,6. Trabajadores agropecuarios,3. White-collar Workers
-6320,Trab. agropecuarios de subsistencia,6. Trabajadores agropecuarios,3. White-collar Workers
-6330,Trab. agropecuarios de subsistencia,6. Trabajadores agropecuarios,3. White-collar Workers
-6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia",6. Trabajadores agropecuarios,3. White-collar Workers
-7000,"Oficiales, oprarios y artesanos",7. Trabajadores de oficios,3. White-collar Workers
-7100,Of. Y op. Construcción,7. Trabajadores de oficios,3. White-collar Workers
-7110,Of. Y op. Construcción,7. Trabajadores de oficios,3. White-collar Workers
-7111,Constructore,7. Trabajadores de oficios,3. White-collar Workers
-7112,Albañiles,7. Trabajadores de oficios,3. White-collar Workers
-7113,"Mamposteros, tronzadores, labrantes y grabadores de piedra",7. Trabajadores de oficios,3. White-collar Workers
-7114,Op en cemento armado,7. Trabajadores de oficios,3. White-collar Workers
-7115,Carpinteros de armar y de obra blanca,7. Trabajadores de oficios,3. White-collar Workers
-7119,Of. Y op. Construcción,7. Trabajadores de oficios,3. White-collar Workers
-7120,Of. Y op. Construcción,7. Trabajadores de oficios,3. White-collar Workers
-7121,Techadores,7. Trabajadores de oficios,3. White-collar Workers
-7122,Parqueteros y colocadores de suelos,7. Trabajadores de oficios,3. White-collar Workers
-7123,Revocadores,7. Trabajadores de oficios,3. White-collar Workers
-7124,Innst. material aislante y de insonorización,7. Trabajadores de oficios,3. White-collar Workers
-7125,Cristaleros,7. Trabajadores de oficios,3. White-collar Workers
-7126,Fontaneros e instaladores de tuberías,7. Trabajadores de oficios,3. White-collar Workers
-7127,Méc. Refrigreación,7. Trabajadores de oficios,3. White-collar Workers
-7130,"Pintores, limpiadores de fachadas y afines",7. Trabajadores de oficios,3. White-collar Workers
-7131,Pintores y empapeladores,7. Trabajadores de oficios,3. White-collar Workers
-7132,Barnizadores y afines,7. Trabajadores de oficios,3. White-collar Workers
-7133,Limpiadores de fachadas y deshollinadores,7. Trabajadores de oficios,3. White-collar Workers
-7200,Of. Y op. Metalurgia,7. Trabajadores de oficios,3. White-collar Workers
-7210,"Moldeadores, soldadores, chapistas, caldereros, montadores de estructuras metálicas y afines",7. Trabajadores de oficios,3. White-collar Workers
-7211,Moldeadores y macheros,7. Trabajadores de oficios,3. White-collar Workers
-7212,Soldadores y oxicortadores,7. Trabajadores de oficios,3. White-collar Workers
-7213,Chapistas y caldereros,7. Trabajadores de oficios,3. White-collar Workers
-7214,Montadores de estructuras metálicas,7. Trabajadores de oficios,3. White-collar Workers
-7215,Aparejadores y empalmadores de cables,7. Trabajadores de oficios,3. White-collar Workers
-7220,"Herreros, herramentistas y afines",7. Trabajadores de oficios,3. White-collar Workers
-7221,Herreros y forjadores,7. Trabajadores de oficios,3. White-collar Workers
-7222,Herramentistas y afines,7. Trabajadores de oficios,3. White-collar Workers
-7223,Reg. Y Op. máquinas herramientas,7. Trabajadores de oficios,3. White-collar Workers
-7224,Pulidores de metales y afiladores de herramientas,7. Trabajadores de oficios,3. White-collar Workers
-7230,Méc y rep. Maquinaria,7. Trabajadores de oficios,3. White-collar Workers
-7231,Mec. Vehículos de motor,7. Trabajadores de oficios,3. White-collar Workers
-7232,Méc y re. Motores de avión,7. Trabajadores de oficios,3. White-collar Workers
-7233,Méc. Maq. Agrícola,7. Trabajadores de oficios,3. White-collar Workers
-7234,Rep. Bicicletas y afines,7. Trabajadores de oficios,3. White-collar Workers
-7300,Art. Y Op. Artes gráficas,7. Trabajadores de oficios,3. White-collar Workers
-7310,Artesanos,7. Trabajadores de oficios,3. White-collar Workers
-7311,Méc. Y rep. Instrumentos de presición,7. Trabajadores de oficios,3. White-collar Workers
-7312,Fab. Y afi. Inst musicales,7. Trabajadores de oficios,3. White-collar Workers
-7313,"Joyeros, orfebres y plateros",7. Trabajadores de oficios,3. White-collar Workers
-7314,"Alfareros y afines (barro, arcilla y abrasivos)",7. Trabajadores de oficios,3. White-collar Workers
-7315,"Sopladores, modeladores, laminadores, cortadores y pulidores de vidrio",7. Trabajadores de oficios,3. White-collar Workers
-7316,"Redactores de carteles, pintores decorativos y grabadores",7. Trabajadores de oficios,3. White-collar Workers
-7317,"Artesano madera, cestería y materiales similares",7. Trabajadores de oficios,3. White-collar Workers
-7318,"Artesano tejidos, el cuero y materiales similares",7. Trabajadores de oficios,3. White-collar Workers
-7319,Artesanon/c,7. Trabajadores de oficios,3. White-collar Workers
-7320,Of. Y Op. Art gráficas,7. Trabajadores de oficios,3. White-collar Workers
-7321,"Cajistas, tipógrafos y afines",7. Trabajadores de oficios,3. White-collar Workers
-7322,Impresores,7. Trabajadores de oficios,3. White-collar Workers
-7323,Encuadernadores y afines,7. Trabajadores de oficios,3. White-collar Workers
-7400,Trab. electricidad y la elecrotecnología,7. Trabajadores de oficios,3. White-collar Workers
-7410,Inst. y rep. electricos,7. Trabajadores de oficios,3. White-collar Workers
-7411,Electricistas de obras y afines,7. Trabajadores de oficios,3. White-collar Workers
-7412,Méc. Electricistas,7. Trabajadores de oficios,3. White-collar Workers
-7413,Inst. y rep líneas eléctricas,7. Trabajadores de oficios,3. White-collar Workers
-7420,Inst. y rep electrónicos y telecomunicaciones,7. Trabajadores de oficios,3. White-collar Workers
-7421,Méc. Y rep. Electrónicos,7. Trabajadores de oficios,3. White-collar Workers
-7422,Inst. y rep IT,7. Trabajadores de oficios,3. White-collar Workers
-7500,Op. Proces alimentos,7. Trabajadores de oficios,3. White-collar Workers
-7510,Of. Y Op elab alimentos,7. Trabajadores de oficios,3. White-collar Workers
-7511,"Carniceros, pescaderos y afines",7. Trabajadores de oficios,3. White-collar Workers
-7512,"Panaderos, pasteleros y confiteros",7. Trabajadores de oficios,3. White-collar Workers
-7513,Op. Elab. Lácteos,7. Trabajadores de oficios,3. White-collar Workers
-7514,Op. Cons. Frutas y vegetales,7. Trabajadores de oficios,3. White-collar Workers
-7515,Catadores y clasificadores de alimentos y bebidas,7. Trabajadores de oficios,3. White-collar Workers
-7516,Elab. Tábaco,7. Trabajadores de oficios,3. White-collar Workers
-7520,Of. Y Op. Madera,7. Trabajadores de oficios,3. White-collar Workers
-7521,Op. Trat. Madera,7. Trabajadores de oficios,3. White-collar Workers
-7522,Ebanistas y afines,7. Trabajadores de oficios,3. White-collar Workers
-7523,Reg. Y op. máquinas de labrar madera,7. Trabajadores de oficios,3. White-collar Workers
-7530,Of. Y Op. Confección,7. Trabajadores de oficios,3. White-collar Workers
-7531,"Sastres, modistos, peleteros y sombrereros",7. Trabajadores de oficios,3. White-collar Workers
-7532,Patronistas y cortadores de tela y afines,7. Trabajadores de oficios,3. White-collar Workers
-7533,"Costureros, bordadores y afines",7. Trabajadores de oficios,3. White-collar Workers
-7534,"Tapiceros, colchoneros y afines",7. Trabajadores de oficios,3. White-collar Workers
-7535,"Apelambradores, pellejeros y curtidores",7. Trabajadores de oficios,3. White-collar Workers
-7536,Zapateros y afines,7. Trabajadores de oficios,3. White-collar Workers
-7540,Of. Y Op. n/c,7. Trabajadores de oficios,3. White-collar Workers
-7541,Buzos,7. Trabajadores de oficios,3. White-collar Workers
-7542,Dinamiteros y pegadores,7. Trabajadores de oficios,3. White-collar Workers
-7543,Clasificadores y probadores de productos (excluyendo alimentos y bebidas),7. Trabajadores de oficios,3. White-collar Workers
-7544,Fumigadores y otros controladores de plagas y malas hierbas,7. Trabajadores de oficios,3. White-collar Workers
-7549,Of. Y Op. Mecánicos,7. Trabajadores de oficios,3. White-collar Workers
-8000,Op. Maquinas y ensambladores,8. Operarios calificados,3. White-collar Workers
-8100,Op. Inst y maquinaria,8. Operarios calificados,3. White-collar Workers
-8110,Op. Inst minería,8. Operarios calificados,3. White-collar Workers
-8111,Mineros y operadores de instalaciones mineras,8. Operarios calificados,3. White-collar Workers
-8112,Op. Proces minerales,8. Operarios calificados,3. White-collar Workers
-8113,Perforadores y sondistas de pozos y afines,8. Operarios calificados,3. White-collar Workers
-8114,Op. Maq. Cemento,8. Operarios calificados,3. White-collar Workers
-8120,Op. Proces metales,8. Operarios calificados,3. White-collar Workers
-8121,Op. proces metales,8. Operarios calificados,3. White-collar Workers
-8122,Op. Pulidoras y rec. Metales,8. Operarios calificados,3. White-collar Workers
-8130,Op. Prod químicos y fotográficos,8. Operarios calificados,3. White-collar Workers
-8131,Op. Plant químicas,8. Operarios calificados,3. White-collar Workers
-8132,Op. Maq fotográficos,8. Operarios calificados,3. White-collar Workers
-8140,Op. Maq. Caucho y afines,8. Operarios calificados,3. White-collar Workers
-8141,Op. Maq. Caucho,8. Operarios calificados,3. White-collar Workers
-8142,Op. Maq. Plástico,8. Operarios calificados,3. White-collar Workers
-8143,Op. Maq papel,8. Operarios calificados,3. White-collar Workers
-8150,Op. Prod textiles,8. Operarios calificados,3. White-collar Workers
-8151,Op. Maq. Fibras y tejidos,8. Operarios calificados,3. White-collar Workers
-8152,Op. Telares y maq. Coser,8. Operarios calificados,3. White-collar Workers
-8153,Op. Maq coser,8. Operarios calificados,3. White-collar Workers
-8154,Op. Limpieza tejidos,8. Operarios calificados,3. White-collar Workers
-8155,Op. Maq de cuero y pieles,8. Operarios calificados,3. White-collar Workers
-8156,Op. Maq. Calzado,8. Operarios calificados,3. White-collar Workers
-8157,Op. Maq. Lavarropas,8. Operarios calificados,3. White-collar Workers
-8159,Op. Prod. Textiles,8. Operarios calificados,3. White-collar Workers
-8160,Op. Maq. Alimentos y bebidas,8. Operarios calificados,3. White-collar Workers
-8170,Op. Inst papel y madera,8. Operarios calificados,3. White-collar Workers
-8171,Op. Pasta de papel y celulosa,8. Operarios calificados,3. White-collar Workers
-8172,Op. Proces madera,8. Operarios calificados,3. White-collar Workers
-8180,Op. Maquinaria n/c,8. Operarios calificados,3. White-collar Workers
-8181,Op. Vidriería y cerámica,8. Operarios calificados,3. White-collar Workers
-8182,Op. Maq vapor y calderas,8. Operarios calificados,3. White-collar Workers
-8183,Op. Maq. Embalaje,8. Operarios calificados,3. White-collar Workers
-8189,Op maq. n/c,8. Operarios calificados,3. White-collar Workers
-8200,Ensambladores,8. Operarios calificados,3. White-collar Workers
-8210,Ensambladores,8. Operarios calificados,3. White-collar Workers
-8211,Ensambladores de maquinaria mecánica,8. Operarios calificados,3. White-collar Workers
-8212,Ensambladores de equipos eléctricos y electrónicos,8. Operarios calificados,3. White-collar Workers
-8219,Ensambladores no clasificados bajo otros epígrafes,8. Operarios calificados,3. White-collar Workers
-8300,Cond. equip. pesados móviles,8. Operarios calificados,3. White-collar Workers
-8310,Maq. Locomotoras,8. Operarios calificados,3. White-collar Workers
-8311,Mar. Locomotoras,8. Operarios calificados,3. White-collar Workers
-8312,"Guardafrenos, guardagujas y agentes de maniobras",8. Operarios calificados,3. White-collar Workers
-8320,"Cond. automóviles, camionetas y motocicletas",8. Operarios calificados,3. White-collar Workers
-8321,Cond. motocicletas,8. Operarios calificados,3. White-collar Workers
-8322,"Cond. autom. y camionetas",8. Operarios calificados,3. White-collar Workers
-8330,Cond. camiones pesados y autobuses,8. Operarios calificados,3. White-collar Workers
-8331,Cond. autobuses y tranvías,8. Operarios calificados,3. White-collar Workers
-8332,Cond. camiones pesados,8. Operarios calificados,3. White-collar Workers
-8340,Op. Equip. Pesados,8. Operarios calificados,3. White-collar Workers
-8341,Op. Maq agrícola forestal,8. Operarios calificados,3. White-collar Workers
-8342,Op. Mov tierra,8. Operarios calificados,3. White-collar Workers
-8343,Op. Grúas y equipos móviles,8. Operarios calificados,3. White-collar Workers
-8344,Op. Autoelevadoras,8. Operarios calificados,3. White-collar Workers
-8350,Mariners,8. Operarios calificados,3. White-collar Workers
-9000,Oc. Elementales n/c,9. Operarios no calificados,3. White-collar Workers
-9100,Limpiadores y asistentes,9. Operarios no calificados,3. White-collar Workers
-9110,Limp. Domésticos y oficinas,9. Operarios no calificados,3. White-collar Workers
-9111,Limp. Doméstica,9. Operarios no calificados,3. White-collar Workers
-9112,"Limp. Oficinas y hoteles",9. Operarios no calificados,3. White-collar Workers
-9120,Limpiadores gral.,9. Operarios no calificados,3. White-collar Workers
-9121,Lavadores y planchadores,9. Operarios no calificados,3. White-collar Workers
-9122,Lav. Vehículos,9. Operarios no calificados,3. White-collar Workers
-9123,Lav. Ventanas,9. Operarios no calificados,3. White-collar Workers
-9129,Limpieza n/c,9. Operarios no calificados,3. White-collar Workers
-9200,"Peones agropecuarios, pesqueros y forestales",9. Operarios no calificados,3. White-collar Workers
-9210,"Peones agropecuarios, pesqueros y forestales",9. Operarios no calificados,3. White-collar Workers
-9211,Peones agrícolas,9. Operarios no calificados,3. White-collar Workers
-9212,Peones ganaderos,9. Operarios no calificados,3. White-collar Workers
-9213,Peones agrícolas mixtos,9. Operarios no calificados,3. White-collar Workers
-9214,Peones de jardinería y horticultura,9. Operarios no calificados,3. White-collar Workers
-9215,Peones forestales,9. Operarios no calificados,3. White-collar Workers
-9216,Peones pesca,9. Operarios no calificados,3. White-collar Workers
-9300,"Peones ind, min y construcción",9. Operarios no calificados,3. White-collar Workers
-9310,Peons minería y la construcción,9. Operarios no calificados,3. White-collar Workers
-9311,Peones minas y canteras,9. Operarios no calificados,3. White-collar Workers
-9312,Peones obras públicas y mantenimiento,9. Operarios no calificados,3. White-collar Workers
-9313,Peones construcción,9. Operarios no calificados,3. White-collar Workers
-9320,Peones ind. Manufactoruera,9. Operarios no calificados,3. White-collar Workers
-9321,Empacadores manuales,9. Operarios no calificados,3. White-collar Workers
-9329,Peones ind. Manufactoruera,9. Operarios no calificados,3. White-collar Workers
-9330,Peones transporte,9. Operarios no calificados,3. White-collar Workers
-9331,Cond. vehículos accionados a pedal o a brazo,9. Operarios no calificados,3. White-collar Workers
-9332,Cond. tracc. animal,9. Operarios no calificados,3. White-collar Workers
-9333,Peones de carga,9. Operarios no calificados,3. White-collar Workers
-9334,Reponedores de estanterías,9. Operarios no calificados,3. White-collar Workers
-9400,Ay. prep. alimentos,9. Operarios no calificados,3. White-collar Workers
-9410,Ay. prep. alimentos,9. Operarios no calificados,3. White-collar Workers
-9411,Cocin. com. rápida,9. Operarios no calificados,3. White-collar Workers
-9412,Ay. de cocina,9. Operarios no calificados,3. White-collar Workers
-9500,Vend. ambulantes de servicios y afines,9. Operarios no calificados,3. White-collar Workers
-9510,Trab. ambulantes de servicios y afines,9. Operarios no calificados,3. White-collar Workers
-9520,Vend. ambulantes (excluyendo de comida),9. Operarios no calificados,3. White-collar Workers
-9600,Rec. Desechos,9. Operarios no calificados,3. White-collar Workers
-9610,Rec. Desechos y clasificadores,9. Operarios no calificados,3. White-collar Workers
-9611,Recol. Basura y mat reciclable,9. Operarios no calificados,3. White-collar Workers
-9612,Clas. de desechos,9. Operarios no calificados,3. White-collar Workers
-9613,Barrenderos y afines,9. Operarios no calificados,3. White-collar Workers
-9620,Oc. elementales n/c,9. Operarios no calificados,3. White-collar Workers
-9621,"Mensajeros, mandaderos, maleteros y repartidores",9. Operarios no calificados,3. White-collar Workers
-9622,Trabajos varios,9. Operarios no calificados,3. White-collar Workers
-9623,Rec. Dinero,9. Operarios no calificados,3. White-collar Workers
-9624,Acarreadores de agua y recolectores de leña,9. Operarios no calificados,3. White-collar Workers
-9629,Oc. Elementales,9. Operarios no calificados,3. White-collar Workers
+0,Oc. Militares,0. Oc. militares,Blue-collar workers
+1,Of. FF.AA.,0. Oc. militares,Blue-collar workers
+2,Suboficiales FF.AA.,0. Oc. militares,Blue-collar workers
+3,Miemb. FF.AA n/c,0. Oc. militares,Blue-collar workers
+11,Of. FF.AA.,0. Oc. militares,White-collar workers
+21,Suboficiales FF.AA.,0. Oc. militares,Blue-collar workers
+31,Miemb. FF.AA n/c,0. Oc. militares,Blue-collar workers
+110,Of. FF.AA.,0. Oc. militares,White-collar workers
+210,Suboficiales FF.AA.,0. Oc. militares,Blue-collar workers
+310,Miemb. FF.AA n/c,0. Oc. militares,Blue-collar workers
+1000,Dir. Y Ger.,1. Gerentes y directivos,White-collar workers
+1100,Dir. Admin. Pública,1. Gerentes y directivos,White-collar workers
+1110,Miemb. Poder judicial,1. Gerentes y directivos,White-collar workers
+1111,Miemb. Poder legislativo,1. Gerentes y directivos,White-collar workers
+1112,Direct. Adm. Pública,1. Gerentes y directivos,White-collar workers
+1113,Jefes de pequeñas poblaciones,1. Gerentes y directivos,White-collar workers
+1114,Dir. Org. Interés especial,1. Gerentes y directivos,White-collar workers
+1120,Ger. Generales,1. Gerentes y directivos,White-collar workers
+1200,Dir. adm. y com.,1. Gerentes y directivos,White-collar workers
+1210,Dir. adm. y serv.,1. Gerentes y directivos,White-collar workers
+1211,Dir. Financieros,1. Gerentes y directivos,White-collar workers
+1212,Dir. RR.HH.,1. Gerentes y directivos,White-collar workers
+1213,Dir. Pol. y planificación,1. Gerentes y directivos,White-collar workers
+1219,Dir. Servicios n/c,1. Gerentes y directivos,White-collar workers
+1220,Dir. Ventas y com,1. Gerentes y directivos,White-collar workers
+1221,Dir. Ventas y com,1. Gerentes y directivos,White-collar workers
+1222,Dir. Publicidad y rel públicas,1. Gerentes y directivos,White-collar workers
+1223,Dir R&D,1. Gerentes y directivos,White-collar workers
+1300,Dir. Producción,1. Gerentes y directivos,White-collar workers
+1310,Dir. Prod agropecuaria,1. Gerentes y directivos,White-collar workers
+1311,Dir. Prod agropecuaria,1. Gerentes y directivos,White-collar workers
+1312,Dir. Prod pisicultura,1. Gerentes y directivos,White-collar workers
+1320,"Dir. Ind manufacturera, minería",1. Gerentes y directivos,White-collar workers
+1321,Dir. Ind manufacturera,1. Gerentes y directivos,White-collar workers
+1322,Dir. minería,1. Gerentes y directivos,White-collar workers
+1323,Dir. emp. construcción,1. Gerentes y directivos,White-collar workers
+1324,"Dir. emp. abastecimiento, distribución y afines",1. Gerentes y directivos,White-collar workers
+1330,Dir. serv. IT,1. Gerentes y directivos,White-collar workers
+1340,Dir. serv. profesionales,1. Gerentes y directivos,White-collar workers
+1341,Dir. Cuidados infantiles,1. Gerentes y directivos,White-collar workers
+1342,Dir. serv. salud,1. Gerentes y directivos,White-collar workers
+1343,Dir. Cuid. Pers edad.,1. Gerentes y directivos,White-collar workers
+1344,Dir. bienestar social,1. Gerentes y directivos,White-collar workers
+1345,Dir. Serv. Educación,1. Gerentes y directivos,White-collar workers
+1346,Ger bancos y serv financieros,1. Gerentes y directivos,White-collar workers
+1349,Dir. serv. profesionales,1. Gerentes y directivos,White-collar workers
+1400,Ger. Hoteles y restaurantes,1. Gerentes y directivos,White-collar workers
+1410,Ger. hot. y rest.,1. Gerentes y directivos,White-collar workers
+1411,Ger. Hoteles,1. Gerentes y directivos,White-collar workers
+1412,Ger. Restaurantes,1. Gerentes y directivos,White-collar workers
+1420,Ger. Com. Por mayor,1. Gerentes y directivos,White-collar workers
+1430,Ger. n/c,1. Gerentes y directivos,White-collar workers
+1431,"Ger cent. Deportivos, esparicmiento y culturales",1. Gerentes y directivos,White-collar workers
+1439,Ger. Serv. n/c,1. Gerentes y directivos,White-collar workers
+2000,Profesionales científicos e intelectuales,2. Profesionales,White-collar workers
+2100,Prof. ciencia e ingeniería,2. Profesionales,White-collar workers
+2111,Físicos y astrónomos,2. Profesionales,White-collar workers
+2112,Meteorólogos,2. Profesionales,White-collar workers
+2113,Químicos,2. Profesionales,White-collar workers
+2114,Geólogos y geofísicos,2. Profesionales,White-collar workers
+2120,"Matemáticos, actuarios y estadísticos",2. Profesionales,White-collar workers
+2130,Prof. Biología,2. Profesionales,White-collar workers
+2131,"Biólogos, botánicos, zoólogos y afines",2. Profesionales,White-collar workers
+2132,Agrónomos y afines,2. Profesionales,White-collar workers
+2133,Prof. Protec. med.ambiental,2. Profesionales,White-collar workers
+2140,Ingenieros,2. Profesionales,White-collar workers
+2141,Ing. Industriales y producción,2. Profesionales,White-collar workers
+2142,Ingenieros civiles,2. Profesionales,White-collar workers
+2143,Ing. med.ambiental,2. Profesionales,White-collar workers
+2144,Ing. Mecánicos,2. Profesionales,White-collar workers
+2145,Ing. Químicos,2. Profesionales,White-collar workers
+2146,Ing. Met. Y minas,2. Profesionales,White-collar workers
+2149,Ingenieros n/c,2. Profesionales,White-collar workers
+2150,Ing. Electrotécnología,2. Profesionales,White-collar workers
+2151,Ing. Electricista,2. Profesionales,White-collar workers
+2152,Ing. Electrónicos,2. Profesionales,White-collar workers
+2153,Ing. Telecomunicaciones,2. Profesionales,White-collar workers
+2160,"Arquitectos, urbanistas, agrimensores y diseñadores",2. Profesionales,White-collar workers
+2161,Arquitectos,2. Profesionales,White-collar workers
+2162,Arquitectos paisajistas,2. Profesionales,White-collar workers
+2163,Dis. Prendas y productos,2. Profesionales,White-collar workers
+2164,Urbanistas e ingenieros de tránsito,2. Profesionales,White-collar workers
+2165,Cartógrafos y agrimensores,2. Profesionales,White-collar workers
+2166,Dis. gráficos,2. Profesionales,White-collar workers
+2200,Prof. Salud,2. Profesionales,White-collar workers
+2210,Médicos,2. Profesionales,White-collar workers
+2211,Médicos generales,2. Profesionales,White-collar workers
+2212,Médicos especialistas,2. Profesionales,White-collar workers
+2220,Prof. Enfermería y partería,2. Profesionales,White-collar workers
+2221,Prof. Enfermería y partería,2. Profesionales,White-collar workers
+2222,Prof. Partería,2. Profesionales,White-collar workers
+2230,Prof. Medicina tradicional y alternativa,2. Profesionales,White-collar workers
+2240,Paramédicos,2. Profesionales,White-collar workers
+2250,Veterinarios,2. Profesionales,White-collar workers
+2260,Prof. Salud,2. Profesionales,White-collar workers
+2261,Dentistas,2. Profesionales,White-collar workers
+2262,Farmacéuticos,2. Profesionales,White-collar workers
+2263,Prof. Salud e higiene laboral,2. Profesionales,White-collar workers
+2264,Fisioterapeutas,2. Profesionales,White-collar workers
+2265,Dietistas y nutricionistas,2. Profesionales,White-collar workers
+2266,Audiólogos y logopedas,2. Profesionales,White-collar workers
+2267,Optometristas,2. Profesionales,White-collar workers
+2269,Prof. Salud n/c,2. Profesionales,White-collar workers
+2300,General Education Teacher,2. Profesionales,White-collar workers
+2310,Prof. Universitarios y ed superior,2. Profesionales,White-collar workers
+2320,Prof. Form. Profesional,2. Profesionales,White-collar workers
+2330,Prof. Secundarios,2. Profesionales,White-collar workers
+2340,Maest. Primaria y preescolar,2. Profesionales,White-collar workers
+2341,Maest. Primaria,2. Profesionales,White-collar workers
+2342,Maest. Preescolar,2. Profesionales,White-collar workers
+2350,Prof. Enseñanza,2. Profesionales,White-collar workers
+2351,Esp. Mét. Pedagógicos,2. Profesionales,White-collar workers
+2352,Ed. Nec. Especiales,2. Profesionales,White-collar workers
+2353,Profesores idiomas,2. Profesionales,White-collar workers
+2354,Profesores música,2. Profesionales,White-collar workers
+2355,Profesores arte,2. Profesionales,White-collar workers
+2356,Inst. IT,2. Profesionales,White-collar workers
+2359,Prof. enseñanza,2. Profesionales,White-collar workers
+2400,Esp. Admin pública,2. Profesionales,White-collar workers
+2410,Esp. Finanzas,2. Profesionales,White-collar workers
+2411,Contables,2. Profesionales,White-collar workers
+2412,Asesores financieros y en inversiones,2. Profesionales,White-collar workers
+2413,An. financieros,2. Profesionales,White-collar workers
+2420,Esp. Org y adm.,2. Profesionales,White-collar workers
+2421,An. gestión y organización,2. Profesionales,White-collar workers
+2422,Esp. Pol. Administración,2. Profesionales,White-collar workers
+2423,Esp. Pol. Y serv. Personal,2. Profesionales,White-collar workers
+2424,Esp. Formación personal,2. Profesionales,White-collar workers
+2430,"Prof. Venta, comercialización",2. Profesionales,White-collar workers
+2431,Prof. Publicidad y marketing,2. Profesionales,White-collar workers
+2432,Prof. Rel. Públicas,2. Profesionales,White-collar workers
+2433,Prof. Ventas médicas,2. Profesionales,White-collar workers
+2434,Prof. Ventas IT,2. Profesionales,White-collar workers
+2500,Profesionales IT,2. Profesionales,White-collar workers
+2510,Des. Y An. Software,2. Profesionales,White-collar workers
+2511,An. de sistemas,2. Profesionales,White-collar workers
+2512,Des. software,2. Profesionales,White-collar workers
+2513,Des. Web y multimedia,2. Profesionales,White-collar workers
+2514,Programadores,2. Profesionales,White-collar workers
+2519,Des. Y An. Software,2. Profesionales,White-collar workers
+2520,Esp. Bases de datos,2. Profesionales,White-collar workers
+2521,Adm. Base de datos,2. Profesionales,White-collar workers
+2522,Admin. sistemas,2. Profesionales,White-collar workers
+2523,Prof. Redes informáticas,2. Profesionales,White-collar workers
+2529,Esp. Bases de datos,2. Profesionales,White-collar workers
+2600,"Prof. Derecho, Cs Sociales",2. Profesionales,White-collar workers
+2610,Prof. Derecho,2. Profesionales,White-collar workers
+2611,Abogados,2. Profesionales,White-collar workers
+2612,Jueces,2. Profesionales,White-collar workers
+2619,Prof. Derecho n/c,2. Profesionales,White-collar workers
+2620,"Archivistas, bibliotecarios, curadores y afines",2. Profesionales,White-collar workers
+2621,Archivistas y curadores de museos,2. Profesionales,White-collar workers
+2622,"Bibliotecarios, documentalistas y afines",2. Profesionales,White-collar workers
+2630,Esp. cs. Sociales,2. Profesionales,White-collar workers
+2631,Economistas,2. Profesionales,White-collar workers
+2632,"Sociólogos, antropólogos y afines",2. Profesionales,White-collar workers
+2633,"Filósofos, historiadores y especialistas en ciencias políticas",2. Profesionales,White-collar workers
+2634,Psicólogos,2. Profesionales,White-collar workers
+2635,Prof. Trabajo social,2. Profesionales,White-collar workers
+2636,Prof. Religiosos,2. Profesionales,White-collar workers
+2640,Aut. periodistas y lingüistas,2. Profesionales,White-collar workers
+2641,Aut. escritores,2. Profesionales,White-collar workers
+2642,Periodistas,2. Profesionales,White-collar workers
+2643,"Traductores, intérpretes y lingüistas",2. Profesionales,White-collar workers
+2650,Artistas creativos e interpretativos,2. Profesionales,White-collar workers
+2651,Artistaplásticos,2. Profesionales,White-collar workers
+2652,"Músicos, cantantes y compositores",2. Profesionales,White-collar workers
+2653,Bailarines y coreógrafos,2. Profesionales,White-collar workers
+2654,Dir. cine teatro,2. Profesionales,White-collar workers
+2655,Actores,2. Profesionales,White-collar workers
+2656,"Locutores de radio, televisión y otros med.s de comunicación",2. Profesionales,White-collar workers
+2659,Artistas creativos e interpretativos no clasificados bajo otros epígrafes,2. Profesionales,White-collar workers
+3000,Téc. Y prof. N. Medio. mediop,3. Técnicos,White-collar workers
+3100,Prof. med. ciencia e ingeniería,3. Técnicos,White-collar workers
+3110,Téc. Cs. Físicas e ingeniería,3. Técnicos,White-collar workers
+3111,Téc. cs. físicas y químicas,3. Técnicos,White-collar workers
+3112,Téc. Ing. Civil,3. Técnicos,White-collar workers
+3113,Electrotécnicos,3. Técnicos,White-collar workers
+3114,Téc. electrónica,3. Técnicos,White-collar workers
+3115,Téc. Ing. mecánica,3. Técnicos,White-collar workers
+3116,Téc. química industrial,3. Técnicos,White-collar workers
+3117,"Tec. Ingeniería, industria y minas",3. Técnicos,White-collar workers
+3118,Dibujant. Técnicos,3. Técnicos,White-collar workers
+3119,Téc. Cs. Físicas,3. Técnicos,White-collar workers
+3120,"Supv. Construcción, ingeniería y construcción",3. Técnicos,White-collar workers
+3121,Supv. Ingeniería y minas,3. Técnicos,White-collar workers
+3122,Supv. Ind. manufactureras,3. Técnicos,White-collar workers
+3123,Sup. Construcción,3. Técnicos,White-collar workers
+3130,Téc. Ctrl. procesos,3. Técnicos,White-collar workers
+3131,Op. Prod. Energia,3. Técnicos,White-collar workers
+3132,Op. Incineradores y plantas de agua,3. Técnicos,White-collar workers
+3133,Cont. Inst químicas,3. Técnicos,White-collar workers
+3134,Op. Refinamiento petroleo y gas,3. Técnicos,White-collar workers
+3135,Cont. prod. metales,3. Técnicos,White-collar workers
+3139,Téc. Ctrl. Procesos n/c,3. Técnicos,White-collar workers
+3140,Téc. Cs. biológicas y afines,3. Técnicos,White-collar workers
+3141,Téc. Cs. Biológicas,3. Técnicos,White-collar workers
+3142,Téc. agropecuarios,3. Técnicos,White-collar workers
+3143,Téc. forestales,3. Técnicos,White-collar workers
+3150,Técnicos navegación marítima y aeronáutica,3. Técnicos,White-collar workers
+3151,Of. Maquinistas navegación,3. Técnicos,White-collar workers
+3152,"Capitanes, oficiales de cubierta y prácticos",3. Técnicos,White-collar workers
+3153,Pilotos de aviación y afines,3. Técnicos,White-collar workers
+3154,Cont. tráf. aéreo,3. Técnicos,White-collar workers
+3155,Téc. Seg. aeronáutica,3. Técnicos,White-collar workers
+3200,Prof. med. salud,3. Técnicos,White-collar workers
+3210,Téc. médicos y farmacéuticos,3. Técnicos,White-collar workers
+3211,Téc. diagnóstico y tratamiento médico,3. Técnicos,White-collar workers
+3212,Téc. Lab. médicos,3. Técnicos,White-collar workers
+3213,Téc. farmacéuticos,3. Técnicos,White-collar workers
+3214,Téc. prótesis médicas y dentales,3. Técnicos,White-collar workers
+3220,Prof. med. enfermería y partería,3. Técnicos,White-collar workers
+3221,Prof. med. enfermería,3. Técnicos,White-collar workers
+3222,Prof. med. partería,3. Técnicos,White-collar workers
+3230,Prof. med. medicina tradicional y alternativa,3. Técnicos,White-collar workers
+3232,Prof. med. medicina tradicional y alternativa,3. Técnicos,White-collar workers
+3240,Téc. veterinarios,3. Técnicos,White-collar workers
+3250,Prof med. salud,3. Técnicos,White-collar workers
+3251,Aux. y ay. Dentista,3. Técnicos,White-collar workers
+3252,Téc. Doc. Sanitaria,3. Técnicos,White-collar workers
+3253,T ra. Comu. Salud,3. Técnicos,White-collar workers
+3254,Téc. optometría y ópticos,3. Técnicos,White-collar workers
+3255,Téc. fisioterapeutas,3. Técnicos,White-collar workers
+3256,Asistentes médicos,3. Técnicos,White-collar workers
+3257,Insp. Salud y laboral,3. Técnicos,White-collar workers
+3258,Ay. de ambulancias,3. Técnicos,White-collar workers
+3259,Prof med. salud n/c,3. Técnicos,White-collar workers
+3300,Prof. Med. Financieros,3. Técnicos,White-collar workers
+3310,Prof. Med. Finanzas y matemáticas,3. Técnicos,White-collar workers
+3311,"Ag. bolsa, cambio y otros servicios financieros",3. Técnicos,White-collar workers
+3312,Of. Préstamos y créditos,3. Técnicos,White-collar workers
+3313,Tenedores de libros,3. Técnicos,White-collar workers
+3314,Prof. med. estadística y afines,3. Técnicos,White-collar workers
+3315,Tasadores,3. Técnicos,White-collar workers
+3320,Ag. comerciales y corredores,3. Técnicos,White-collar workers
+3321,Ag. de seguros,3. Técnicos,White-collar workers
+3322,Rep. Comerciales,3. Técnicos,White-collar workers
+3323,Ag. de compras,3. Técnicos,White-collar workers
+3324,Ag. de compras y consignatarios,3. Técnicos,White-collar workers
+3330,Ag. serv. comerciales,3. Técnicos,White-collar workers
+3331,Dec. o gest. aduana,3. Técnicos,White-collar workers
+3332,Org. Eventos y conferencias,3. Técnicos,White-collar workers
+3333,Ag. de empleo y contratistas de mano de obra,3. Técnicos,White-collar workers
+3334,Ag. inmobiliarios,3. Técnicos,White-collar workers
+3339,Ag. serv. comerciales n/c,3. Técnicos,White-collar workers
+3340,Secretarios administrativos y especializados,3. Técnicos,White-collar workers
+3341,Supv. Secretaría,3. Técnicos,White-collar workers
+3342,Secretarios jurídicos,3. Técnicos,White-collar workers
+3343,Secretarios administrativos y ejecutivos,3. Técnicos,White-collar workers
+3344,Secretarios médicos,3. Técnicos,White-collar workers
+3350,Ag. adm. pública para la aplicación de la ley y afines,3. Técnicos,White-collar workers
+3351,Ag. aduana e inspectores de fronteras,3. Técnicos,White-collar workers
+3352,Ag. adm. tributaria,3. Técnicos,White-collar workers
+3353,Ag. seg. Social,3. Técnicos,White-collar workers
+3354,Ag. serv. licencias y permisos,3. Técnicos,White-collar workers
+3355,Insp. De policía,3. Técnicos,White-collar workers
+3359,Ag. adm. pública para la aplicacion de la ley y afines no clasificados bajo otros epígrafes,3. Técnicos,White-collar workers
+3400,Prof. med. jurídico,3. Técnicos,White-collar workers
+3410,Prof. Med. Jurídicos y sociales,3. Técnicos,White-collar workers
+3411,Prof. med. derecho,3. Técnicos,White-collar workers
+3412,Traby asist. Sociales nivel medio,3. Técnicos,White-collar workers
+3413,Aux. laicos religiones,3. Técnicos,White-collar workers
+3420,Ent. deportivos,3. Técnicos,White-collar workers
+3421,Atletas y deportistas,3. Técnicos,White-collar workers
+3422,"Ent. Deportivos, arbitros",3. Técnicos,White-collar workers
+3423,Inst. ed física,3. Técnicos,White-collar workers
+3430,"Prof. med. Act culturales, artísticas y humanas",3. Técnicos,White-collar workers
+3431,Fotógrafos,3. Técnicos,White-collar workers
+3432,Dis. De interior,3. Técnicos,White-collar workers
+3433,"Téc. arte, museos y bibliotecas",3. Técnicos,White-collar workers
+3434,Chefs,3. Técnicos,White-collar workers
+3435,Prof med. Act artísticas y culturales,3. Técnicos,White-collar workers
+3500,Téc. IT,3. Técnicos,White-collar workers
+3510,Téc. Op. IT n/c,3. Técnicos,White-collar workers
+3511,Téc. Op. IT,3. Técnicos,White-collar workers
+3512,Téc. Asistencia IT,3. Técnicos,White-collar workers
+3513,Téc. redes y sistemas de computadores,3. Técnicos,White-collar workers
+3514,Técnicos Web,3. Técnicos,White-collar workers
+3520,Téc. telecomunicaciones y radiodifusión,3. Técnicos,White-collar workers
+3521,Téc. radiodifusión y grabación audio visual,3. Técnicos,White-collar workers
+3522,Téc. Ing. telecomunicaciones,3. Técnicos,White-collar workers
+4000,Apoyo administrativo,4. Trabajadores administrativos,White-collar workers
+4100,Oficinistas n/c,4. Trabajadores administrativos,White-collar workers
+4110,Oficinistas,4. Trabajadores administrativos,White-collar workers
+4120,Secretarios (general),4. Trabajadores administrativos,White-collar workers
+4130,Op. Maq oficina,4. Trabajadores administrativos,White-collar workers
+4131,Op. Pros de texto y mecanógrafos,4. Trabajadores administrativos,White-collar workers
+4132,Grab. De datos,4. Trabajadores administrativos,White-collar workers
+4200,Emp. Trato directo con el público,4. Trabajadores administrativos,White-collar workers
+4210,Cobradores y pagadores,4. Trabajadores administrativos,White-collar workers
+4211,Cajeros bancos y afines,4. Trabajadores administrativos,White-collar workers
+4212,Recep. apuestas y afines,4. Trabajadores administrativos,White-collar workers
+4213,Prestamistas,4. Trabajadores administrativos,White-collar workers
+4214,Cobradres,4. Trabajadores administrativos,White-collar workers
+4220,Emp. Serv. Información,4. Trabajadores administrativos,White-collar workers
+4221,Emp. Ag. Viajes,4. Trabajadores administrativos,White-collar workers
+4222,Emp. cent. Llamadas,4. Trabajadores administrativos,White-collar workers
+4223,Telefonistas,4. Trabajadores administrativos,White-collar workers
+4224,Recepcionistas de hoteles,4. Trabajadores administrativos,White-collar workers
+4225,Emp. Informaciónes,4. Trabajadores administrativos,White-collar workers
+4226,Recepcionistas (general),4. Trabajadores administrativos,White-collar workers
+4227,Encuestadores y entrevistadores,4. Trabajadores administrativos,White-collar workers
+4229,Emp. Serv. Información,4. Trabajadores administrativos,White-collar workers
+4300,Emp. Contables y materiales,4. Trabajadores administrativos,White-collar workers
+4310,Aux. contables y financieros,4. Trabajadores administrativos,White-collar workers
+4311,Emp. Contabilidad,4. Trabajadores administrativos,White-collar workers
+4312,Emp. Serv. Estadísticos,4. Trabajadores administrativos,White-collar workers
+4313,Emp. Nóminas,4. Trabajadores administrativos,White-collar workers
+4320,Emp. Registro materiales,4. Trabajadores administrativos,White-collar workers
+4321,Emp. Ctrl. Abastecimiento,4. Trabajadores administrativos,White-collar workers
+4322,Emp. Apoyo producción,4. Trabajadores administrativos,White-collar workers
+4323,Emp. Serv. Transporte,4. Trabajadores administrativos,White-collar workers
+4400,Pers. Administrativo,4. Trabajadores administrativos,White-collar workers
+4410,Pers. Administrativo n/c,4. Trabajadores administrativos,White-collar workers
+4411,Emp. bibliotecas,4. Trabajadores administrativos,White-collar workers
+4412,Emp. Serv. Correos,4. Trabajadores administrativos,White-collar workers
+4413,"Cod. datos, correctores de pruebas de imprenta y afines",4. Trabajadores administrativos,White-collar workers
+4414,Escribientes públicos,4. Trabajadores administrativos,White-collar workers
+4415,Emp. archivos,4. Trabajadores administrativos,White-collar workers
+4416,Emp. Serv. De personal,4. Trabajadores administrativos,White-collar workers
+4419,Apoyo administrativo,4. Trabajadores administrativos,White-collar workers
+5000,Trab. servicios y vendedores de comercios y mercados,5. Trabajadores de servicios y ventas,Service and sales workers
+5100,Trab. Serv. Personales,5. Trabajadores de servicios y ventas,Service and sales workers
+5110,Serv. Pasajeros,5. Trabajadores de servicios y ventas,Service and sales workers
+5111,Aux. serv. abordo,5. Trabajadores de servicios y ventas,Service and sales workers
+5112,Cobradores transporte público,5. Trabajadores de servicios y ventas,Service and sales workers
+5113,Guías de turismo,5. Trabajadores de servicios y ventas,Service and sales workers
+5120,Cocineros,5. Trabajadores de servicios y ventas,Service and sales workers
+5130,Camareros,5. Trabajadores de servicios y ventas,Service and sales workers
+5131,Camarero mesas,5. Trabajadores de servicios y ventas,Service and sales workers
+5132,Camarer barra,5. Trabajadores de servicios y ventas,Service and sales workers
+5140,"Peluqueros, especialistas en tratamientos de belleza y afines",5. Trabajadores de servicios y ventas,Service and sales workers
+5141,Peluqueros,5. Trabajadores de servicios y ventas,Service and sales workers
+5142,Esp. Trat belleza,5. Trabajadores de servicios y ventas,Service and sales workers
+5150,Sup. Mantenimiento y limpieza,5. Trabajadores de servicios y ventas,Service and sales workers
+5151,Sup. Mantenimiento y limpieza hoteles y establecimientos,5. Trabajadores de servicios y ventas,Service and sales workers
+5152,Ecónomos y mayordomos domésticos,5. Trabajadores de servicios y ventas,Service and sales workers
+5153,Conserjes,5. Trabajadores de servicios y ventas,Service and sales workers
+5160,Trab serv. Personales,5. Trabajadores de servicios y ventas,Service and sales workers
+5161,"Astrólogos, adivinadores y afines",5. Trabajadores de servicios y ventas,Service and sales workers
+5162,Acompañantes y ayudantes de cámara,5. Trabajadores de servicios y ventas,Service and sales workers
+5163,Pers. pompas fúnebres y embalsamadores,5. Trabajadores de servicios y ventas,Service and sales workers
+5164,Cuid. de animales,5. Trabajadores de servicios y ventas,Service and sales workers
+5165,Inst. autoescuela,5. Trabajadores de servicios y ventas,Service and sales workers
+5169,Trab. Serv. personales no clasificados bajo otros epígrafes,5. Trabajadores de servicios y ventas,Service and sales workers
+5200,Vendedores,5. Trabajadores de servicios y ventas,Service and sales workers
+5210,Vend. callejeros y de puestos de mercado,5. Trabajadores de servicios y ventas,Service and sales workers
+5211,Vend. quioscos y de puestos de mercado,5. Trabajadores de servicios y ventas,Service and sales workers
+5212,Vend. Ambulantes comida,5. Trabajadores de servicios y ventas,Service and sales workers
+5220,Comerciantes y vendedores de tiendas y almacenes,5. Trabajadores de servicios y ventas,Service and sales workers
+5221,Comerciantes,5. Trabajadores de servicios y ventas,Service and sales workers
+5222,Supv. Tiendas y almacenes,5. Trabajadores de servicios y ventas,Service and sales workers
+5223,Vendedores,5. Trabajadores de servicios y ventas,Service and sales workers
+5230,Cajeros y expendedores de billetes,5. Trabajadores de servicios y ventas,Service and sales workers
+5240,Vendedores n/c,5. Trabajadores de servicios y ventas,Service and sales workers
+5241,"Modelos de moda, arte y publicidad",5. Trabajadores de servicios y ventas,Service and sales workers
+5242,Dem. tiendas,5. Trabajadores de servicios y ventas,Service and sales workers
+5243,Vend. puerta a puerta,5. Trabajadores de servicios y ventas,Service and sales workers
+5244,Vend. Telefónicos,5. Trabajadores de servicios y ventas,Service and sales workers
+5245,Exp. Gasolineras,5. Trabajadores de servicios y ventas,Service and sales workers
+5246,Vend. comidas al mostrador,5. Trabajadores de servicios y ventas,Service and sales workers
+5249,Vendedoren/c,5. Trabajadores de servicios y ventas,Service and sales workers
+5300,Trab. Cuidados personales,5. Trabajadores de servicios y ventas,Service and sales workers
+5310,Cuid. niños y auxiliares de maestros,5. Trabajadores de servicios y ventas,Service and sales workers
+5311,Cuid. de niños,5. Trabajadores de servicios y ventas,Service and sales workers
+5312,Aux. de maestros,5. Trabajadores de servicios y ventas,Service and sales workers
+5320,Trab. Cuid. Personales en servicios de salud,5. Trabajadores de servicios y ventas,Service and sales workers
+5321,Trab. Cuid. Pers. instituciones,5. Trabajadores de servicios y ventas,Service and sales workers
+5322,Trab. Cuid. personales,5. Trabajadores de servicios y ventas,Service and sales workers
+5329,Trab. Cuid. Pers servicios de salud n/c,5. Trabajadores de servicios y ventas,Service and sales workers
+5400,Serv. Protección,5. Trabajadores de servicios y ventas,Service and sales workers
+5410,Serv. Protección,5. Trabajadores de servicios y ventas,Service and sales workers
+5411,Bomberos,5. Trabajadores de servicios y ventas,Service and sales workers
+5412,Policías,5. Trabajadores de servicios y ventas,Service and sales workers
+5413,Guar. de prisión,5. Trabajadores de servicios y ventas,Service and sales workers
+5414,Guardias de protección,5. Trabajadores de servicios y ventas,Service and sales workers
+5419,Serv. Protección n/c,5. Trabajadores de servicios y ventas,Service and sales workers
+6000,"Agricultores y trabajadores calificados agropecuarios, forestales y pesqueros",6. Trabajadores agropecuarios,Blue-collar workers
+6100,Agricultores y trabajadores calificados de explotaciones agropecuarias con destino al mercado,6. Trabajadores agropecuarios,Blue-collar workers
+6110,Agricultores y trabajadores calificados de jardines y de cultivos para el mercado,6. Trabajadores agropecuarios,Blue-collar workers
+6111,Agricultores y trabajadores calificados de cultivos extensivos,6. Trabajadores agropecuarios,Blue-collar workers
+6112,Agricultores y trabajadores calificados de plantaciones de árboles y arbustos,6. Trabajadores agropecuarios,Blue-collar workers
+6113,"Agricultores y trabajadores calificados de huertas, invernaderos, viveros y jardines",6. Trabajadores agropecuarios,Blue-collar workers
+6114,Agricultores y trabajadores calificados de cultivos mixtos,6. Trabajadores agropecuarios,Blue-collar workers
+6120,Criadores y trabajadores pecuarios calificados de la cría de animales para el mercado y afines,6. Trabajadores agropecuarios,Blue-collar workers
+6121,Criadores de ganado,6. Trabajadores agropecuarios,Blue-collar workers
+6122,Avicultores y trabajadores calificados de la avicultura,6. Trabajadores agropecuarios,Blue-collar workers
+6123,Apicultores y sericultores y trabajadores calificados de la apicultura y la sericultura,6. Trabajadores agropecuarios,Blue-collar workers
+6129,Criadores y trabajadores pecuarios calificados de la cría de animales no clasificados bajo otros epígrafes,6. Trabajadores agropecuarios,Blue-collar workers
+6130,Prod y trab agrop,6. Trabajadores agropecuarios,Blue-collar workers
+6200,"Trab. forestales calificados, pescadores y cazadores",6. Trabajadores agropecuarios,Blue-collar workers
+6210,Trab. forestales calificados y afines,6. Trabajadores agropecuarios,Blue-collar workers
+6220,"Pescadores, cazadores y tramperos",6. Trabajadores agropecuarios,Blue-collar workers
+6221,Trab. acuicultura,6. Trabajadores agropecuarios,Blue-collar workers
+6222,Pescadores de agua dulce y en aguas costeras,6. Trabajadores agropecuarios,Blue-collar workers
+6223,Pescadores de alta mar,6. Trabajadores agropecuarios,Blue-collar workers
+6224,Cazadores y tramperos,6. Trabajadores agropecuarios,Blue-collar workers
+6300,"Trab. agropecuarios, pescadores, cazadores y recolectores de subsistencia",6. Trabajadores agropecuarios,Blue-collar workers
+6310,Trab. agrícolas de subsistencia,6. Trabajadores agropecuarios,Blue-collar workers
+6320,Trab. agropecuarios de subsistencia,6. Trabajadores agropecuarios,Blue-collar workers
+6330,Trab. agropecuarios de subsistencia,6. Trabajadores agropecuarios,Blue-collar workers
+6340,"Pescadores, cazadores, tramperos y recolectores de subsistencia",6. Trabajadores agropecuarios,Blue-collar workers
+7000,"Oficiales, oprarios y artesanos",7. Trabajadores de oficios,Blue-collar workers
+7100,Of. Y op. Construcción,7. Trabajadores de oficios,Blue-collar workers
+7110,Of. Y op. Construcción,7. Trabajadores de oficios,Blue-collar workers
+7111,Constructore,7. Trabajadores de oficios,Blue-collar workers
+7112,Albañiles,7. Trabajadores de oficios,Blue-collar workers
+7113,"Mamposteros, tronzadores, labrantes y grabadores de piedra",7. Trabajadores de oficios,Blue-collar workers
+7114,Op en cemento armado,7. Trabajadores de oficios,Blue-collar workers
+7115,Carpinteros de armar y de obra blanca,7. Trabajadores de oficios,Blue-collar workers
+7119,Of. Y op. Construcción,7. Trabajadores de oficios,Blue-collar workers
+7120,Of. Y op. Construcción,7. Trabajadores de oficios,Blue-collar workers
+7121,Techadores,7. Trabajadores de oficios,Blue-collar workers
+7122,Parqueteros y colocadores de suelos,7. Trabajadores de oficios,Blue-collar workers
+7123,Revocadores,7. Trabajadores de oficios,Blue-collar workers
+7124,Innst. material aislante y de insonorización,7. Trabajadores de oficios,Blue-collar workers
+7125,Cristaleros,7. Trabajadores de oficios,Blue-collar workers
+7126,Fontaneros e instaladores de tuberías,7. Trabajadores de oficios,Blue-collar workers
+7127,Méc. Refrigreación,7. Trabajadores de oficios,Blue-collar workers
+7130,"Pintores, limpiadores de fachadas y afines",7. Trabajadores de oficios,Blue-collar workers
+7131,Pintores y empapeladores,7. Trabajadores de oficios,Blue-collar workers
+7132,Barnizadores y afines,7. Trabajadores de oficios,Blue-collar workers
+7133,Limpiadores de fachadas y deshollinadores,7. Trabajadores de oficios,Blue-collar workers
+7200,Of. Y op. Metalurgia,7. Trabajadores de oficios,Blue-collar workers
+7210,"Moldeadores, soldadores, chapistas, caldereros, montadores de estructuras metálicas y afines",7. Trabajadores de oficios,Blue-collar workers
+7211,Moldeadores y macheros,7. Trabajadores de oficios,Blue-collar workers
+7212,Soldadores y oxicortadores,7. Trabajadores de oficios,Blue-collar workers
+7213,Chapistas y caldereros,7. Trabajadores de oficios,Blue-collar workers
+7214,Montadores de estructuras metálicas,7. Trabajadores de oficios,Blue-collar workers
+7215,Aparejadores y empalmadores de cables,7. Trabajadores de oficios,Blue-collar workers
+7220,"Herreros, herramentistas y afines",7. Trabajadores de oficios,Blue-collar workers
+7221,Herreros y forjadores,7. Trabajadores de oficios,Blue-collar workers
+7222,Herramentistas y afines,7. Trabajadores de oficios,Blue-collar workers
+7223,Reg. Y Op. máquinas herramientas,7. Trabajadores de oficios,Blue-collar workers
+7224,Pulidores de metales y afiladores de herramientas,7. Trabajadores de oficios,Blue-collar workers
+7230,Méc y rep. Maquinaria,7. Trabajadores de oficios,Blue-collar workers
+7231,Mec. Vehículos de motor,7. Trabajadores de oficios,Blue-collar workers
+7232,Méc y re. Motores de avión,7. Trabajadores de oficios,Blue-collar workers
+7233,Méc. Maq. Agrícola,7. Trabajadores de oficios,Blue-collar workers
+7234,Rep. Bicicletas y afines,7. Trabajadores de oficios,Blue-collar workers
+7300,Art. Y Op. Artes gráficas,7. Trabajadores de oficios,Blue-collar workers
+7310,Artesanos,7. Trabajadores de oficios,Blue-collar workers
+7311,Méc. Y rep. Instrumentos de presición,7. Trabajadores de oficios,Blue-collar workers
+7312,Fab. Y afi. Inst musicales,7. Trabajadores de oficios,Blue-collar workers
+7313,"Joyeros, orfebres y plateros",7. Trabajadores de oficios,Blue-collar workers
+7314,"Alfareros y afines (barro, arcilla y abrasivos)",7. Trabajadores de oficios,Blue-collar workers
+7315,"Sopladores, modeladores, laminadores, cortadores y pulidores de vidrio",7. Trabajadores de oficios,Blue-collar workers
+7316,"Redactores de carteles, pintores decorativos y grabadores",7. Trabajadores de oficios,Blue-collar workers
+7317,"Artesano madera, cestería y materiales similares",7. Trabajadores de oficios,Blue-collar workers
+7318,"Artesano tejidos, el cuero y materiales similares",7. Trabajadores de oficios,Blue-collar workers
+7319,Artesanon/c,7. Trabajadores de oficios,Blue-collar workers
+7320,Of. Y Op. Art gráficas,7. Trabajadores de oficios,Blue-collar workers
+7321,"Cajistas, tipógrafos y afines",7. Trabajadores de oficios,Blue-collar workers
+7322,Impresores,7. Trabajadores de oficios,Blue-collar workers
+7323,Encuadernadores y afines,7. Trabajadores de oficios,Blue-collar workers
+7400,Trab. electricidad y la elecrotecnología,7. Trabajadores de oficios,Blue-collar workers
+7410,Inst. y rep. electricos,7. Trabajadores de oficios,Blue-collar workers
+7411,Electricistas de obras y afines,7. Trabajadores de oficios,Blue-collar workers
+7412,Méc. Electricistas,7. Trabajadores de oficios,Blue-collar workers
+7413,Inst. y rep líneas eléctricas,7. Trabajadores de oficios,Blue-collar workers
+7420,Inst. y rep electrónicos y telecomunicaciones,7. Trabajadores de oficios,Blue-collar workers
+7421,Méc. Y rep. Electrónicos,7. Trabajadores de oficios,Blue-collar workers
+7422,Inst. y rep IT,7. Trabajadores de oficios,Blue-collar workers
+7500,Op. Proces alimentos,7. Trabajadores de oficios,Blue-collar workers
+7510,Of. Y Op elab alimentos,7. Trabajadores de oficios,Blue-collar workers
+7511,"Carniceros, pescaderos y afines",7. Trabajadores de oficios,Blue-collar workers
+7512,"Panaderos, pasteleros y confiteros",7. Trabajadores de oficios,Blue-collar workers
+7513,Op. Elab. Lácteos,7. Trabajadores de oficios,Blue-collar workers
+7514,Op. Cons. Frutas y vegetales,7. Trabajadores de oficios,Blue-collar workers
+7515,Catadores y clasificadores de alimentos y bebidas,7. Trabajadores de oficios,Blue-collar workers
+7516,Elab. Tábaco,7. Trabajadores de oficios,Blue-collar workers
+7520,Of. Y Op. Madera,7. Trabajadores de oficios,Blue-collar workers
+7521,Op. Trat. Madera,7. Trabajadores de oficios,Blue-collar workers
+7522,Ebanistas y afines,7. Trabajadores de oficios,Blue-collar workers
+7523,Reg. Y op. máquinas de labrar madera,7. Trabajadores de oficios,Blue-collar workers
+7530,Of. Y Op. Confección,7. Trabajadores de oficios,Blue-collar workers
+7531,"Sastres, modistos, peleteros y sombrereros",7. Trabajadores de oficios,Blue-collar workers
+7532,Patronistas y cortadores de tela y afines,7. Trabajadores de oficios,Blue-collar workers
+7533,"Costureros, bordadores y afines",7. Trabajadores de oficios,Blue-collar workers
+7534,"Tapiceros, colchoneros y afines",7. Trabajadores de oficios,Blue-collar workers
+7535,"Apelambradores, pellejeros y curtidores",7. Trabajadores de oficios,Blue-collar workers
+7536,Zapateros y afines,7. Trabajadores de oficios,Blue-collar workers
+7540,Of. Y Op. n/c,7. Trabajadores de oficios,Blue-collar workers
+7541,Buzos,7. Trabajadores de oficios,Blue-collar workers
+7542,Dinamiteros y pegadores,7. Trabajadores de oficios,Blue-collar workers
+7543,Clasificadores y probadores de productos (excluyendo alimentos y bebidas),7. Trabajadores de oficios,Blue-collar workers
+7544,Fumigadores y otros controladores de plagas y malas hierbas,7. Trabajadores de oficios,Blue-collar workers
+7549,Of. Y Op. Mecánicos,7. Trabajadores de oficios,Blue-collar workers
+8000,Op. Maquinas y ensambladores,8. Operarios calificados,Blue-collar workers
+8100,Op. Inst y maquinaria,8. Operarios calificados,Blue-collar workers
+8110,Op. Inst minería,8. Operarios calificados,Blue-collar workers
+8111,Mineros y operadores de instalaciones mineras,8. Operarios calificados,Blue-collar workers
+8112,Op. Proces minerales,8. Operarios calificados,Blue-collar workers
+8113,Perforadores y sondistas de pozos y afines,8. Operarios calificados,Blue-collar workers
+8114,Op. Maq. Cemento,8. Operarios calificados,Blue-collar workers
+8120,Op. Proces metales,8. Operarios calificados,Blue-collar workers
+8121,Op. proces metales,8. Operarios calificados,Blue-collar workers
+8122,Op. Pulidoras y rec. Metales,8. Operarios calificados,Blue-collar workers
+8130,Op. Prod químicos y fotográficos,8. Operarios calificados,Blue-collar workers
+8131,Op. Plant químicas,8. Operarios calificados,Blue-collar workers
+8132,Op. Maq fotográficos,8. Operarios calificados,Blue-collar workers
+8140,Op. Maq. Caucho y afines,8. Operarios calificados,Blue-collar workers
+8141,Op. Maq. Caucho,8. Operarios calificados,Blue-collar workers
+8142,Op. Maq. Plástico,8. Operarios calificados,Blue-collar workers
+8143,Op. Maq papel,8. Operarios calificados,Blue-collar workers
+8150,Op. Prod textiles,8. Operarios calificados,Blue-collar workers
+8151,Op. Maq. Fibras y tejidos,8. Operarios calificados,Blue-collar workers
+8152,Op. Telares y maq. Coser,8. Operarios calificados,Blue-collar workers
+8153,Op. Maq coser,8. Operarios calificados,Blue-collar workers
+8154,Op. Limpieza tejidos,8. Operarios calificados,Blue-collar workers
+8155,Op. Maq de cuero y pieles,8. Operarios calificados,Blue-collar workers
+8156,Op. Maq. Calzado,8. Operarios calificados,Blue-collar workers
+8157,Op. Maq. Lavarropas,8. Operarios calificados,Blue-collar workers
+8159,Op. Prod. Textiles,8. Operarios calificados,Blue-collar workers
+8160,Op. Maq. Alimentos y bebidas,8. Operarios calificados,Blue-collar workers
+8170,Op. Inst papel y madera,8. Operarios calificados,Blue-collar workers
+8171,Op. Pasta de papel y celulosa,8. Operarios calificados,Blue-collar workers
+8172,Op. Proces madera,8. Operarios calificados,Blue-collar workers
+8180,Op. Maquinaria n/c,8. Operarios calificados,Blue-collar workers
+8181,Op. Vidriería y cerámica,8. Operarios calificados,Blue-collar workers
+8182,Op. Maq vapor y calderas,8. Operarios calificados,Blue-collar workers
+8183,Op. Maq. Embalaje,8. Operarios calificados,Blue-collar workers
+8189,Op maq. n/c,8. Operarios calificados,Blue-collar workers
+8200,Ensambladores,8. Operarios calificados,Blue-collar workers
+8210,Ensambladores,8. Operarios calificados,Blue-collar workers
+8211,Ensambladores de maquinaria mecánica,8. Operarios calificados,Blue-collar workers
+8212,Ensambladores de equipos eléctricos y electrónicos,8. Operarios calificados,Blue-collar workers
+8219,Ensambladores no clasificados bajo otros epígrafes,8. Operarios calificados,Blue-collar workers
+8300,Cond. equip. pesados móviles,8. Operarios calificados,Blue-collar workers
+8310,Maq. Locomotoras,8. Operarios calificados,Blue-collar workers
+8311,Mar. Locomotoras,8. Operarios calificados,Blue-collar workers
+8312,"Guardafrenos, guardagujas y agentes de maniobras",8. Operarios calificados,Blue-collar workers
+8320,"Cond. automóviles, camionetas y motocicletas",8. Operarios calificados,Blue-collar workers
+8321,Cond. motocicletas,8. Operarios calificados,Blue-collar workers
+8322,"Cond. autom. y camionetas",8. Operarios calificados,Blue-collar workers
+8330,Cond. camiones pesados y autobuses,8. Operarios calificados,Blue-collar workers
+8331,Cond. autobuses y tranvías,8. Operarios calificados,Blue-collar workers
+8332,Cond. camiones pesados,8. Operarios calificados,Blue-collar workers
+8340,Op. Equip. Pesados,8. Operarios calificados,Blue-collar workers
+8341,Op. Maq agrícola forestal,8. Operarios calificados,Blue-collar workers
+8342,Op. Mov tierra,8. Operarios calificados,Blue-collar workers
+8343,Op. Grúas y equipos móviles,8. Operarios calificados,Blue-collar workers
+8344,Op. Autoelevadoras,8. Operarios calificados,Blue-collar workers
+8350,Mariners,8. Operarios calificados,Blue-collar workers
+9000,Oc. Elementales n/c,9. Operarios no calificados,Blue-collar workers
+9100,Limpiadores y asistentes,9. Operarios no calificados,Blue-collar workers
+9110,Limp. Domésticos y oficinas,9. Operarios no calificados,Blue-collar workers
+9111,Limp. Doméstica,9. Operarios no calificados,Blue-collar workers
+9112,"Limp. Oficinas y hoteles",9. Operarios no calificados,Blue-collar workers
+9120,Limpiadores gral.,9. Operarios no calificados,Blue-collar workers
+9121,Lavadores y planchadores,9. Operarios no calificados,Blue-collar workers
+9122,Lav. Vehículos,9. Operarios no calificados,Blue-collar workers
+9123,Lav. Ventanas,9. Operarios no calificados,Blue-collar workers
+9129,Limpieza n/c,9. Operarios no calificados,Blue-collar workers
+9200,"Peones agropecuarios, pesqueros y forestales",9. Operarios no calificados,Blue-collar workers
+9210,"Peones agropecuarios, pesqueros y forestales",9. Operarios no calificados,Blue-collar workers
+9211,Peones agrícolas,9. Operarios no calificados,Blue-collar workers
+9212,Peones ganaderos,9. Operarios no calificados,Blue-collar workers
+9213,Peones agrícolas mixtos,9. Operarios no calificados,Blue-collar workers
+9214,Peones de jardinería y horticultura,9. Operarios no calificados,Blue-collar workers
+9215,Peones forestales,9. Operarios no calificados,Blue-collar workers
+9216,Peones pesca,9. Operarios no calificados,Blue-collar workers
+9300,"Peones ind, min y construcción",9. Operarios no calificados,Blue-collar workers
+9310,Peons minería y la construcción,9. Operarios no calificados,Blue-collar workers
+9311,Peones minas y canteras,9. Operarios no calificados,Blue-collar workers
+9312,Peones obras públicas y mantenimiento,9. Operarios no calificados,Blue-collar workers
+9313,Peones construcción,9. Operarios no calificados,Blue-collar workers
+9320,Peones ind. Manufactoruera,9. Operarios no calificados,Blue-collar workers
+9321,Empacadores manuales,9. Operarios no calificados,Blue-collar workers
+9329,Peones ind. Manufactoruera,9. Operarios no calificados,Blue-collar workers
+9330,Peones transporte,9. Operarios no calificados,Blue-collar workers
+9331,Cond. vehículos accionados a pedal o a brazo,9. Operarios no calificados,Blue-collar workers
+9332,Cond. tracc. animal,9. Operarios no calificados,Blue-collar workers
+9333,Peones de carga,9. Operarios no calificados,Blue-collar workers
+9334,Reponedores de estanterías,9. Operarios no calificados,Blue-collar workers
+9400,Ay. prep. alimentos,9. Operarios no calificados,Blue-collar workers
+9410,Ay. prep. alimentos,9. Operarios no calificados,Blue-collar workers
+9411,Cocin. com. rápida,9. Operarios no calificados,Blue-collar workers
+9412,Ay. de cocina,9. Operarios no calificados,Blue-collar workers
+9500,Vend. ambulantes de servicios y afines,9. Operarios no calificados,Blue-collar workers
+9510,Trab. ambulantes de servicios y afines,9. Operarios no calificados,Blue-collar workers
+9520,Vend. ambulantes (excluyendo de comida),9. Operarios no calificados,Blue-collar workers
+9600,Rec. Desechos,9. Operarios no calificados,Blue-collar workers
+9610,Rec. Desechos y clasificadores,9. Operarios no calificados,Blue-collar workers
+9611,Recol. Basura y mat reciclable,9. Operarios no calificados,Blue-collar workers
+9612,Clas. de desechos,9. Operarios no calificados,Blue-collar workers
+9613,Barrenderos y afines,9. Operarios no calificados,Blue-collar workers
+9620,Oc. elementales n/c,9. Operarios no calificados,Blue-collar workers
+9621,"Mensajeros, mandaderos, maleteros y repartidores",9. Operarios no calificados,Blue-collar workers
+9622,Trabajos varios,9. Operarios no calificados,Blue-collar workers
+9623,Rec. Dinero,9. Operarios no calificados,Blue-collar workers
+9624,Acarreadores de agua y recolectores de leña,9. Operarios no calificados,Blue-collar workers
+9629,Oc. Elementales,9. Operarios no calificados,Blue-collar workers
