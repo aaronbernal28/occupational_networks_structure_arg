@@ -767,7 +767,7 @@ def plot_projection_by_group(
 
 	# Create legend
 	label_fn = legend_label_fmt or (lambda g: g)
-	for group, color in group_color_map.items():
+	for group, color in reversed(list(group_color_map.items())):
 		plt.scatter([], [], color=color, label=label_fn(group))
 
 	plt.legend(
